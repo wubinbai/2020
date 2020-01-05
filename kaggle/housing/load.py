@@ -25,16 +25,34 @@ def drop_useless(df):
 if DROP_USELESS:
     drop_useless(train)
     drop_useless(test)
+
+def create_new_feat(df):
+    feats = ['HasBsmt','HasGarage','AreaAbvMean','HasKitchen','HasElectric']
+    for i in range(len(feats)):
+        if i == 0:
+            df[eval(repr(feats[i]))] = 1
+            df.loc[df[df['BsmtCond'].isna()].index, eval(repr(feats[i]))] = 0
+        if i == 1:
+            df[eval(repr(feats[i]))]=1
+            df.loc[df['GarageCars']<1,eval(repr(feats[i]))]= 0
+NEW_FEAT = True
+if NEW_FEAT:
+    create_new_feat(train)
+    create_new_feat(test)
+
+
 LEVEL = 0
 if LEVEL == 0:
     train_test = pd.concat([train,test],axis=0)
+    categoricalcal_features = train_test.select_dtypes(include=['object']).columns
+    numerical_features = train_test.select_dtypes(exclude=['object']).columns
     train_test_dummies = pd.get_dummies(train_test)
     train_d = train_dummies = train_test_dummies[:train.shape[0]]
     test_d = test_dummies = train_test_dummies[train.shape[0]:]
     train_fill = train_d.fillna(train_d.mean())
     test_fill = test_d.fillna(test_d.mean())
 
-LEVEL2 = True
+LEVEL2 = False
 if LEVEL2:
     ss0 = StandardScaler()
     train_fill = pd.DataFrame(ss0.fit_transform(train_fill))
