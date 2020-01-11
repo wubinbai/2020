@@ -168,8 +168,13 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # 4. Storage Disk Space Problem: to check all directories' sizes:
 # A. sudo du -sh /*
 # which means disk usage, human readable, for all directories
-# 4. How to peek zip file or view zip file content?
+# 5. How to peek zip file or view zip file content?
 # A. use zip -sf file_name_of_zip.zip
+# 6. pdf split and select:
+# A. use pdftk
+# pdftk full-pdf.pdf cat 12-15 output outfile_p12-15.pdf
+
+
 # 5. Vim Questions: how to replace a word
 # A. :%s/oldword/newword/g
 #    %是指当前文件的所有行
