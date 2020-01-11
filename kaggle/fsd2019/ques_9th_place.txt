@@ -1,0 +1,104 @@
+1 Generally, how long will my project of this take?
+
+2 This Freesound 2019 is a kernel only competition, why there are a lot of github repository of top winners, how may one submit using a githut repository????
+
+kernel only的比赛为什么有github出现而不是notebook？
+
+3 I know these are parameters related to music/audio processing, some are straightforward to understand, while some may not, What does the following parameters mean? Especially the hop and hop_length, it seems like the length of the window chosen from the signal, but how to understand this? this may not be hard to understand but it may take some time to look at various documentations...
+Also, where may one get this std and mean? What are they?
+
+   # Spectrogram parameters
+    n_mels = 64 # = spec_height
+    n_fft = n_mels * 30 # Size of fft window - smooths the spectrogram
+    spec_min_width = 256 #128
+    x_mean,x_std = -35.7, 21.6
+    hop_length = duration * sampling_rate // spec_min_width + 1 # Number of samples between each frame - impacts y size of spectrogram
+
+这些参数意思 ？
+
+
+4 can we also discuss and implement the top 1 top 2 and top 3 solutions from github of this competition? I have found all the source codes.
+
+
+5 In the input cell # 4, what does the code partial mean? I cannot find the import statement of partial...
+
+DataLoader = partial(DataLoader, num_workers=N_JOBS)
+
+6 In the input cell # 6, how to understand this line of np.pad? np.pad seems to add paddings of zeros to a data, but I have never used this...
+
+y = np.pad(y, (offset, conf.samples - len(y) - offset), 'constant')
+
+
+7 Input cell 12: what does the author want to do with three channels? what does the np.array(order=2) mean?
+
+8 Input cell 13: Why the std is the std of X - X.mean(), instead of X.std()?
+
+
+def normalize(X, mean=None, std=None):
+mean = mean or X.mean()
+std = std or (X-X.mean()).std()
+return ((X - mean)/std).astype(np.float16)
+
+9 Input cell 16: where is the npy file?
+
+scores_noisy = np.load("../input/fat-cp/scores.npy")
+
+10 Input cell 17: where is the logloss defined?
+
+
+def sort_by_loss(y_noisy, scores_noisy):
+losses_dic = {i : log_loss(y_noisy[i], scores_noisy[i]) for i in␣
+, → range(scores_noisy.shape[0])}
+sorted_dic = sorted(losses_dic.items(), key=operator.itemgetter(1))
+return sorted_dic
+
+11 could we share a github repository and discuss questions and codes in it?
+
+12 what does the column syntax mean in inside the bracket of the function definition? I have never used this kind of stuff. How and where may one learn this kind of coding? Also, what's this function's function?
+E.g the following:   spec: np.ndarray
+
+def spec_augment(spec: np.ndarray, num_mask=2, freq_masking_max_percentage=0.15, time_masking_max_percentage=0.3):
+    spec = spec.copy()
+    for i in range(num_mask):
+        num_freqs, num_frames = spec.shape
+        freq_percentage = random.uniform(0.0, freq_masking_max_percentage)
+        time_percentage = random.uniform(0.0, time_masking_max_percentage)
+        
+        num_freqs_to_mask = int(freq_percentage * num_freqs)
+        num_frames_to_mask = int(time_percentage * num_frames)
+        
+        t0 = int(np.random.uniform(low=0.0, high=num_frames - num_frames_to_mask))
+        f0 = int(np.random.uniform(low=0.0, high=num_freqs - num_freqs_to_mask))
+        
+        spec[:, t0:t0 + num_frames_to_mask] = 0      
+        spec[f0:f0 + num_freqs_to_mask, :] = 0 
+        
+    return spec
+
+	
+
+13 what is torchtransform? I have never learned this.
+
+from torchvision.transforms import transforms
+
+transforms_dict = {
+    'train': transforms.Compose([
+        transforms.ToTensor(),
+    ]),
+    'test': transforms.Compose([
+        transforms.ToTensor(),
+    ]),
+    'viz': transforms.Compose([
+    ]),
+}
+
+14 I have learned Keras for a while and I think it is easy to learn. I have just decided to learn pytorch but haven't started seriously yet. Could you teach torch in an easy way for a keras user?
+
+15 Simply put, what does the mix up mean in this audio competition/analysis? This is pretty important since the faster to learn it, the beter.
+
+16 what does label smoothing mean?
+
+def smooth(y, eps=0.4):
+    a = 1 - eps * (1 + 1/y.shape[1])
+    b = eps / y.shape[1]
+    return a * y + b
