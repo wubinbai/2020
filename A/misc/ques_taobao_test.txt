@@ -1,0 +1,25 @@
+1. fight overfitting: use dropout, l1 & | l2 regularizations, reduces # layers, etc.
+2. ROC: Receiver Operating Curve;
+   AUC: Area Under the Curve
+   TPR: True Positive Rate
+   TPR = recall = TP / (TP + FN)
+   FPR: False Positive Rate
+   FPR = FP / (FP + TN)
+3. difference between accuracy and precision: precision = TP / (TP + FP), accuracy = (TP + TN) / all
+
+4. feat. engineering is a complicated process. As far as I know, we should do EDA first, use df.corr, df.groupby, df.isna, df.unique, etc. Creating new feats., combining feats., etc. Scaling to linear model is also essential.
+
+5. Logistic Regression basically uses the sigmoid function of (wx+b), for binary classification problems.
+
+
+6. Logistic Regression and Support Vector Machine are linear classification techniques. I have never think about their pros and cons... So I would like to know answers....
+
+7. Random Forest contains a series of Decision Trees, it's performance should always be better than any single tree. Gradient Boost Decision Trees is considered a more powerful technique that it boosts for every tree. I forgot the details, I would also like to know the answer...
+
+8. Clustering and PCA I know some of the concepts, but I have never apply these to real world problems. I would like to know how.
+
+9. ID3 C4.5 CART basically are different versions of Decision Trees with slightly different loss function, as far as I know. The mathematical formulae... I didn't try to memorize this.
+
+10. I have read xgboost documentations for 1-2 times, but I forgot quickly so that's my problem I think.
+
+
