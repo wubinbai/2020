@@ -173,7 +173,8 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # 6. pdf split and select:
 # A. use pdftk
 # pdftk full-pdf.pdf cat 12-15 output outfile_p12-15.pdf
-
+# 7. Deleting starting # lines in vim
+# 删除注释行    :g/^#/d
 
 # 5. Vim Questions: how to replace a word
 # A. :%s/oldword/newword/g
