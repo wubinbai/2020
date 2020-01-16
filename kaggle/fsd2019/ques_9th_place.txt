@@ -1,8 +1,10 @@
 1 Generally, how long will my project of this take?
+# ans: this depends on person
 
 2 This Freesound 2019 is a kernel only competition, why there are a lot of github repository of top winners, how may one submit using a githut repository????
 
 kernel only的比赛为什么有github出现而不是notebook？
+note: why there a a lot of github repositories exist, rather than jupyter notebook only?
 
 3 I know these are parameters related to music/audio processing, some are straightforward to understand, while some may not, What does the following parameters mean? Especially the hop and hop_length, it seems like the length of the window chosen from the signal, but how to understand this? this may not be hard to understand but it may take some time to look at various documentations...
 Also, where may one get this std and mean? What are they?
@@ -16,6 +18,8 @@ Also, where may one get this std and mean? What are they?
 
 这些参数意思 ？
 
+note: especially, where does -35.7 and 21.6 come from?
+
 
 4 can we also discuss and implement the top 1 top 2 and top 3 solutions from github of this competition? I have found all the source codes.
 
@@ -24,6 +28,8 @@ Also, where may one get this std and mean? What are they?
 
 DataLoader = partial(DataLoader, num_workers=N_JOBS)
 
+note: where is partial defined?
+
 6 In the input cell # 6, how to understand this line of np.pad? np.pad seems to add paddings of zeros to a data, but I have never used this...
 
 y = np.pad(y, (offset, conf.samples - len(y) - offset), 'constant')
@@ -31,8 +37,10 @@ y = np.pad(y, (offset, conf.samples - len(y) - offset), 'constant')
 
 7 Input cell 12: what does the author want to do with three channels? what does the np.array(order=2) mean?
 
-8 Input cell 13: Why the std is the std of X - X.mean(), instead of X.std()?
+note: this may be an reading error, the order parameter comes from librosa library: librosa.feature.delta
 
+8 Input cell 13: Why the std is the std of X - X.mean(), instead of X.std()?
+ans: they are basically equiv. in math.
 
 def normalize(X, mean=None, std=None):
 mean = mean or X.mean()
@@ -51,6 +59,8 @@ losses_dic = {i : log_loss(y_noisy[i], scores_noisy[i]) for i in␣
 , → range(scores_noisy.shape[0])}
 sorted_dic = sorted(losses_dic.items(), key=operator.itemgetter(1))
 return sorted_dic
+
+note: I cannot find the def loglos() .. statement
 
 11 could we share a github repository and discuss questions and codes in it?
 
@@ -93,6 +103,9 @@ transforms_dict = {
 }
 
 14 I have learned Keras for a while and I think it is easy to learn. I have just decided to learn pytorch but haven't started seriously yet. Could you teach torch in an easy way for a keras user?
+
+note: E.g. import concepts/ ubiquitous concepts in Keras are: Dense, Conv2D, Flatten, model.fit, model.compile, model.evaluate, etc. What are key concepts a beginner to learn and good resources?
+
 
 15 Simply put, what does the mix up mean in this audio competition/analysis? This is pretty important since the faster to learn it, the beter.
 
