@@ -1,0 +1,23 @@
+lasnet, mobilenet, densenet, resnet(underfit), lasnet mobile. Google: efficient net: best lasnet, not good performance on audio. google: 
+
+model is based on: simple 2d CNN classifier with pytorch
+
+structure of model: 5 conv globalpool
+
+metric: LwLRAP: pull from internet
+
+mixup: crucial ICLR2019: DATA AUGMENTATION good tool 
+
+learning schedule: annealing..
+
+fit ..
+
+binarycrossentropy loss
+
+refit: low learning rate
+
+
+k-fold all data
+
+average ensemble
+
