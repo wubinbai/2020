@@ -1,0 +1,80 @@
+I have a very huge confusion about the environment, created by conda.
+
+So here's the background, I have the 9th place code of the 2019 Freesound competition in Kaggle. It has the following environment as a requirement.txt file:
+
+
+tensorflow_gpu==1.11.0
+numpy==1.14.2
+tqdm==4.22.0
+librosa==0.6.3
+scipy==1.0.0
+iterative_stratification==0.1.6
+Keras==2.1.5
+pandas==0.24.2
+scikit_learn==0.21.2
+
+
+So I try to use conda to create a new environment using this command in ubuntu:
+
+conda create --name TOP2 --file requirements.txt  
+
+However, it says that some packages are not fuond in current channels.(Although some are found) So the installation seemed not working.
+
+
+
+#### the error message anaconda shows is as the following:
+
+wb@wb-HP-Elit(base) wb@wb-HP-EliteBook-8770w:/media/wb/111GB/TEMP_SPACE/freesound2019/2nd_code/code$ conda create --name TRASH --file requirements.txt 
+Collecting package metadata (current_repodata.json): done
+Solving environment: failed with repodata from current_repodata.json, will retry with next repodata source.
+Collecting package metadata (repodata.json): done
+Solving environment: failed
+
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - tensorflow_gpu==1.11.0
+  - librosa==0.6.3
+  - scikit_learn==0.21.2
+  - tqdm==4.22.0
+  - iterative_stratification==0.1.6
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/linux-64
+  - https://repo.anaconda.com/pkgs/main/noarch
+  - https://repo.anaconda.com/pkgs/r/linux-64
+  - https://repo.anaconda.com/pkgs/r/noarch
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+
+and use the search bar at the top of the page.
+
+
+#### The above shows the message conda showed
+
+
+So I decompose the txt file into two txt files, one contains those packages that are found(namely, requirements_found.txt), the other one(namely, requirements_not_found.txt) containining packages that are not found. And use the conda create --name TOP2 --file requirements_found.txt command to create a new environment whose name is TOP2 and it was successful. I use "conda activate TOP2" to activate the environment, and then manually install the remaining packages that were not installed, using command such as:
+
+conda install -c conda-forge scikit-learn=0.21.2
+
+Well, everything worked, except for tenworflow-gpu=1.11.0:
+
+it says xxxxx Found conflicts! Then conda checks older versions of some related packages(maybe its dependencies) and says, for example,
+
+Finding shortest conflict path for libcblas=3.8.0
+then after waiting some (1-120, generally it's a very long process) minutes, it becomes 100%. Then it seems there are endless packages to check and modify, this may include something like libcblas=3.6.0? protobuf=3.4.0, xxxx=5.2.0 aaa=5.3.3, WHICH IS A NIGHTMARE. I waited for 6-10 hours, and it is still working on. After 10+ hours it finally  ends. But conda still prints something that are not working well. So I suspect that something went wrong. When I activate the environment and use tf.__version__ to check, WHAT IT RETURNS TO ME is 1.3.0, which is, I think a very old version of tf.
+
+So, I ran 
+
+conda install -c conda-forge tensorflow-gpu=1.11.0 again and wait for another 12+ hours. After I get up, it is still working on.....(it seemes never stops, but the process is going, as I can tell from the status bar)
+
+
+
+
+SO THE QUESTION IS:
+
+
+So, NOW is 2019 Jan, while the package environment is 2018 Aug., I am wondering what is the best way to recover this environment???????????
