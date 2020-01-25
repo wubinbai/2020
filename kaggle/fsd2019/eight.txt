@@ -1,0 +1,233 @@
+本开源库的出发点
+
+本开源库提供了一个用于创建高效音频标注系统的半监督预热管道，以及面向作者命名为 SpecMix 的多标签音频标注的一种新的数据增强技术。
+
+在提交给 2019 年 Kaggle freesound 音频标注挑战赛的音频标注系统中，我们应用了这些新技术。该挑战赛是声学场景和事件检测和分类挑战（DCASE 2019）的第二项任务挑战，目标包括使用在少量可靠、手动标注的数据以及拥有大规模词汇设置的多标签音频标注任务中的大量噪声网络音频数据上训练的机器学习技术，来为每一测试帧预测音频标签。
+TL；DR – 给我代码！
+
+在挑战赛的公共排行榜上，该解决方案通过 Jupyter notebooks 运行得到的 lwlrap 值为 0.738，也就是说在本次比赛中排名第 8。
+
+    训练 CNN 模型 1（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/training-cnn-model1.ipynb）
+
+    训练 VGG16 模型（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/training-vgg16.ipynb）
+
+    推理内核（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/inference-kernel.ipynb）
+
+你还可以在公开的 Kaggle 数据集中找到 CNN-model-1 和 VGG-16 训练的权重结果。需要注意的是，因为配额原因，作者没有使用  git-lfs 将这些权重结果存储下来。
+安装
+
+该挑战赛要求参赛者在 Kaggle 内核中执行推理而不改变其配置。因此，参赛者在比赛期间使用与 Kaggle 内核配置相同版本的 pytorch 和 fastai 来加载本地生成的 CNN 权重是非常重要的。因此，参赛者选择使用 pytorch 1.0.1 和 fastai 1.0.51 非常重要。
+
+安装方法 1：使用原作者的方法
+
+要获得与我的本地系统相同的配置，需在 GNU Linux Ubuntu 18.04.2 LTS 上测试以下步骤：
+
+1、克隆这个开源库：
+
+git clone https://github.com/ebouteillon/freesound-audio-tagging-2019.git
+
+2、安装 anaconda3：https://docs.anaconda.com/anaconda/install/
+
+3、输入 linux 终端：
+
+conda create --name freesound --file spec-file.txt
+
+现在你已经准备好了！
+
+注意：我的配置已经安装了 CUDA 10，所以你可能必须根据自己在 spec-file.txt 中的配置调整 pytorch 和 cudatoolkit 的版本。
+
+安装方法 2 ：使用 conda 推荐的软件包
+
+这个方法不能保证获得与作者相同的配置，因为 conda 可能会更新安装包。
+
+1、克隆这个开源库：
+
+git clone https://github.com/ebouteillon/freesound-audio-tagging-2019.git
+
+2、安装 anaconda3
+
+3、输入 linux 终端：
+
+    conda update conda
+    conda create -n freesound python=3.7 anaconda
+    conda activate freesound
+    conda install numpy pandas scipy scikit-learn matplotlib tqdm seaborn pytorch==1.0.1 torchvision cudatoolkit=10.0 fastai==1.0.51 -c pytorch -c fastai
+    conda uninstall --force jpeg libtiff -y
+    conda install -c conda-forge libjpeg-turbo
+    CC="cc -mavx2" pip install --no-cache-dir -U --force-reinstall --no-binary :all: --compile pillow-simd
+    conda install -c conda-forge librosa
+
+注意：
+
+    我的配置已经安装了 CUDA 10，所以你可能需要根据自己的配置调整 pytorch 和 cudatoolkit 的版本
+
+    你获得的提醒可能不一致，因为我们使用的是 libjpeg-turbo
+
+硬件/软件
+
+在挑战赛期间，我使用了如下硬件/软件配置：
+
+    英特尔酷睿 i7 4790k
+
+    英伟达 RTX 2080 ti
+
+    24 GB RAM
+
+    Ubuntu 18.04.2 LTS
+
+    安装的 python 软件包的详细列表，另外在 requirements.txt 和 spec-file.txt 中可以获取 conda（非常必要）。
+
+    英伟达驱动程序 418.67, CUDA 10.1, CuDNN 7.3.1
+
+复现结果
+
+1、从 Kaggle 下载数据集（https://www.kaggle.com/c/freesound-audio-tagging-2019/data）
+
+2、（选择项）从 Kaggle 下载我的权重数据集（https://www.kaggle.com/ebouteillon/freesoundaudiotagging2019ebouteillonsolution）
+
+3、解压 input 文件夹解压数据集，使你的环境如下：
+
+    ├── code
+    │   ├── inference-kernel.ipynb
+    │   ├── training-cnn-model1.ipynb
+    │   └── training-vgg16.ipynb
+    ├── images
+    │   ├── all_augmentations.png
+    │   └── model-explained.png
+    ├── input
+    │   ├── test
+    │   │   └── ...
+    │   ├── train_curated
+    │   │   └── ...
+    │   ├── train_noisy
+    │   │   └── ...
+    │   ├── sample_submission.csv
+    │   ├── train_curated.csv
+    │   ├── train_noisy.csv
+    │   └── keep.txt
+    ├── LICENSE
+    ├── README.md
+    ├── requirements.txt
+    ├── spec-file.txt
+    └── weights
+        ├── cnn-model-1
+        │   └── work
+        │       ├── models
+        │       │   └── keep.txt
+        │       ├── stage-10_fold-0.pkl
+        │       ├── ...
+        │       └── stage-2_fold-9.pkl
+        └── vgg16
+            └── work
+                ├── models
+                │   └── keep.txt
+                ├── stage-10_fold-0.pkl
+                ├── ...
+                └── stage-2_fold-9.pkl
+
+3、输入命令行：
+
+    conda activate freesound
+    jupyter notebook
+
+打开网页浏览器，然后选择要执行的内容。推荐顺序如下：
+
+    training-cnn-model1.ipynb（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/training-cnn-model1.ipynb）
+
+    training-vgg16.ipynb（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/training-vgg16.ipynb）
+
+    inference-kernel.ipynb（https://github.com/ebouteillon/freesound-audio-tagging-2019/blob/master/code/inference-kernel.ipynb）
+
+祝你愉快！
+
+注意：
+
+    首先运行 training-*.ipynb，训练其中一个模型。?
+
+    在 CNN 模型训练中，将创建一个 work 文件夹和一个 PREPROCESSED 文件夹，你可能想要更改它们的位置：这与更新 work 和 PREPROCESSED 变量一样简单。
+
+    如果你想在本地设置中与推理笔记一同使用给定的（或你自己得到的）权重，只需更新 models_list所指向的文件夹路径。我保留了在本次挑战赛中 Kaggle 内核所使用的路径。
+
+    使用了  Kaggle 数据集和我的权重数据集的推理内核可以直接在  Kaggle  上获取：
+
+    https://www.kaggle.com/ebouteillon/12th-public-lb-inference-kernel-using-fastai
+
+解决方案概述
+
+音频数据预处理
+
+首先对音频片段进行前端和末端静音（阈值为 60 dB）的裁剪，然后以 44.1 kHz 的采样速率、连续帧之间样本的 347 的跃点长度、2560 个 FFT 组件及 20 Hz - 22050 Hz 范围内的频率将音频片段转换成 128 波段的梅尔频谱（mel-spectrogram）。最后是预处理，包括对得到的图像进行正则化（均值=0，方差=1）处理，并将其复制到 3 个通道中。
+
+模型概述
+
+在本节中，我们将所使用的神经网络架构描述为：
+
+    版本 1 由表 1 中自定义 CNN「CNN-model-1」和批量归一化的 VGG-16 组成。两者都以同样的方式接受训练。
+
+    版本 2 只包含我们自定义的 CNN「CNN-model-1」，定义见表 1。
+
+    版本 3 用于评估判别的奖励，该版本的模型与版本 2 相同。
+
+2019 Kaggle Freesound 音频标注挑战赛结果出炉，这是一份排名前 2 %的解决方案！
+
+表 1：CNN-model-1。BN 指批量归一化（Batch Normalisation），ReLU 指线性整流函数（Rectified Linear Unit）
+
+数据增强
+
+利用小型训练集的一种重要技术是使用数据增强来扩充该训练集。为此，我们开发了一个名为 SpecMix 的新的数据增强方法。它是对 SpecAugment（见参考文献 1）的扩展，灵感来源于 mixup（见参考文献 2）。
+
+SpecAugment 应用 3 种转换来增强训练样本：时间规整、频率掩蔽和时间掩蔽。
+
+mixup 通过计算两个样本输入与目标的加权平均值来创建虚拟训练示例。
+
+SpecMix
+
+SpecMix 从 SpecAugment 的两个最有效的转换中受到启发，并对它们进行扩展以创建虚拟多标注训练示例：
+
+1、使用频率替换（Frequency replacement）的方法，让 f 连续的梅尔频率通道 [f0, f0+f) 由另一个训练样本代替，后者其中的 f 首先从频率掩膜参数 F 的最小化值到最大化值的均匀分布中选取，而 f0 从 [0, ν−f) 中选取，v 表示梅尔频率通道的数量。
+
+2、使用时间替换（Time replacement）的方法，t 连续的时间步长 [t0, t0+t) 由另一个训练样本代替，后者期期中的 t 首先从 0 到时间掩膜参数 T 的均匀分布中选取，而 t0 则从[0, τ−t) 中选取，τ 表示时间样本的数量。
+
+3、计算新训练样本的目标（Target）用作每个原始样本的加权平均权重。每个原始样本的权重与该样本的像素数量成正比。我们在频率替换和时间替换中所采用的替换样本是相同的，这给了我们新的计算目标如下： 
+
+2019 Kaggle Freesound 音频标注挑战赛结果出炉，这是一份排名前 2 %的解决方案！
+
+2019 Kaggle Freesound 音频标注挑战赛结果出炉，这是一份排名前 2 %的解决方案！
+
+图 1：mixup, SpecAugment 及 SpecMix 对比
+
+其他的数据增强
+
+我们添加了其他的数据增强技术。
+
+    SpecMix 之前使用 mixup 这一数据增强方法，得到一个小的改进（lwlrap 增加了+0.001）。首先将 mixup 应用于当前的批量处理，从而生成新样本，然后将 SpecMix 应用于这些新创建的样本。最后，将 mixup 和 SpecMix 结合应用到四个样本上，最终生成单个样本。
+
+    缩放和裁剪：在 1 到最大值 105 之间的随机缩放，使用 75% 的概率，可以得到一个小的改善（lwlrap 增加了+0.001）。
+
+    亮度：使用 75% 的概率来控制随机亮度和对比度的变化。
+
+训练---预热管道
+
+在训练时，我们将随机抽取的样本梅尔频谱中 128 个增强的片段提供给网络批量，并使用 十折交叉验证设置和 fastai 库（见参考文献 4）。
+
+训练分 4 个阶段进行，每个阶段生成一个模型用于以下 3 件事：
+
+    为下一阶段的模型训练做 预热
+
+    帮助对噪声因素进行半监督选择
+
+    参与测试预测（模型 1 除外）
+
+本次比赛很重要的一点是不允许使用外部数据或预先训练的模型。因此，我们下面展示的是本次比赛中仅使用的策展和噪声集：
+
+    第 1 阶段：仅使用噪声集从零开始训练模型（model1），然后在噪声集（lwlrap1）上计算交叉验证的 lwlrap。
+
+    第 2 阶段：仅在策展集上训练模型（模型 2），但使用模型 1 作为预训练模型。然后在噪声集（lwlrap2）上计算交叉验证的 lwlrap。
+
+    第 3 阶段：让我们开始半监督学习：我们的算法从噪声集中选择样本，模型 1 和模型 2 对该噪声集进行的分类（基本）正确。该算法避免样本受噪声的干扰，并使几何平均值（lwlrap1，lwlrap2）大于或等于 0.5。每个文件和每个标注最多选择 5 个样本。然后在选定的噪声样本上训练模型（模型 3），并使用模型 2 作为预训练模型。然后在噪声集（lwlrap3）上计算交叉验证的 lwlrap。
+
+    第 4 阶段：让我们继续半监督学习：我们的算法再次从模型 3 严格正确分类的噪声集中选择样本。该算法避免样本受噪声的干扰，并使 lwlrap3 = 1。然后在选定的噪声样本上训练模型（模型 4），并使用模型 3 作为预训练模型。
+
+    最后一个阶段：模型 2、模型 3 和模型 4 对测试集的集成预测。
+
+
