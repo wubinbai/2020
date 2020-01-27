@@ -86,6 +86,9 @@ echo "alias"" ""cdd=\"cd \/media\/wb\/TOSHIBA\\ EXT\/2\/d\/dataguru\"" >> .bashr
 
 echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
+echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
+
+
 # Then you can install vim
 
 sudo apt-get install vim
