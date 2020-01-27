@@ -1,0 +1,40 @@
+
+- competitionDescription: Automatically recognize sounds and apply tags of varying natures
+  competitionId: 10700
+  competitionName: null
+  competitionTitle: Freesound Audio Tagging 2019
+  competitionUrl: /c/freesound-audio-tagging-2019
+  coverImageUrl: null
+  deadline: '2019-06-11T23:59:00Z'
+  evaluationMetric: label-weighted label-ranking average precision (lwlrap)
+  hostSegment: Research
+  organizationAvatarUrl: null
+  organizationName: Freesound
+  organizationUrl:
+  rewardQuantity: 5000.0
+  rewardTypeName: USD
+  solutions:
+  - label: 1st place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/95924
+  - label: 2nd place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97815
+  - label: 3rd place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97926
+  - label: 4th place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/96440
+  - label: 6th place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/96440
+  - label: 7th place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812
+  - label: 8th place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/96446
+  - label: 9th place solution (by Iafoss)
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/95409
+  - label: 9th place solution (by Theo Viel)
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97736
+  - label: 11th place solution
+    url: https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/95344
+  thumbnailImageUrl: https://storage.googleapis.com/kaggle-competitions/kaggle/10700/logos/thumb76_76.png?t=2019-03-08-16-57-45
+  types:
+  - Audio
+  - Signal
