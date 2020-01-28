@@ -91,7 +91,7 @@ echo "alias"" ""cdd=\"cd \/media\/wb\/TOSHIBA\\ EXT\/2\/d\/dataguru\"" >> .bashr
 echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
-
+echo "alias"" ""c=\"cd\"" >> .bashrc
 
 # Then you can install vim
 
@@ -228,13 +228,11 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # 1. Open chrome? Use see name.html
 # 2. Status bar? Use | pv
 # 3. pdf combine? combo? Use pdfunite
-<<<<<<< HEAD
 # 4. linux just list directories:
 #    ls -d */ # star means all, / means directory sign
 #    to list directories and subdirectories:
 #    ls -d */*/
 #    ls -d */*/*/
-=======
 # 4. vim print? :set printfont=courier:h13
 #     :hardcopy>myfile.ps
 #     ps2pdf myfile.ps
