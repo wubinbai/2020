@@ -29,6 +29,10 @@ fi
 echo '====== install git ======'
 sudo apt-get install git
 echo '====== finish git ======'
+
+# install tree
+sudo apt install tree
+
 #Optional install speedtest
 echo '======install speedtest======'
 sudo apt install speedtest-cli
