@@ -240,6 +240,9 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # find . -size +800M
 # 6. how to use grep?
 # grep -r 'keyword' file/path
+# 6b. how to use find to find files with not-so-exact name given current directory?"
+# find -name *keyword_you_want*
+# e.g. find -name *torch*
 # 7. to find, actually to locate a file, better use
 # locate filename
 # 8. to reset git add
