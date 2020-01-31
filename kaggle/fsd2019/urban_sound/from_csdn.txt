@@ -1,0 +1,908 @@
+
+
+    首页
+    博客
+    学院
+    下载
+    论坛
+    问答
+    活动
+    专题
+    招聘
+    APP
+    VIP会员
+    博客之星
+
+    写博客
+    登录/注册
+
+利用神经网络进行音频数据分类
+转载 Butertfly 最后发布于2018-03-27 16:47:23 阅读数 3004 收藏
+展开
+Introduction
+
+When you get started with data science, you start simple. You go through simple projects like Loan Prediction problem or Big Mart Sales Prediction. These problems have structured data arranged neatly in a tabular format. In other words, you are spoon-fed the hardest part in data science pipeline.
+
+The datasets in real life are much more complex.
+
+You first have to understand it, collect it from various sources and arrange it in a format which is ready for processing. This is even more difficult when the data is in an unstructured format such as image or audio. This is so because you would have to represent image/audio data in a standard way for it to be useful for analysis.
+
+ 
+The abundance on unstructured data
+
+Interestingly, unstructured data represents huge under-exploited opportunity. It is closer to how we communicate and interact as humans. It also contains a lot of useful & powerful information. For example, if a person speaks; you not only get what he / she says but also what were the emotions of the person from the voice.
+
+Also the body language of the person can show you many more features about a person, because actions speak louder than words! So in short, unstructured data is complex but processing it can reap easy rewards.
+
+In this article, I intend to cover an overview of audio / voice processing with a case study so that you would get a hands-on introduction to solving audio processing problems.
+
+Let’s get on with it!
+
+ 
+Table of Contents
+
+    What do you mean by Audio data?
+        Applications of Audio Processing
+    Data Handling in Audio domain
+    Let’s solve the UrbanSound challenge!
+    Intermission: Our first submission
+    Let’s solve the challenge! Part 2: Building better models
+    Future Steps to explore
+
+ 
+What do you mean by Audio data?
+
+Directly or indirectly, you are always in contact with audio. Your brain is continuously processing and understanding audio data and giving you information about the environment. A simple example can be your conversations with people which you do daily. This speech is discerned by the other person to carry on the discussions. Even when you think you are in a quiet environment, you tend to catch much more subtle sounds, like the rustling of leaves or the splatter of rain. This is the extent of your connection with audio.
+
+So can you somehow catch this audio floating all around you to do something constructive? Yes, of course! There are devices built which help you catch these sounds and represent it in computer readable format. Examples of these formats are
+
+    wav (Waveform Audio File) format
+    mp3 (MPEG-1 Audio Layer 3) format
+    WMA (Windows Media Audio) format
+
+If you give a thought on what an audio looks like, it is nothing but a wave like format of data, where the amplitude of audio change with respect to time. This can be pictorial represented as follows.
+Applications of Audio Processing
+
+Although we discussed that audio data can be useful for analysis. But what are the potential applications of audio processing? Here I would list a few of them
+
+    Indexing music collections according to their audio features.
+    Recommending music for radio channels
+    Similarity search for audio files (aka Shazam)
+    Speech processing and synthesis – generating artificial voice for conversational agents
+
+Here’s an exercise for you; can you think of an application of audio processing that can potentially help thousands of lives?
+
+ 
+Data Handling in Audio domain
+
+As with all unstructured data formats, audio data has a couple of preprocessing steps which have to be followed before it is presented for analysis.. We will cover this in detail in later article, here we will get an intuition on why this is done.
+
+The first step is to actually load the data into a machine understandable format. For this, we simply take values after every specific time steps. For example; in a 2 second audio file, we extract values at half a second. This is called sampling of audio data, and the rate at which it is sampled is called the sampling rate.
+
+Another way of representing audio data is by converting it into a different domain of data representation, namely the frequency domain. When we sample an audio data, we require much more data points to represent the whole data and also, the sampling rate should be as high as possible.
+
+On the other hand, if we represent audio data in frequency domain, much less computational space is required. To get an intuition, take a look at the image below
+
+Source
+
+Here, we separate one audio signal into 3 different pure signals, which can now be represented as three unique values in frequency domain.
+
+There are a few more ways in which audio data can be represented, for example. using MFCs (Mel-Frequency cepstrums. PS: We will cover this in the later article). These are nothing but different ways to represent the data.
+
+Now the next step is to extract features from this audio representations, so that our algorithm can work on these features and perform the task it is designed for. Here’s a visual representation of the categories of audio features that can be extracted.
+
+After extracting these features, it is then sent to the machine learning model for further analysis.
+
+ 
+Let’s solve the UrbanSound challenge!
+
+Let us have a better practical overview in a real life project, the Urban Sound challenge. This practice problem is meant to introduce you to audio processing in the usual classification scenario.
+
+The dataset contains 8732 sound excerpts (<=4s) of urban sounds from 10 classes, namely:
+
+    air conditioner,
+    car horn,
+    children playing,
+    dog bark,
+    drilling,
+    engine idling,
+    gun shot,
+    jackhammer,
+    siren, and
+    street music
+
+Here’s a sound excerpt from the dataset. Can you guess which class does it belong to?
+Audio Player
+00:00
+00:00
+Use Up/Down Arrow keys to increase or decrease volume.
+
+To play this in the jupyter notebook, you can simply follow along with the code.
+
+import IPython.display as ipd
+ipd.Audio('../data/Train/2022.wav')
+
+Now let us load this audio in our notebook as a numpy array. For this, we will use librosa library in python. To install librosa, just type this in command line
+
+pip install librosa
+
+Now we can run the following code to load the data
+
+data, sampling_rate = librosa.load('../data/Train/2022.wav')
+
+When you load the data, it gives you two objects; a numpy array of an audio file and the corresponding sampling rate by which it was extracted. Now to represent this as a waveform (which it originally is), use the following  code
+
+% pylab inline
+import os
+import pandas as pd
+import librosa
+import glob 
+
+plt.figure(figsize=(12, 4))
+librosa.display.waveplot(data, sr=sampling_rate)
+
+The output comes out as follows
+
+Let us now visually inspect our data and see if we can find patterns in the data
+
+Class:  jackhammer
+
+
+Class: drilling
+
+Class: dog_barking
+
+We can see that it may be difficult to differentiate between jackhammer and drilling, but it is still easy to discern between dog_barking and drilling. To see more such examples, you can use this code
+
+i = random.choice(train.index)
+
+audio_name = train.ID[i]
+path = os.path.join(data_dir, 'Train', str(audio_name) + '.wav')
+
+print('Class: ', train.Class[i])
+x, sr = librosa.load('../data/Train/' + str(train.ID[i]) + '.wav')
+
+plt.figure(figsize=(12, 4))
+librosa.display.waveplot(x, sr=sr)
+
+ 
+
+ 
+Intermission: Our first submission
+
+We will do a similar approach as we did for Age detection problem, to see the class distributions and just predict the max occurrence of all test cases as that class.
+
+Let us see the distributions for this problem.
+
+train.Class.value_counts()
+
+Out[10]:
+
+jackhammer 0.122907
+engine_idling 0.114811
+siren 0.111684
+dog_bark 0.110396
+air_conditioner 0.110396
+children_playing 0.110396
+street_music 0.110396
+drilling 0.110396
+car_horn 0.056302
+gun_shot 0.042318
+
+We see that jackhammer class has more values than any other class. So let us create our first submission with this idea.
+
+test = pd.read_csv('../data/test.csv')
+test['Class'] = 'jackhammer'
+test.to_csv(‘sub01.csv’, index=False)
+
+This seems like a good idea as a benchmark for any challenge, but for this problem, it seems a bit unfair. This is so because the dataset is not much imbalanced.
+
+ 
+Let’s solve the challenge! Part 2: Building better models
+
+Now let us see how we can leverage the concepts we learned above to solve the problem. We will follow these steps to solve the problem.
+
+Step 1: Load audio files
+Step 2: Extract features from audio
+Step 3: Convert the data to pass it in our deep learning model
+Step 4: Run a deep learning model and get results
+
+Below is a code of how I implemented these steps
+Step 1 and  2 combined: Load audio files and extract features
+
+def parser(row):
+   # function to load files and extract features
+   file_name = os.path.join(os.path.abspath(data_dir), 'Train', str(row.ID) + '.wav')
+
+   # handle exception to check if there isn't a file which is corrupted
+   try:
+      # here kaiser_fast is a technique used for faster extraction
+      X, sample_rate = librosa.load(file_name, res_type='kaiser_fast') 
+      # we extract mfcc feature from data
+      mfccs = np.mean(librosa.feature.mfcc(y=X, sr=sample_rate, n_mfcc=40).T,axis=0) 
+   except Exception as e:
+      print("Error encountered while parsing file: ", file)
+      return None, None
+ 
+   feature = mfccs
+   label = row.Class
+ 
+   return [feature, label]
+
+temp = train.apply(parser, axis=1)
+temp.columns = ['feature', 'label']
+
+ 
+Step 3: Convert the data to pass it in our deep learning model
+
+from sklearn.preprocessing import LabelEncoder
+
+X = np.array(temp.feature.tolist())
+y = np.array(temp.label.tolist())
+
+lb = LabelEncoder()
+
+y = np_utils.to_categorical(lb.fit_transform(y))
+
+Step 4: Run a deep learning model and get results
+
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.optimizers import Adam
+from keras.utils import np_utils
+from sklearn import metrics 
+
+num_labels = y.shape[1]
+filter_size = 2
+
+# build model
+model = Sequential()
+
+model.add(Dense(256, input_shape=(40,)))
+model.add(Activation('relu'))
+model.add(Dropout(0.5))
+
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.5))
+
+model.add(Dense(num_labels))
+model.add(Activation('softmax'))
+
+model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='adam')
+
+Now let us train our model
+
+model.fit(X, y, batch_size=32, epochs=5, validation_data=(val_x, val_y))
+
+This is the result I got on training for 5 epochs
+
+Train on 5435 samples, validate on 1359 samples
+Epoch 1/10
+5435/5435 [==============================] - 2s - loss: 12.0145 - acc: 0.1799 - val_loss: 8.3553 - val_acc: 0.2958
+Epoch 2/10
+5435/5435 [==============================] - 0s - loss: 7.6847 - acc: 0.2925 - val_loss: 2.1265 - val_acc: 0.5026
+Epoch 3/10
+5435/5435 [==============================] - 0s - loss: 2.5338 - acc: 0.3553 - val_loss: 1.7296 - val_acc: 0.5033
+Epoch 4/10
+5435/5435 [==============================] - 0s - loss: 1.8101 - acc: 0.4039 - val_loss: 1.4127 - val_acc: 0.6144
+Epoch 5/10
+5435/5435 [==============================] - 0s - loss: 1.5522 - acc: 0.4822 - val_loss: 1.2489 - val_acc: 0.6637
+
+Seems ok, but the score can be increased obviously. (PS: I could get an accuracy of  80% on my validation dataset). Now its your turn, can you increase on this score? If you do, let me know in the comments below!
+
+ 
+Future steps to explore
+
+Now that we saw a simple applications, we can ideate a few more methods which can help us improve our score
+
+    We applied a simple neural network model to the problem. Our immediate next step should be tounderstand where does the model fail and why. By this, we want to conceptualize our understanding of the failures of algorithm so that the next time we build a model, it does not do the same mistakes
+    We can build more efficient models that our “better models”, such as convolutional neural networks or recurrent neural networks. These models have be proven to solve such problems with greater ease.
+    We touched the concept of data augmentation, but we did not apply them here. You could try it to see if it works for the problem.
+
+ 
+End Notes
+
+In this article, I have given a brief overview of audio processing with an case study on UrbanSound challenge. I have also shown the steps you perform when dealing with audio data in python with librosa package. Giving this “shastra” in your hand, I hope you could try your own algorithms in Urban Sound challenge, or try solving your own audio problems in daily life. If you have any suggestions/ideas, do let me know in the comments below!
+
+    点赞 1
+    收藏
+    分享
+
+Butertfly
+发布了11 篇原创文章 · 获赞 6 · 访问量 2万+
+私信
+关注
+
+    weixin_41973774
+    __XWH1999__2个月前原文链接：https://www.analyticsvidhya.com/blog/2017/08/audio-voice-processing-deep-learning/
+
+    weixin_41590622
+    zswanz20187个月前请问代码中的train在哪里定义的？
+
+    Schrooooodinger
+    格朗C9个月前你好，相求一下原文链接谢谢
+
+Python声音处理入门
+
+阅读数 2万+
+
+Python声音处理入门注：本文加入了译者的理解，并非严谨的译作，仅供参考。原文描述了怎样在Python中通过pylab接口对声音进行基本的处理... 博文
+来自： Miss小王子的博客
+BP神经网络的数据分类--语音特征信号分类（MATLAB）
+
+阅读数 671
+
+原文链接为：https://blog.csdn.net/gyt15663668337/article/details/82707711与此文相关的有重大参考价值的链接：https://blog.csd... 博文
+来自： TomorrowAndTuture的博客
+利用BP神经网络对语音特征信号数据集进行分类	
+
+阅读数 5421
+
+最近给学院老师的一篇论文帮忙改进BP神经网络，由于最后要发表论文，神经网络必须自己手写，搞了几个晚上，总算把基础的BP神经网络写出来，接下来再把老师的改进算法实现就ok了。（当然那代码不能公开了）我这... 博文
+来自： 戴璞微的学习之路
+BP神经网络对音频分类	
+
+阅读数 2321
+
+今天开始学习了BP神经网络，接下来梳理一下今天的内容。今天的知识是建立在区分几种音频信号的基础上。BP神经网络是一层前馈神经网络，主要特点是信号的前向传递，误差反向传播。在前向的传播过程中输入信号经过... 博文
+来自： 鱼香土豆丝
+2019 Kaggle Freesound 音频标注挑战赛结果出炉，这是一份排名前 2 %的解决方案！
+
+阅读数 329
+
+日前，2019 年 Kaggle Freesound 音频标注挑战赛宣告完结，比赛结果也终于出炉。参赛者之一 Eric BOUTEILLON 是全球无缝支付解决方案提供商银捷尼科集团（Ingenico... 博文
+来自： AI 研习社的博客
+深度学习在音频信号处理领域中的进展（截止至2019年5月）
+
+阅读数 2891
+
+最近在arXiv上看到一篇关于深度学习在音频信号处理中的进展的文章，感觉写的不错，所以根据自己的理解和大家分享一下。如果有些地方博主理解的不对，或者解释不清，可以在下面评论，博主会一一回复。论文链接：... 博文
+来自： z小白的博客
+转：Python处理音频信号实战 : 手把手教你实现音乐流派分类和特征提取
+
+阅读数 922
+
+参考链接： https://www.jiqizhixin.com/articles/2019-01-11-251986年出版的《音乐心理学》一书中说到“人类和音乐遵循共同的规律”。研究发现，人类大脑的... 博文
+来自： 落地生根
+声音(音乐)分类综述
+
+阅读数 1345
+
+[1] 手把手教你打造一个曲风分类机器人[2] 怎样用深度学习发现一首歌属于哪个流派？[3] Finding the genre of a song with Deep Learning — A.I.... 博文
+来自： 林夕
+卷积神经网络（Convolutional Neural Network）学习资料
+
+阅读数 678
+
+卷积神经网络是近年发展起来，并引起广泛重视的一种高效识别方法。20世纪60年代，Hubel和Wiesel在研究猫脑皮层中用于局部敏感和方向选择的神经元时发现其独特的网络结构可以有效地降低反馈神经网络的... 博文
+来自： 技术博客
+学界 | 马里兰大学研究：人脑神经网络的动态变化和声音感知
+
+阅读数 13
+
+作为地球上最复杂的生物结构，大脑是如何让它的神经网络适应新环境的呢？马里兰大学工程学院（A. James Clark School of Engineering）的电气工程师和神经科学家们联起手来研究... 博文
+来自： weixin_34216196的博客
+2011 ISMIS音乐分类数据集 06-08
+该部分为训练集，该部分为训练集，该部分为训练集，该部分为训练集，该部分为训练集。
+下载
+Miss小王子关注
+Miss小王子
+
+8篇文章
+
+排名:千里之外
+
+卢开毅关注
+卢开毅
+
+32篇文章
+
+排名:千里之外
+
+追梦者_AIer
+关注
+追梦者_AIer
+
+424篇文章
+
+排名:4000+
+
+鱼香土豆丝关注
+鱼香土豆丝
+
+140篇文章
+
+排名:千里之外
+
+BP神经网络的数据分类--语音特征信号分类（MATLAB实现）
+
+阅读数 5509
+
+一、数据选择和归一化首先根据倒谱系数法提取四类音乐语音特征信号，不同的语音信号分别用1，2，3，4标识，提取出的信号存储于数据库文件中，可以在链接：https://pan.baidu.com/s/1X... 博文
+来自： 励志的小胡子
+音频分类	
+
+阅读数 125
+
+一、音频基础一段音频包含两个最基本的信息：时间长短和采样率（帧率）。采样率即一秒钟采样多少，以KHz为单位。故总帧数=采样率*时间我们选择一段音频导入来看看其采样率时间等信息。采用python自带wa... 博文
+来自： weixin_42105432的博客
+基于神经网络的音乐流派分类	
+
+阅读数 1644
+
+介绍本文讨论神经网络对声音样本的音乐类型进行分类的任务。当我决定在声音处理领域工作时，我认为声音类型分类和图像分类是相同的问题。但是图像非常火热，我并没有找到太多关于深度学习来解决这个问题的相关资料。... 博文
+来自： python练手项目实战
+音频的情感分类	
+
+阅读数 471
+
+近期，自己的研究方向定了下来，大致为多模态的情感分类，恰逢赶上一个很急的工程。从大佬手里得到一些代码，写下久违的博客，以表尊敬！下面代码是基于原始音频直接进行情感分类的，并没有抽取音频的特征。大致思路... 博文
+来自： Mr_wuliboy的博客
+各类研究数据集合
+
+阅读数 785
+
+﻿﻿转载  https://zhuanlan.zhihu.com/p/25138563金融美国劳工部统计局官方发布数据沪深股票除权除息、配股增发全量数据，截止 2016.12.31上证主板日线数据，截... 博文
+BP神经网络 语音信号分类	
+
+阅读数 3318
+
+BP神经网络预测首先进行训练网络，通过训练使网络具有联想记忆和预测能力，BP神经网络的训练过程包括下面：1、网络的初始化，根据系统输入和输出确定网路的输入层节点数n,隐含层l,和输出层m,初始化输入层... 博文
+来自： qq_18343569的博客
+Python--音频文件分类代码
+
+阅读数 7722
+
+上代码：import osfrom shutil import copy2SOURCE = "c:\\source\\"DEST = "c:\\dest\\"#... 博文
+来自： 明天依旧可好
+基于文本挖掘与神经网络的音乐风格分类建模方法 04-10
+基于文本挖掘与神经网络的音乐风格分类建模方法，针对人工区分音乐风格会造成音乐风格关系不清以致混乱和某些歌曲难以人工划分其风格等问题
+下载
+使用keras训练一个区分不同人声音的模型
+
+阅读数 2425
+
+随着tensorflow,keras,tflearn,mxnet这种深度学习库的完善，深度学习的门槛降低，很多之前很难的领域都开始对小白开放，比如语音领域，在深度学习火起来之前，语音识别和图像识别这种... 博文
+来自： Butertfly的博客
+BP神经网络的数据分类	
+
+阅读数 7967
+
+一、BP神经网络概述BP神经网络是一种多层前馈神经网络，该网络的主要特点是信号前向传递，误差反向传播。在前向传播的过程中，输入信号从输入层经隐含层处理，直至输出层。每一层的神经元状态只影响下一层神经元... 博文
+来自： 励志的小胡子
+如何使用TensorFlow实现音频分类任务
+
+阅读数 6704
+
+本文介绍了一种使用 TensorFlow 将音频进行分类（包括种类、场景等）的实现方案，包括备选模型、备选数据集、数据集准备、模型训练、结果提取等都有详细的引导，特别是作者还介绍了如何实现 web 接... 博文
+来自： 机器之心
+音频分类综述
+
+阅读数 2350
+
+一、几种常用的音频分类算法最小距离法、神经网络、支持向量机、决策树方法、隐马尔可夫模型等典型算法。1. 最小距离法最小距离分类法的优点是概念直观，方法简单，有利于建立多维空间分类方法的几何概念。在音频... 博文
+来自： zouzou0301的博客
+神经网络-CNN结构和语音识别应用
+
+阅读数 1万+
+
+一、基本结构入门介绍：https://ujjwalkarn.me/2016/08/11/intuitive-explanation-convnets/参考deeplearning.IanGoodfel... 博文
+来自： xmdxcsj的专栏
+循环神经网络综述 -语音识别与自然语言处理的利器
+
+阅读数 9671
+
+本文为SIGAI原创文章，仅供个人学习使用，未经允许，不能用于商业目的导言循环神经网络是一种具有记忆功能的神经网络，适合序列数据的建模。它在语音识别、自然语言处理等领域取得了成功。是除卷积神经网络之外... 博文
+来自： SIGAI_CSDN的博客
+用于深度神经网络的语音信号预处理
+
+阅读数 1372
+
+1. 预备知识（基础概念）    详见 https://blog.csdn.net/shanx_s/article/details/52947007    详见 https://blog.csdn.n... 博文
+来自： sinat_35637310的博客
+教你训练一个简单的音频识别网络（附代码）
+
+阅读数 7242
+
+来源：大数据文摘本文长度为7600字，建议阅读10分钟本文将一步步向你展示，如何建立一个能识别10个不同词语的基本语音识别网络。你需要知道，真正的语音与音频识别系统要复杂的多，但就像图像识别领域的MN... 博文
+来自： THU数据派
+利用音频做视频分类	
+
+阅读数 1259
+
+视频分类通常是一个多模态任务。可以用RGB图片， optical flow光流图片以及audio音频来进行分类。这篇博客主要讲一讲用音频来做视频分类的过程。主要思路目前利用音频的主要方法是将音频转换为... 博文
+来自： 时光杂货店
+干货：手把手教你在音频分类DCASE2017比赛中夺冠
+
+阅读数 2661
+
+这是一篇旧闻了。2017-09-23 00:00无人驾驶最新消息：来自英国萨里大学的团队徐勇博士等夺得DCASE2017 challenge比赛冠军。战胜来自CMU, New York Univers... 博文
+来自： sunfoot001的专栏
+介绍一种音频信号分类方法
+
+阅读数 3658
+
+能用来区分语音和音乐信号的音频特征有很多种，如感觉特性、能量、功率谱和Mel频标倒谱(MFCC)系数,能量、平均过零率、基频和功率谱峰值等。以下介绍一种基于子带音调个数比与频谱倾斜度相结合的区分方法。... 博文
+来自： audio_algorithm的博客
+Python音频的数据扩充
+
+阅读数 499
+
+Python音频的数据扩充经典的深度学习网络AlexNet使用数据扩充（Data Augmentation）的方式扩大数据集，取得较好的分类效果。在深度学习的图像领域中，通过平移、 翻转、加噪等方法进... 博文
+来自： 机器学习算法与人工智能
+Tensorflow学习记录10--VGG网络
+
+阅读数 1万+
+
+点我下载paper1 VGG网络总结感觉就是再alex-net的基础上，研究了下如何加深网络来提高性能的。总体上也是五层卷积加上三层全链接，但是这五层卷积中都会以pooling来分割，且五层卷积尝试叠... 博文
+来自： hxshine的博客
+亚马逊Alexa借助神经网络生成播音员声音
+
+阅读数 15
+
+亚马逊最近宣布开发定制的Alexa语音，适合用于阅读新闻。早期的实现是通过连接小的音频片段来产生完整的句子，从而实现文本到语音功能。亚马逊正在使用生成神经网络来合成一种更自然的语音，而且可以根据文本的... 博文
+来自： cpongo4
+VGG数据预处理
+
+阅读数 1047
+
+参考文献Very Deep Convolutional Networks for Large-Scale Image Recognition本文的目的目标检测/语义分割等领域都会涉及到预训练模型，一般... 博文
+来自： 大泽之国
+利用线程池+回调+百度语音识别来批量实现语音识别
+
+阅读数 167
+
+#!/usr/bin/python3# -*- coding: utf-8 -*-from aip import AipSpeechimport osimport sysfrom concurrent... 博文
+来自： Butertfly的博客
+基于BP神经网络的音频信号识别 01-05
+基于BP神经网络的音频信号识别的matlab源代码
+下载
+Kafka实战(三) - Kafka的自我修养与定位
+
+阅读数 2885
+
+Apache Kafka是消息引擎系统，也是一个分布式流处理平台（Distributed Streaming Platform）Kafka是LinkedIn公司内部孵化的项目。LinkedIn最开始有... 博文
+来自： JavaEdge
+volatile 与 synchronize 详解
+
+阅读数 3080
+
+Java支持多个线程同时访问一个对象或者对象的成员变量，由于每个线程可以拥有这个变量的拷贝（虽然对象以及成员变量分配的内存是在共享内存中的，但是每个执行的线程还是可以拥有一份拷贝，这样做的目的是加速程... 博文
+来自： Woo_home的博客
+Java学习的正确打开方式
+
+阅读数 10万+
+
+在博主认为，对于入门级学习java的最佳学习方法莫过于视频+博客+书籍+总结，前三者博主将淋漓尽致地挥毫于这篇博客文章中，至于总结在于个人，实际上越到后面你会发现学习的最好方式就是阅读参考官方文档其次... 博文
+来自： 程序员宜春的博客
+相见恨晚的超实用网站
+
+阅读数 4万+
+
+相见恨晚的超实用网站 持续更新中。。。 博文
+程序员必须掌握的核心算法有哪些？
+
+阅读数 19万+
+
+由于我之前一直强调数据结构以及算法学习的重要性，所以就有一些读者经常问我，数据结构与算法应该要学习到哪个程度呢？，说实话，这个问题我不知道要怎么回答你，主要取决于你想学习到哪些程度，不过针对这个问题，... 博文
+有哪些让程序员受益终生的建议
+
+阅读数 12万+
+
+从业五年多，辗转两个大厂，出过书，创过业，从技术小白成长为基层管理，联合几个业内大牛回答下这个问题，希望能帮到大家，记得帮我点赞哦。 敲黑板！！！读了这篇文章，你将知道如何才能进大厂，如何实现财务自... 博文
+大学四年自学走来，这些私藏的实用工具/学习网站我贡献出来了
+
+阅读数 24万+
+
+大学四年，看课本是不可能一直看课本的了，对于学习，特别是自学，善于搜索网上的一些资源来辅助，还是非常有必要的，下面我就把这几年私藏的各种资源，网站贡献出来给你们。主要有：电子书搜索、实用工具、在线视频... 博文
+linux系列之常用运维命令整理笔录
+
+阅读数 15万+
+
+本博客记录工作中需要的linux运维命令，大学时候开始接触linux，会一些基本操作，可是都没有整理起来，加上是做开发，不做运维，有些命令忘记了，所以现在整理成博客，当然vi，文件操作等就不介绍了，慢... 博文
+比特币原理详解
+
+阅读数 13万+
+
+一、什么是比特币 比特币是一种电子货币，是一种基于密码学的货币，在2008年11月1日由中本聪发表比特币白皮书，文中提出了一种去中心化的电子记账系统，我们平时的电子现金是银行来记账，因为银行的背后是... 博文
+程序员接私活怎样防止做完了不给钱？
+
+阅读数 12万+
+
+首先跟大家说明一点，我们做 IT 类的外包开发，是非标品开发，所以很有可能在开发过程中会有这样那样的需求修改，而这种需求修改很容易造成扯皮，进而影响到费用支付，甚至出现做完了项目收不到钱的情况。 那... 博文
+网页实现一个简单的音乐播放器（大佬别看。(⊙﹏⊙)）
+
+阅读数 2万+
+
+今天闲着无事，就想写点东西。然后听了下歌，就打算写个播放器。 于是乎用h5 audio的加上js简单的播放器完工了。 演示地点演示 html代码如下` music ... 博文
+Python十大装B语法
+
+阅读数 22万+
+
+Python 是一种代表简单思想的语言，其语法相对简单，很容易上手。不过，如果就此小视 Python 语法的精妙和深邃，那就大错特错了。本文精心筛选了最能展现 Python 语法之精妙的十个知识点，并... 博文
+数据库优化 - SQL优化
+
+阅读数 12万+
+
+以实际SQL入手，带你一步一步走上SQL优化之路！ 博文
+2019年11月中国大陆编程语言排行榜
+
+阅读数 4万+
+
+2019年11月2日，我统计了某招聘网站，获得有效程序员招聘数据9万条。针对招聘信息，提取编程语言关键字，并统计如下： 编程语言比例 rank pl_ percentage 1 jav... 博文
+通俗易懂地给女朋友讲：线程池的内部原理
+
+阅读数 7万+
+
+餐盘在灯光的照耀下格外晶莹洁白，女朋友拿起红酒杯轻轻地抿了一小口，对我说：“经常听你说线程池，到底线程池到底是个什么原理？”... 博文
+《奇巧淫技》系列-python！！每天早上八点自动发送天气预报邮件到QQ邮箱
+
+阅读数 1万+
+
+将代码部署服务器，每日早上定时获取到天气数据，并发送到邮箱。 也可以说是一个小型人工智障。 知识可以运用在不同地方，不一定非是天气预报。... 博文
+经典算法（5）杨辉三角
+
+阅读数 5万+
+
+杨辉三角 是经典算法，这篇博客对它的算法思想进行了讲解，并有完整的代码实现。... 博文
+英特尔不为人知的 B 面
+
+阅读数 2万+
+
+从 PC 时代至今，众人只知在 CPU、GPU、XPU、制程、工艺等战场中，英特尔在与同行硬件芯片制造商们的竞争中杀出重围，且在不断的成长进化中，成为全球知名的半导体公司。殊不知，在「刚硬」的背后，英... 博文
+腾讯算法面试题：64匹马8个跑道需要多少轮才能选出最快的四匹？
+
+阅读数 5万+
+
+昨天，有网友私信我，说去阿里面试，彻底的被打击到了。问了为什么网上大量使用ThreadLocal的源码都会加上private static？他被难住了，因为他从来都没有考虑过这个问题。无独有偶，今天笔... 博文
+面试官：你连RESTful都不知道我怎么敢要你？
+
+阅读数 8万+
+
+干货，2019 RESTful最贱实践 博文
+刷了几千道算法题，这些我私藏的刷题网站都在这里了！
+
+阅读数 6万+
+
+遥想当年，机缘巧合入了 ACM 的坑，周边巨擘林立，从此过上了"天天被虐似死狗"的生活… 然而我是谁，我可是死狗中的战斗鸡，智力不够那刷题来凑，开始了夜以继日哼哧哼哧刷题的日子，从此"读题与提交... 博文
+SQL-小白最佳入门sql查询一
+
+阅读数 4万+
+
+不要偷偷的查询我的个人资料，即使你再喜欢我，也不要这样，真的不好； 博文
+JavaScript 为什么能活到现在？
+
+阅读数 1万+
+
+作者 | 司徒正美 责编 |郭芮 出品 | CSDN（ID：CSDNnews） JavaScript能发展到现在的程度已经经历不少的坎坷，早产带来的某些缺陷是永久性的，因此浏览器才有禁用Ja... 博文
+项目中的if else太多了，该怎么重构？
+
+阅读数 11万+
+
+介绍 最近跟着公司的大佬开发了一款IM系统，类似QQ和微信哈，就是聊天软件。我们有一部分业务逻辑是这样的 if (msgType = "文本") { // dosomething } else if... 博文
+致 Python 初学者
+
+阅读数 16万+
+
+欢迎来到“Python进阶”专栏！来到这里的每一位同学，应该大致上学习了很多 Python 的基础知识，正在努力成长的过程中。在此期间，一定遇到了很多的困惑，对未来的学习方向感到迷茫。我非常理解你们所... 博文
+Python 编程开发 实用经验和技巧
+
+阅读数 7056
+
+Python是一门很灵活的语言，也有很多实用的方法，有时候实现一个功能可以用多种方法实现，我这里总结了一些常用的方法和技巧，包括小数保留指定位小数、判断变量的数据类型、类方法@classmethod、... 博文
+吐血推荐珍藏的Visual Studio Code插件
+
+阅读数 8038
+
+作为一名Java工程师，由于工作需要，最近一个月一直在写NodeJS，这种经历可以说是一部辛酸史了。好在有神器Visual Studio Code陪伴，让我的这段经历没有更加困难。眼看这段经历要告一段... 博文
+实战：如何通过python requests库写一个抓取小网站图片的小爬虫
+
+阅读数 1718
+
+有点爱好的你，偶尔应该会看点图片文字，最近小网站经常崩溃消失，不如想一个办法本地化吧，把小照片珍藏起来！ 首先，准备一个珍藏的小网站，然后就可以开始啦！ 第一步 我们先写一个获取网站的url的链接，... 博文
+“狗屁不通文章生成器”登顶GitHub热榜，分分钟写出万字形式主义大作
+
+阅读数 13万+
+
+一、垃圾文字生成器介绍 最近在浏览GitHub的时候，发现了这样一个骨骼清奇的雷人项目，而且热度还特别高。 项目中文名：狗屁不通文章生成器 项目英文名：BullshitGenerator 根据作... 博文
+程序员：我终于知道post和get的区别
+
+阅读数 19万+
+
+是一个老生常谈的话题，然而随着不断的学习，对于以前的认识有很多误区，所以还是需要不断地总结的，学而时习之，不亦说乎... 博文
+《程序人生》系列-这个程序员只用了20行代码就拿了冠军
+
+阅读数 5万+
+
+你知道的越多，你不知道的越多 点赞再看，养成习惯GitHub上已经开源https://github.com/JavaFamily，有一线大厂面试点脑图，欢迎Star和完善 前言 这一期不算《吊打... 博文
+加快推动区块链技术和产业创新发展，2019可信区块链峰会在京召开
+
+阅读数 5万+
+
+11月8日，由中国信息通信研究院、中国通信标准化协会、中国互联网协会、可信区块链推进计划联合主办，科技行者协办的2019可信区块链峰会将在北京悠唐皇冠假日酒店开幕。 　　区块链技术被认为是继蒸汽机、... 博文
+Python 植物大战僵尸代码实现(2):植物卡片选择和种植
+
+阅读数 1万+
+
+这篇文章要介绍的是： - 上方植物卡片栏的实现。 - 点击植物卡片，鼠标切换为植物图片。 - 鼠标移动时，判断当前在哪个方格中，并显示半透明的植物作为提示。... 博文
+程序员把地府后台管理系统做出来了，还有3.0版本！12月7号最新消息：已在开发中有github地址
+
+阅读数 16万+
+
+第一幕：缘起 听说阎王爷要做个生死簿后台管理系统，我们派去了一个程序员…… 996程序员做的梦： 第一场：团队招募 为了应对地府管理危机，阎王打算找“人”开发一套地府后台管理系统，于是... 博文
+为什么要学数据结构？
+
+阅读数 1万+
+
+一、前言 在可视化化程序设计的今天，借助于集成开发环境可以很快地生成程序，程序设计不再是计算机专业人员的专利。很多人认为，只要掌握几种开发工具就可以成为编程高手，其实，这是一种误解。要想成为一个专业的... 博文
+金山办公上市，雷军心愿了却！
+
+阅读数 1万+
+
+作者 | 胡巍巍 出品 | CSDN（ID：CSDNnews） 11月17日，大周末的，雷军微博发了个重磅消息： “明天将是里程碑式的一天，金山办公终于成功在科创板挂牌上市了！ 从1988年金... 博文
+8年经验面试官详解 Java 面试秘诀
+
+阅读数 8万+
+
+作者 |胡书敏 责编 | 刘静 出品 | CSDN（ID：CSDNnews） 本人目前在一家知名外企担任架构师，而且最近八年来，在多家外企和互联网公司担任Java技术面试官，前后累计面试了有两三... 博文
+面试官如何考察你的思维方式？
+
+阅读数 4万+
+
+1.两种思维方式在求职面试中，经常会考察这种问题：北京有多少量特斯拉汽车？某胡同口的煎饼摊一年能卖出多少个煎饼？深圳有多少个产品经理？一辆公交车里能装下多少个乒乓球？一个正常成年人有多少根头发？这类估... 博文
+碎片化的时代，如何学习
+
+阅读数 1万+
+
+今天周末，和大家聊聊学习这件事情。 在如今这个社会，我们的时间被各类 APP 撕的粉碎。 刷知乎、刷微博、刷朋友圈； 看论坛、看博客、看公号； 等等形形色色的信息和知识获取方式一个都不错过。 貌似学了... 博文
+腾讯“疯狂”开源！
+
+阅读数 3万+
+
+作者 | 马超 责编 | 胡巍巍 出品 | CSDN（ID：CSDNnews） 近日，腾讯自研的万亿级分布式消息中间件TubeMQ正式开源，并捐赠给Apache基金会，成为基金会官方认可的Inc... 博文
+so easy！ 10行代码写个"狗屁不通"文章生成器
+
+阅读数 8万+
+
+前几天，GitHub 有个开源项目特别火，只要输入标题就可以生成一篇长长的文章。 背后实现代码一定很复杂吧，里面一定有很多高深莫测的机器学习等复杂算法 不过，当我看了源代码之后... 博文
+知乎高赞：中国有什么拿得出手的开源软件产品？(整理自本人原创回答)
+
+阅读数 5万+
+
+知乎高赞：中国有什么拿得出手的开源软件产品？ 在知乎上，有个问题问“中国有什么拿得出手的开源软件产品（在 GitHub 等社区受欢迎度较好的）？” 事实上，还不少呢~ 本人于2019.7.6进行... 博文
+MySQL数据库总结
+
+阅读数 7万+
+
+一、数据库简介 数据库(Database，DB)是按照数据结构来组织，存储和管理数据的仓库。 典型特征：数据的结构化、数据间的共享、减少数据的冗余度，数据的独立性。 关系型数据库：使用关系模型把数据... 博文
+python json java mysql pycharm android linux json格式 c# 二进制截断字符串 c#实现窗体设计器 c#检测是否为微信 c# plc s1200 c#里氏转换原则 c# 主界面 c# do loop c#存为组套 模板 c# 停掉协程 c# rgb 读取图片
+©️2019 CSDN 皮肤主题: 书香水墨 设计师: CSDN官方博客
+Butertfly
+TA的个人主页 >
+
+原创
+    11
+
+粉丝
+    16
+
+获赞
+    6
+
+评论
+    19
+
+访问
+    2万+
+
+等级:
+
+周排名:
+    24万+ 
+
+积分:
+    359 
+
+总排名:
+    18万+ 
+
+勋章:
+关注
+私信
+最新文章
+
+    谱减法降噪（python实现）
+    非极大抑制（Non-maximum suppression）python代码实现
+    keras自定以Layer层
+    ffmpeg的使用
+    CentOS7添加/删除用户和用户组
+
+分类专栏
+
+    人工智能 13篇
+    Linux 2篇
+    语音
+
+归档
+
+    2018年11月 2篇
+    2018年10月 1篇
+    2018年9月 1篇
+    2018年8月 2篇
+    2018年7月 4篇
+    2018年5月 1篇
+    2018年4月 1篇
+    2018年3月 4篇
+
+展开
+热门文章
+
+    keras训练模型生成pb文件（java调用、python调用）
+
+    阅读数 5090
+    Ubuntu 18.04 深度学习环境搭建
+
+    阅读数 3583
+    ValueError: Tensor Tensor xxx is not an element of of this graph的解决方案
+
+    阅读数 3449
+    利用神经网络进行音频数据分类
+
+    阅读数 3000
+    使用keras训练一个区分不同人声音的模型
+
+    阅读数 2423
+
+最新评论
+
+    keras训练模型生成pb文件（j...
+
+    weixin_42170329：[reply]wallacegui[/reply]我也出现了这个问题
+    keras训练模型生成pb文件（j...
+
+    wallacegui：执行这一行的时候： frozen_graph_def = tf.graph_util.convert_variables_to_constants( sess, sess.graph_def, output_node_names=["y/Softmax"] ======》 AssertionError: y/Softmax is not in graph
+    ValueError: Tenso...
+
+    Desert__you：厉害了老哥
+    利用神经网络进行音频数据分类
+
+    weixin_41973774：原文链接：https://www.analyticsvidhya.com/blog/2017/08/audio-voice-processing-deep-learning/
+    ValueError: Tenso...
+
+    weixin_41968159：你好，我加了还是一样的报错，方便沟通一下吗，加个微信
+
+CSDN学院
+
+CSDN学院
+CSDN企业招聘
+
+CSDN企业招聘
+
+kefu@csdn.net
+
+QQ客服
+
+客服论坛
+
+400-660-0108
+
+工作时间 8:30-22:00
+
+关于我们招聘广告服务 网站地图
+
+京ICP备19004658号 经营性网站备案信息
+
+公安备案号 11010502030143
+
+©1999-2020 北京创新乐知网络技术有限公司
+
+网络110报警服务
+
+北京互联网违法和不良信息举报中心
+
+中国互联网举报中心家长监护版权申诉
+举报
+
