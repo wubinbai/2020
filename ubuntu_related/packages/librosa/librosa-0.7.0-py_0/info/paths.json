@@ -1,0 +1,251 @@
+{
+  "paths": [
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/AUTHORS.md",
+      "path_type": "hardlink",
+      "sha256": "9b519a7ae95f90b4b77e1bbe102e75f4728253288fe2e1fb691667450985bd3c",
+      "size_in_bytes": 2760
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/INSTALLER",
+      "path_type": "hardlink",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "size_in_bytes": 4
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/LICENSE.md",
+      "path_type": "hardlink",
+      "sha256": "9999ae0e80f0a716893ce8699e256d7860607b61819fb2074202f3c50d089164",
+      "size_in_bytes": 766
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/METADATA",
+      "path_type": "hardlink",
+      "sha256": "b3ea63f3b95f2adf4fe1f09014459700cb2f364f1f9c5917b34bb2f8115c6996",
+      "size_in_bytes": 6850
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/RECORD",
+      "path_type": "hardlink",
+      "sha256": "9ed49949015969f3b269da1c32cce78a782e72fabae1bb09586b807ba82fedcf",
+      "size_in_bytes": 4223
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/WHEEL",
+      "path_type": "hardlink",
+      "sha256": "ae121453793f815da20b2a4e34babecb0f2102f1ae5fe0680e02ffa2f0621d6d",
+      "size_in_bytes": 93
+    },
+    {
+      "_path": "site-packages/librosa-0.7.0.dist-info/top_level.txt",
+      "path_type": "hardlink",
+      "sha256": "6ff36d04c02da3ae6501b8016f6eccd476a9520965476271dbe814cf92e24768",
+      "size_in_bytes": 8
+    },
+    {
+      "_path": "site-packages/librosa/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "a6954a04e42e8dd976e63237c055eef753876aaac5d9dd91e78227511d8899e9",
+      "size_in_bytes": 1235
+    },
+    {
+      "_path": "site-packages/librosa/_cache.py",
+      "path_type": "hardlink",
+      "sha256": "785af673601fa4b051cdfdaf4798e38a4871348b8801e3cba6da611230edcfdd",
+      "size_in_bytes": 2683
+    },
+    {
+      "_path": "site-packages/librosa/beat.py",
+      "path_type": "hardlink",
+      "sha256": "c0593869ea002cb9e291c48dbfd71c0a7b4a1bcf5dc5428079d762f97b954d33",
+      "size_in_bytes": 21381
+    },
+    {
+      "_path": "site-packages/librosa/core/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "25bfaf03cc59daa63eb70a2c218e7f325d9ff81210a554d71a61ae9f9fcdfbd3",
+      "size_in_bytes": 2010
+    },
+    {
+      "_path": "site-packages/librosa/core/audio.py",
+      "path_type": "hardlink",
+      "sha256": "584034bbc5a05d95712f08df08c65b4bad935fe4cabfe4a811d961dcd026bc28",
+      "size_in_bytes": 41939
+    },
+    {
+      "_path": "site-packages/librosa/core/constantq.py",
+      "path_type": "hardlink",
+      "sha256": "4c05d2aeaf957d8b3c16c68e425ad5b722ef8d03b7610d5ed85a622cf9286876",
+      "size_in_bytes": 27797
+    },
+    {
+      "_path": "site-packages/librosa/core/fft.py",
+      "path_type": "hardlink",
+      "sha256": "3afb26f0001bcf054085cd13e9672774e1223dc35057be9658195273a934265b",
+      "size_in_bytes": 1066
+    },
+    {
+      "_path": "site-packages/librosa/core/harmonic.py",
+      "path_type": "hardlink",
+      "sha256": "79a96dbcf7f56c2f5bc05ad2c294caac8ca8553c91ec1753b49e65476f515000",
+      "size_in_bytes": 13052
+    },
+    {
+      "_path": "site-packages/librosa/core/pitch.py",
+      "path_type": "hardlink",
+      "sha256": "dcf87bdc136cef17118901fb3dd0974e39b86d8ec8843aff0e284b2d7cec51c5",
+      "size_in_bytes": 10370
+    },
+    {
+      "_path": "site-packages/librosa/core/spectrum.py",
+      "path_type": "hardlink",
+      "sha256": "95f8b66f5619dd48af7dcab572e7f0b79cfad5c9b4fcc66255c80f486c65352c",
+      "size_in_bytes": 61773
+    },
+    {
+      "_path": "site-packages/librosa/core/time_frequency.py",
+      "path_type": "hardlink",
+      "sha256": "05190150c16eab2a62d80aa20c2618f875e765d420880215079595389f01908d",
+      "size_in_bytes": 36098
+    },
+    {
+      "_path": "site-packages/librosa/decompose.py",
+      "path_type": "hardlink",
+      "sha256": "66f58e24bf9f5c5139b9fc18b98869dc2f2ad9d89a6fa077be14a123f4689089",
+      "size_in_bytes": 18504
+    },
+    {
+      "_path": "site-packages/librosa/display.py",
+      "path_type": "hardlink",
+      "sha256": "fbf2e7605e8d272d6069ce30189110a3ea92597d654c1ab753cccc1dbe280fa2",
+      "size_in_bytes": 30180
+    },
+    {
+      "_path": "site-packages/librosa/effects.py",
+      "path_type": "hardlink",
+      "sha256": "4191bac57933922fc9d220c99da858fec212caa6a59fb2f8d469c6cdcf42f8b3",
+      "size_in_bytes": 15531
+    },
+    {
+      "_path": "site-packages/librosa/feature/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "fa92f94a1cf71192f317222bd44eae62fa3619c79ed808dd5b7e2855dc45b812",
+      "size_in_bytes": 1074
+    },
+    {
+      "_path": "site-packages/librosa/feature/inverse.py",
+      "path_type": "hardlink",
+      "sha256": "6547caa0e67791f7a4ef443e065bbd840d62731af683cfc472da6c12407a4b5a",
+      "size_in_bytes": 7706
+    },
+    {
+      "_path": "site-packages/librosa/feature/rhythm.py",
+      "path_type": "hardlink",
+      "sha256": "6df498856e5f64832c975ce419961ecbe3d82cf02ddb7f509b31a2fa0f16c978",
+      "size_in_bytes": 10328
+    },
+    {
+      "_path": "site-packages/librosa/feature/spectral.py",
+      "path_type": "hardlink",
+      "sha256": "577e72f471f9df541e96731f498ef203375def75b9f74f376ffbe9130347f75e",
+      "size_in_bytes": 59265
+    },
+    {
+      "_path": "site-packages/librosa/feature/utils.py",
+      "path_type": "hardlink",
+      "sha256": "6a5a247a2f566ef710fd67d2e6037ba37bfabcee7c97369bffa777dbe4d95333",
+      "size_in_bytes": 8044
+    },
+    {
+      "_path": "site-packages/librosa/filters.py",
+      "path_type": "hardlink",
+      "sha256": "7544b8ca8769fbd737faf0fd6d18ce94ec9b370a6a97fa55e6f95175222aeef8",
+      "size_in_bytes": 38542
+    },
+    {
+      "_path": "site-packages/librosa/onset.py",
+      "path_type": "hardlink",
+      "sha256": "5295d6a98e37a95afe8e166c88a0136717995caa48f93bce3937e9805f2d76cb",
+      "size_in_bytes": 18801
+    },
+    {
+      "_path": "site-packages/librosa/output.py",
+      "path_type": "hardlink",
+      "sha256": "8d1df1ac66b490670d49bbe88d6244a9dfda41b147bd11ce5174dc015b3ca4d6",
+      "size_in_bytes": 6598
+    },
+    {
+      "_path": "site-packages/librosa/segment.py",
+      "path_type": "hardlink",
+      "sha256": "6cf8014d6a44b3607fc8ad4c470225526e0eaabd334a8a3c533dd18858ed962c",
+      "size_in_bytes": 35914
+    },
+    {
+      "_path": "site-packages/librosa/sequence.py",
+      "path_type": "hardlink",
+      "sha256": "bd9e83704238a86da3bc4944f81b9d07376a00f8d47c566d0e381cb2063ca5fa",
+      "size_in_bytes": 53013
+    },
+    {
+      "_path": "site-packages/librosa/util/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "22cfdf4dc7d6e36cd464ba2828bd7e85a48c64402d549ae94bbb17184e7a2222",
+      "size_in_bytes": 1206
+    },
+    {
+      "_path": "site-packages/librosa/util/_nnls.py",
+      "path_type": "hardlink",
+      "sha256": "a206f5b37d8e1ffd921e6ccf706ff0fde9aa47c2fa66910a29da725720ac9023",
+      "size_in_bytes": 4825
+    },
+    {
+      "_path": "site-packages/librosa/util/decorators.py",
+      "path_type": "hardlink",
+      "sha256": "8a914201526d140b288c29af8d9daef86fad62eaf2cb2f995fb99d73b11ff862",
+      "size_in_bytes": 1987
+    },
+    {
+      "_path": "site-packages/librosa/util/deprecation.py",
+      "path_type": "hardlink",
+      "sha256": "2a0d0a2257de5d05b8ceff52bef4647c3db1da97e9f79852293189644ec2556c",
+      "size_in_bytes": 1804
+    },
+    {
+      "_path": "site-packages/librosa/util/example_data/Kevin_MacLeod_-_Vibe_Ace.ogg",
+      "path_type": "hardlink",
+      "sha256": "73d6443ef90a7c022f164e5aa90e56c2291585930b39b1656d0765abbc1f1779",
+      "size_in_bytes": 1452719
+    },
+    {
+      "_path": "site-packages/librosa/util/exceptions.py",
+      "path_type": "hardlink",
+      "sha256": "6cccd091f090ef4f1cb6204670d22693423c61593b7fe28f72682de54e463941",
+      "size_in_bytes": 264
+    },
+    {
+      "_path": "site-packages/librosa/util/files.py",
+      "path_type": "hardlink",
+      "sha256": "12eb6fb59c093c840c5e2e07fe7e18672b2c93c7bb2e405dbcd644def4b665e4",
+      "size_in_bytes": 4049
+    },
+    {
+      "_path": "site-packages/librosa/util/matching.py",
+      "path_type": "hardlink",
+      "sha256": "e059546ebfec2dd10a162a4026b3ae5973eb6b3e2da496fbf415b592ae01036c",
+      "size_in_bytes": 12040
+    },
+    {
+      "_path": "site-packages/librosa/util/utils.py",
+      "path_type": "hardlink",
+      "sha256": "3203afbe937b2cc2ee4dc7ecd3eff44877e1a9a292df799b832b7dc927845a4b",
+      "size_in_bytes": 52058
+    },
+    {
+      "_path": "site-packages/librosa/version.py",
+      "path_type": "hardlink",
+      "sha256": "a15a266f4f66a4e982efe11ade03dd80a8dbfa850613c194cffd283ee9a6f9ab",
+      "size_in_bytes": 1545
+    }
+  ],
+  "paths_version": 1
+}
