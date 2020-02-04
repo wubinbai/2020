@@ -1,0 +1,1 @@
+after installing, or moving folders, so to speak, of cudnn, execute the .sh file, there are 6 lines in total.

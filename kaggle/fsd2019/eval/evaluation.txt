@@ -1,0 +1,14 @@
+The task consists of predicting the audio labels (tags) for every test clip. Some test clips bear one label while others bear several labels. The predictions are to be done at the clip level, i.e., no start/end timestamps for the sound events are required.
+
+The primary competition metric will be label-weighted label-ranking average precision (lwlrap, pronounced "Lol wrap"). This measures the average precision of retrieving a ranked list of relevant labels for each test clip (i.e., the system ranks all the available labels, then the precisions of the ranked lists down to each true label are averaged). This is a generalization of the mean reciprocal rank measure (used in last year’s edition of the competition) for the case where there can be multiple true labels per test item. The novel "label-weighted" part means that the overall score is the average over all the labels in the test set, where each label receives equal weight (by contrast, plain lrap gives each test item equal weight, thereby discounting the contribution of individual labels when they appear on the same item as multiple other labels).
+
+We use label weighting because it allows per-class values to be calculated, and still have the overall metric be expressed as simple average of the per-class metrics (weighted by each label's prior in the test set). For participant’s convenience, a Python implementation of lwlrap is provided in this public Google Colab.
+Submission File
+
+For each fname in the test set, you must predict the probability of each label. The file should contain a header and have the following format:
+
+fname,Accelerating_and_revving_and_vroom,...Zipper_(clothing)
+000ccb97.wav,0.1,....,0.3
+0012633b.wav,0.0,...,0.8
+
+As we will be switching out test data to re-evaluate kernels on stage 2 data to populate the private leaderboard, submissions must be named submission.csv.
