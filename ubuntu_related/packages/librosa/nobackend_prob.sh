@@ -1,2 +1,1 @@
-#! /bin/bash
-sudo apt-get install libav-tools
+sudo apt install ffmpeg
