@@ -1,0 +1,48 @@
+Detected corrupted files in the curated train set
+
+The following 5 audio files in the curated train set have a wrong label, due to a bug in the file renaming process: f76181c4.wav, 77b925c2.wav, 6a1f682a.wav, c7db12aa.wav, 7752cc8a.wav
+
+The audio file 1d44b0bd.wav in the curated train set was found to be corrupted (contains no signal) due to an error in format conversion.
+
+Curated subset
+
+The curated subset is a small set of manually-labeled data from FSD.
+
+    Number of clips/class: 75 except in a few cases (where there are less)
+    Total number of clips: 4970
+    Avge number of labels/clip: 1.2
+    Total duration: 10.5 hours
+
+The duration of the audio clips ranges from 0.3 to 30s due to the diversity of the sound categories and the preferences of Freesound users when recording/uploading sounds. It can happen that a few of these audio clips present additional acoustic material beyond the provided ground truth label(s).
+Noisy subset
+
+The noisy subset is a larger set of noisy web audio data from Flickr videos taken from the YFCC dataset [5].
+
+    Number of clips/class: 300
+    Total number of clips: 19815
+    Avge number of labels/clip: 1.2
+    Total duration: ~80 hours
+
+The duration of the audio clips ranges from 1s to 15s, with the vast majority lasting 15s.
+
+Considering the numbers above, per-class data distribution available for training is, for most of the classes, 300 clips from the noisy subset and 75 clips from the curated subset, which means 80% noisy - 20% curated at the clip level (not at the audio duration level, considering the variable-length clips).
+Test set
+
+The test set is used for system evaluation and consists of manually-labeled data from FSD. Since most of the train data come from YFCC, some acoustic domain mismatch between the train and test set can be expected. All the acoustic material present in the test set is labeled, except human error, considering the vocabulary of 80 classes used in the competition.
+
+The test set is split into two subsets, for the public and private leaderboards. In this competition, the submission is to be made through Kaggle Kernels. Only the test subset corresponding to the public leaderboard is provided (without ground truth).
+
+Submissions must be made with inference models running in Kaggle Kernels. However, participants can decide to train also in the Kaggle Kernels or offline (see Kernels Requirements for details).
+
+This is a kernels-only competition with two stages. The first stage comprehends the submission period until the deadline on June 10th. After the deadline, in the second stage, Kaggle will rerun your selected kernels on an unseen test set. The second-stage test set is approximately three times the size of the first. You should plan your kernel's memory, disk, and runtime footprint accordingly.
+
+Test set
+
+The test set is used for system evaluation and consists of manually-labeled data from FSD. Since most of the train data come from YFCC, some acoustic domain mismatch between the train and test set can be expected. All the acoustic material present in the test set is labeled, except human error, considering the vocabulary of 80 classes used in the competition.
+
+The test set is split into two subsets, for the public and private leaderboards. In this competition, the submission is to be made through Kaggle Kernels. Only the test subset corresponding to the public leaderboard is provided (without ground truth).
+
+Submissions must be made with inference models running in Kaggle Kernels. However, participants can decide to train also in the Kaggle Kernels or offline (see Kernels Requirements for details).
+
+This is a kernels-only competition with two stages. The first stage comprehends the submission period until the deadline on June 10th. After the deadline, in the second stage, Kaggle will rerun your selected kernels on an unseen test set. The second-stage test set is approximately three times the size of the first. You should plan your kernel's memory, disk, and runtime footprint accordingly.
+
