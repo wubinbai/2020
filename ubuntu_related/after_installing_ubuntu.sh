@@ -248,4 +248,6 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # 8. to reset git add
 # git reset HEAD
 # 9. to copy status bar? use pv current_file > destination_file
-
+# you can also use rsync -ah --progress ource-file destination-file
+#-a: keep permission -h: human-readable
+# method 3: use gcp current-file destination-file
