@@ -247,4 +247,5 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # locate filename
 # 8. to reset git add
 # git reset HEAD
+# 9. to copy status bar? use pv current_file > destination_file
 
