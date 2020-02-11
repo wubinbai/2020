@@ -42,15 +42,24 @@ echo '======finish speedtest======'
 cd
 
 # Clone git remot repository:
-echo '=== clone 2019 ==='
-git clone https://github.com/wubinbai/2019.git
-echo '=== finish clone ==='
+#echo '=== clone 2019 ==='
+#git clone https://github.com/wubinbai/2019.git
+#echo '=== finish clone ==='
 # if you clone it this way, you will have to enter username and passwd everytime you push, to enable credential caching so that you don't need to enter everytime:
-cd ~/2019
+cd ~/2020
 git config credential.helper store
 git push
 git config --global user.email wubinbai@yahoo.com
 
+## 2019 github
+cd /home/wb
+git clone https://github.com/wubinbai/2019
+cd 2019
+git config credential.helper store
+git push
+git config --global user.email wubinbai@yahoo.com
+
+## end of 2019 github
 # then enter your username and passwd just for one-time. You are permanently set for future use.
 
 # 
@@ -130,7 +139,8 @@ sudo apt install unrar
 
 # You have now installed ipython, and you may wanna configure it, since you have cloned the repository, you can simply copy the file in the repository into the directory where the ipython import packages. The following line does this.
 
-cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_default/startup/
+echo 'if you want to configure ipython import: modify this line.'
+#cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_default/startup/
 
 
 # Uncomment the following lines to install VLC Player.
@@ -251,3 +261,10 @@ cp ~/2019/Config_ipython_import/ipython/import_here.py ~/.ipython/profile_defaul
 # you can also use rsync -ah --progress ource-file destination-file
 #-a: keep permission -h: human-readable
 # method 3: use gcp current-file destination-file
+
+
+### cmd ###
+
+# how to check disk write speed, read speed?
+# sudo apt install hdparm
+# hdparm -Tt /dev/sda
