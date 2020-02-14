@@ -199,7 +199,20 @@ echo 'if you want to configure ipython import: modify this line.'
 #    s是搜索（search）
 #    把oldword替换成newword
 #    g是指每行所有匹配的都替换，如果没有加g，则只替换每行第一个匹配的字符串。
+# B. how to delete first several characters?
+# vim delete first four characters which are '>>> ' from line 11 to 13.
 
+# :11,13g/^>>> /s///
+
+# ref. 比如，我想在代码的第10行到第15行每行前面都加上注释符 “//“ 应该怎么做？ 还有删除10到15行每行前面的注释符 ”//“应该怎么操作？ 0 2012-02-24 14:42:55 回复数 4 只看楼主 引用 举报 楼主
+
+# :10,15g/^/s//\/\//
+
+# :10,15g/^\/\//s///
+#
+# C. indent vim; block indent vim
+# indent line 3 to 5:
+# :3,5>
 # 5. How to fix imdb data allow_pickle==False problem
 ######
 
