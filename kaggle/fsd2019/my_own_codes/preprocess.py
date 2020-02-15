@@ -1,13 +1,21 @@
 import pandas as pd
-CURATED = '../input/audio_train/'
-NOISY = CURATED
-TEST = '../input/test/'
-
 #TOT = 'input'
 TOT = 'data'
-curated = pd.read_csv('../' + TOT +'/train_curated.csv')
-noisy = pd.read_csv('../' + TOT +'/train_noisy.csv')
-test = pd.read_csv('../' + TOT +'/sample_submission.csv')
+
+
+#CURATED = '../' + TOT + '/audio_train/'
+#NOISY = CURATED
+#TEST = '../' + TOT + '/test/'
+
+CURATED = '../' + TOT + '/train_curated/'
+NOISY = '../' + TOT + '/train_noisy/'
+TEST = '../' + TOT + '/test/'
+
+
+
+curated = pd.read_csv('../' + TOT + '/train_curated.csv')
+noisy = pd.read_csv('../' + TOT + '/train_noisy.csv')
+test = pd.read_csv('../' + TOT + '/sample_submission.csv')
 
 curated_paths = CURATED + curated['fname']
 noisy_paths = NOISY + noisy['fname']
