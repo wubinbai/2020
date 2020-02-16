@@ -1,0 +1,24 @@
+The following ques. are related to 2nd place 2019 freesound kaggle, codes in github.
+
+Some coding & / NN questions/thoughts.
+
+1. In utils.py: In the function __getitem__, how to interpret the following quantity's meaning?
+
+self.cfg.lm
+
+which equals = 0.01
+
+2. In pretrain.py
+  a. the line: model.fit_generator(..... workers=6), what does workers = 6 means?
+  b. the line: model.predict)generator(... workers = 4 ), what does workers = 4 means?
+  I have checked the documentations, but still don't understand.
+  c. there is a line that contains K.set_value, what does this mean? I know it is setting the value of some parameter, but why bother setting the parameter for those milestones??
+
+3.
+
+a.  models.py: In the function cnn_model, there's a Nadam Optimizer, why choose this kind of optimizer? And How does one determine which optimizer to choose, in short. I have read some blogs online but it is too long and kinda complicated.
+
+b. x_mel= Melspectrogram(a lot of parameters here..) how does one understand this function? I have checked the function that it supercedes, there are even more functions to supercede, I it is really confusing to understand.
+
+4. For NN question, how does one understand quickly all the models in the models.py? This is a general question and I have tried model.summary(), but it is still difficult to read and decompose. Any preferred way or thoughts?
+
