@@ -36,6 +36,19 @@ def get_arr_classes(df):
     return res_df, y0
 
 
+## how many samples have more than 1 label?
+
+def get_more_than_one_labels(df):
+    for row in df.labels.values:
+        split = row.split(',')
+        num_labels = len(split)
+        if num_labels >=2:
+            res.append(count)
+        count+=1
+# e.g. number_labels_index_curated = get_more_than_one_labels(curated)
+
+
+
 arr_classes_curated, y0_curated = get_arr_classes(curated)
 arr_classes_noisy, y0_noisy = get_arr_classes(noisy)
 #arr_classes_test = get_arr_classes(test)
