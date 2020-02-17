@@ -57,3 +57,4 @@ def collect_multi_labels(df):
     return res
 
 multi_labels_curated = collect_multi_labels(curated)
+multi_labels_noisy = collect_multi_labels(noisy)
