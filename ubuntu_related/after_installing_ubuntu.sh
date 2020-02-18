@@ -274,8 +274,10 @@ echo 'if you want to configure ipython import: modify this line.'
 # you can also use rsync -ah --progress ource-file destination-file
 #-a: keep permission -h: human-readable
 # method 3: use gcp current-file destination-file
-
-
+# 10. png to pdf
+# convert *.png output.pdf
+# fail? https://blog.csdn.net/lpwmm/article/details/83313459
+#   <policy domain="coder" rights="read|write" pattern="PDF" />#  <policy domain="coder" rights="read|write" pattern="LABEL" />
 ### cmd ###
 
 # how to check disk write speed, read speed?
