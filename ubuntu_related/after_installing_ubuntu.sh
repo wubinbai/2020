@@ -52,12 +52,12 @@ git push
 git config --global user.email wubinbai@yahoo.com
 
 ## 2019 github
-cd /home/wb
-git clone https://github.com/wubinbai/2019
-cd 2019
-git config credential.helper store
-git push
-git config --global user.email wubinbai@yahoo.com
+#cd /home/wb
+#git clone https://github.com/wubinbai/2019
+#cd 2019
+#git config credential.helper store
+#git push
+#git config --global user.email wubinbai@yahoo.com
 
 ## end of 2019 github
 # then enter your username and passwd just for one-time. You are permanently set for future use.
@@ -101,7 +101,7 @@ echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
-
+echo "alias"" ""ev=\"evince \"" >> .bashrc
 # Then you can install vim
 
 sudo apt-get install vim
