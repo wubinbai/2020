@@ -1,0 +1,1000 @@
+ 1065  cd ..
+ 1066  ls
+ 1067  cd ..
+ 1068  ls
+ 1069  cd data/
+ 1070  ls
+ 1071  cd detect_result
+ 1072  ls
+ 1073  cd ..
+ 1074  ls
+ 1075  cd detect_result_20/
+ 1076  ls
+ 1077  ls | wc
+ 1078  nvidia-smi
+ 1079  ls
+ 1080  cd dfdc_train_part_2
+ 1081  ls
+ 1082  cd dswaxbhfgs/
+ 1083  ls
+ 1084  cd ..
+ 1085  ls
+ 1086  cd ..
+ 1087  ls
+ 1088  ls | wc
+ 1089  cd ~
+ 1090  ls
+ 1091  cd deepfake/
+ 1092  ls
+ 1093  passwd
+ 1094  ls
+ 1095  cd data/
+ 1096  ls
+ 1097  cd ..
+ 1098  ls
+ 1099  cd data/
+ 1100  ls
+ 1101  cd detect_result_20/
+ 1102  ls
+ 1103  cd ..
+ 1104  ls
+ 1105  cd ..
+ 1106  ls
+ 1107  cd jupyter-guo/
+ 1108  ls
+ 1109  cd ..
+ 1110  ls
+ 1111  nvidia-smi
+ 1112  ls
+ 1113  cd data/
+ 1114  ls
+ 1115  cd detect_result_20/
+ 1116  ls
+ 1117  find . -maxdepth 1 -type d | while read dir; do count=$(f | wc -l); echo "$dir : $count"; done
+ 1118  find . -maxdepth 1 -type d | while read dir; do count=$(ls "$dir"| wc -l); echo "$dir : $count"; done
+ 1119  cd ~
+ 1120  cd deepfake/
+ 1121  ls
+ 1122  cd data/
+ 1123  ls
+ 1124  pwd
+ 1125  cd xx
+ 1126  ls
+ 1127  cd ~
+ 1128  ls
+ 1129  cd df
+ 1130  ls
+ 1131  cd data
+ 1132  ls
+ 1133  cd ~
+ 1134  ls
+ 1135  cd deepfake/
+ 1136  ls
+ 1137  cd data
+ 1138  ls
+ 1139  cd ..
+ 1140  ls
+ 1141  cd cd vi
+ 1142  cd videos
+ 1143  ls
+ 1144  cd data/
+ 1145  ls
+ 1146  cd videos/
+ 1147  ls
+ 1148  cd ..
+ 1149  sl
+ 1150  cd ..
+ 1151  ls -al
+ 1152  cd data
+ 1153  ls -al
+ 1154  unzip dfdc_train_part_14.zip 
+ 1155  ls
+ 1156  mv dfdc_train_part_14 videos/
+ 1157  cd videos/
+ 1158  ls
+ 1159  ls -al
+ 1160  cd ..
+ 1161  ls
+ 1162  ls -al
+ 1163  df -al
+ 1164  ls
+ 1165  cd ~
+ 1166  ls
+ 1167  cd x
+ 1168  ls
+ 1169  cd ..
+ 1170  ls
+ 1171  cd c
+ 1172  ls
+ 1173  cd ..
+ 1174  ls
+ 1175  fdisk -l
+ 1176  sudo fdisk -l
+ 1177  df -h
+ 1178  sudo fdisk -l | grep sdb
+ 1179  ls
+ 1180  cd x
+ 1181  ls
+ 1182  cd ..
+ 1183  sudo mount /dev/sdb1 ./x
+ 1184  cd x
+ 1185  ls
+ 1186  mkdir deepfake
+ 1187  unzip dfdc_train_all\(1\).zip ./deepfake/
+ 1188  mv dfdc_train_all\(1\).zip deepfake/
+ 1189  cd deepfake/
+ 1190  ls
+ 1191  unzip dfdc_train_all\(1\).zip 
+ 1192  nvidia-smi
+ 1193  1jupyter notebook --no-browser --port=9012
+ 1194  jupyter notebook --no-browser --port=9012
+ 1195  pip install moviepy
+ 1196  ls
+ 1197  cd deepfake
+ 1198  ls
+ 1199  cd mp3s
+ 1200  ls
+ 1201  jupyter notebook --no-browser --port=8607
+ 1202  cd ..
+ 1203  ls
+ 1204  cd ../yufeng/
+ 1205  jupyter notebook --no-browser --port=8607
+ 1206  cd ../data/detect_result_new/
+ 1207  rm -rf ./dfdc_train_part_10
+ 1208  rm -rf ./dfdc_train_part_34
+ 1209  ps -ef|grep python
+ 1210  kill -9 1153
+ 1211  ps -ef|grep python
+ 1212  nohup python3 MTCNN_new_50.py > MTCNN_50_1.out &
+ 1213  ps -ef|grep python
+ 1214  kill -9 2933
+ 1215  ps -ef|grep python
+ 1216  nohup python3 MTCNN_NEW_50_1.py > MTCNN_50_2.out &
+ 1217  cd deepfake
+ 1218  jupyter notebook --no-browser --port=9001
+ 1219  jupyter notebook --no-browser --port=9012
+ 1220  ls
+ 1221  cd deepfake/
+ 1222  ls
+ 1223  cd data/
+ 1224  ls
+ 1225  cd detect_result_new/
+ 1226  ls
+ 1227  ls | wc
+ 1228  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1229  ls | wc
+ 1230  ls
+ 1231  nvidia-smi
+ 1232  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1233  ls | wc
+ 1234  df -h
+ 1235  ls
+ 1236  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1237  nvidia-smi
+ 1238  df -h
+ 1239  ls
+ 1240  df -h
+ 1241  cd ..
+ 1242  ls
+ 1243  rm -rf detect_result_20
+ 1244  df -h
+ 1245  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1246  ls
+ 1247  cd detect_result_new/
+ 1248  ls
+ 1249  cd detect_result_new/
+ 1250  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1251  nvidia-smi
+ 1252  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1253  ls
+ 1254  cd ..
+ 1255  ls
+ 1256  tar czvf facedected220.tar.gz detect_result_new/
+ 1257  jupyter notebook --no-browser -port=8607
+ 1258  jupyter notebook --no-browser --port=8607
+ 1259  cd deepfake/
+ 1260  ls
+ 1261  cd data/
+ 1262  las
+ 1263  ls
+ 1264  cd detect_result_new/
+ 1265  ls
+ 1266  cd ../../../
+ 1267  cd deq
+ 1268  cd deepfake/0217yhe/
+ 1269  ls
+ 1270  nvidia-smi
+ 1271  python test.py 
+ 1272  python3 test.py 
+ 1273  python3 new_second.py 
+ 1274  cd deepfake/
+ 1275  ls
+ 1276  cd jupyter-guo/
+ 1277  ls
+ 1278  pwd
+ 1279  cd ..
+ 1280  cd data
+ 1281  cd detect_result_new/
+ 1282  ls
+ 1283  cd dfdc_train_part_5
+ 1284  ls
+ 1285  cd ..
+ 1286  ls
+ 1287  cd detect_result_new/
+ 1288  ls
+ 1289  mkdir que
+ 1290  ls
+ 1291  cp dfdc_train_part_5 que
+ 1292  cp -r dfdc_train_part_5 que
+ 1293  ls
+ 1294  cd que/
+ 1295  ls
+ 1296  cd ..
+ 1297  ls
+ 1298  rm -rf que
+ 1299  ls
+ 1300  cd ~/x
+ 1301  ls
+ 1302  mkdir que
+ 1303  ls
+ 1304  cd /home/dl/deepfake/data/detect_result_new/
+ 1305  ls
+ 1306  cp dfdc_train_part_5 ~/x/que/
+ 1307  cp -r  dfdc_train_part_5 ~/x/que/
+ 1308  cd ~/x
+ 1309  ls
+ 1310  cd que/
+ 1311  ls
+ 1312  cd dfdc_train_part_5/
+ 1313  ls
+ 1314  cd ..
+ 1315  cd dfdc_train_part_5/
+ 1316  cd ..
+ 1317  ls -lh dfdc_train_part_5/
+ 1318  cd dfdc_train_part_5/
+ 1319  cd zzafzthowz/
+ 1320  ls
+ 1321  cd ..
+ 1322  cd /home/dl/deepfake/data/detect_result_new/
+ 1323  cp -r  dfdc_train_part_[6,7] ~/x/que/
+ 1324  cd ~/x/que/
+ 1325  ls
+ 1326  cd ../data
+ 1327  ls
+ 1328  cd ./detect_result_new/
+ 1329  cd ./dfdc_train_part_34
+ 1330  ls
+ 1331  nohup python3 MTCNN_50_34.py > MTCNN_50_34.out &
+ 1332  nohup python3 MTCNN_50_49.py > MTCNN_50_49.out &
+ 1333  ps -ef|grep python
+ 1334  kill -9 32490
+ 1335  ps -ef|grep python
+ 1336  nohup python3 MTCNN_50_34.py > MTCNN_50_34.out &
+ 1337  ps -ef|grep python
+ 1338  kill -9 22760
+ 1339  ps -ef|grep python
+ 1340  nohup python3 MTCNN_50_34.py > MTCNN_50_34.out &
+ 1341  ps -ef|grep python
+ 1342  kill -9 11241
+ 1343  ps -ef|grep python
+ 1344  nohup python3 MTCNN_50_34.py > MTCNN_50_34.out &
+ 1345  cd ~/x/
+ 1346  ls
+ 1347  nvidia-smi
+ 1348  jupyter notebook --no-browser --port=9001
+ 1349  cd deepfake
+ 1350  jupyter notebook --no-browser --port=9001
+ 1351  cd deepfake/jupyter-guo/
+ 1352  ls
+ 1353  pwd
+ 1354  ls
+ 1355  cd deepfake/jupyter-guo/
+ 1356  l
+ 1357  cd deepfake/0217yhe/
+ 1358  python3 new_second.py 
+ 1359  nvidia-smi
+ 1360  jupyter notebook --no-browser --port=8607
+ 1361  nvidia-smi
+ 1362  cd deepfake/0217yhe/
+ 1363  ls
+ 1364  cd ..
+ 1365  cd 0217yhe/
+ 1366  cd x
+ 1367  ls
+ 1368  ls -al
+ 1369  rm new_512_rgb.zip 
+ 1370  df -h
+ 1371  ls
+ 1372  ls -al
+ 1373  ls -alh
+ 1374  cd ..
+ 1375  cd data
+ 1376  ls
+ 1377  cd deepfake/data
+ 1378  ls -alh
+ 1379  cd ~/x
+ 1380  ls -alh
+ 1381  rm 2nd-Freesound-Audio-Tagging-2019-master
+ 1382  rm -rf 2nd-Freesound-Audio-Tagging-2019-master
+ 1383  ls
+ 1384  cd ~/deepfake/
+ 1385  ls
+ 1386  cd 0219zyj/
+ 1387  ls
+ 1388  ls -alh
+ 1389  tail -f fulldata_face2_vgg_continue.log 
+ 1390  cd ~/x
+ 1391  ls -alh
+ 1392  cd deepfake/
+ 1393  ls
+ 1394  cd data/
+ 1395  ls
+ 1396  nvidia-smi
+ 1397  ls
+ 1398  ls -al
+ 1399  rm facedected220.tar.gz 
+ 1400  nohup tar czvf facedected220.tar.gz ./detect_result_new/ &
+ 1401  ls
+ 1402  tail -f nohup.out 
+ 1403  nvidia-smi
+ 1404  ps -ef | grep python
+ 1405  nvidia-smi
+ 1406  ls
+ 1407  cd ..
+ 1408  ls
+ 1409  cd 0217yzc
+ 1410  ls
+ 1411  cd 0214yzc
+ 1412  ls
+ 1413  cd ..
+ 1414  ls
+ 1415  cd 0217yhe
+ 1416  ls
+ 1417  ps -ef | grep python
+ 1418  cd ..
+ 1419  ls
+ 1420  cd ~/deepfake/
+ 1421  ls
+ 1422  cd data/
+ 1423  ls
+ 1424  ls -al
+ 1425  tail -f nohup.out 
+ 1426  ps -ef | grep python
+ 1427  kill -9 15813
+ 1428  kill -9 18586
+ 1429  ps -ef | grep python
+ 1430  cd ..
+ 1431  ls
+ 1432  cd 0216sjh
+ 1433  ls
+ 1434  cd ..
+ 1435  ls
+ 1436  cd 0214yzc
+ 1437  ls
+ 1438  cd ..
+ 1439  ls
+ 1440  cd data/
+ 1441  ls
+ 1442  cd detect_result_new/
+ 1443  ls
+ 1444  cd ..
+ 1445  ls
+ 1446  tail -f nohup.out 
+ 1447  nvidia-smi
+ 1448  ls
+ 1449  tail -f nohup.out 
+ 1450  ls
+ 1451  ls -al
+ 1452  cd ~/x
+ 1453  ls
+ 1454  cp ~/deepfake/data/facedected220.tar.gz .
+ 1455  nvidia-smi
+ 1456  ls
+ 1457  cd x
+ 1458  ls
+ 1459  ls -alh
+ 1460  rm facedected220.tar.gz 
+ 1461  nohup cp ~/deepfake/data/facedected220.tar.gz . &
+ 1462  ls -alh
+ 1463  exit
+ 1464  nvidia-smi
+ 1465  ls
+ 1466  cd deepfake
+ 1467  ls
+ 1468  cd data
+ 1469  ls
+ 1470  cd xx
+ 1471  ls
+ 1472  cd ..
+ 1473  ls
+ 1474  nvidia-smi
+ 1475  cd detect_result_new
+ 1476  ls
+ 1477  cd ..
+ 1478  ls
+ 1479  cd ..
+ 1480  ls
+ 1481  cd data
+ 1482  ls
+ 1483  cd xx
+ 1484  ls
+ 1485  nvidia-smi
+ 1486  cd ..
+ 1487  ls
+ 1488  cd detect_result_new
+ 1489  ls
+ 1490  cd dfdc_train_part_23
+ 1491  ls
+ 1492  cd ..
+ 1493  nvidia-smi
+ 1494  cat /proc/cpuinfo| grep \"physical id\"| sort| uniq| wc -l
+ 1495  cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+ 1496  cat /proc/cpuinfo| grep "cpu cores"| uniq
+ 1497  cat /proc/cpuinfo| grep "processor"| wc -l
+ 1498  nvidia-smi
+ 1499  cat /proc/cpuinfo| grep \"processor\"| wc -l
+ 1500  nvidia-smi
+ 1501  ls
+ 1502  cd deepfake
+ 1503  ls
+ 1504  jupyter notebook --no-browser --port=9001
+ 1505  cd deepfake
+ 1506  ls
+ 1507  jupyter notebook --no-browser --port=9001
+ 1508  nvidia-smi
+ 1509  nvidia-smi
+ 1510  ls
+ 1511  cd deepfake/
+ 1512  ls
+ 1513  fdisk -l
+ 1514  sudo fdisk -l
+ 1515  cd ..
+ 1516  ls
+ 1517  cd x
+ 1518  ls
+ 1519  cd ..
+ 1520  sudo mount /dev/sdc1 ./x
+ 1521  cd x
+ 1522  ls
+ 1523  cd ..
+ 1524  df -f
+ 1525  dh -f
+ 1526  df -h
+ 1527  cd deepfake/
+ 1528  ls
+ 1529  cd data/
+ 1530  ls
+ 1531  cd detect_result_new/
+ 1532  ls
+ 1533  cd dfdc_train_part_14
+ 1534  ls | wc
+ 1535  cd ..
+ 1536  cd dfdc_train_part_15
+ 1537  ls | wc
+ 1538  cd ..
+ 1539  ls
+ 1540  cd ..
+ 1541  ls
+ 1542  rm -rf detect_result
+ 1543  cd ~/x
+ 1544  ls
+ 1545  ls -al
+ 1546  ls -alh
+ 1547  ls -al
+ 1548  cd ~/deepfake/
+ 1549  cd data/
+ 1550  ls -al
+ 1551  ls -alh
+ 1552  ls -al
+ 1553  cd ~/x
+ 1554  ls -al
+ 1555  export LANG="en_US.UTF-8";export LANGUAGE="en_US.UTF-8";top
+ 1556  nvidia-smi
+ 1557  nvidia-smi
+ 1558  ls
+ 1559  cd deepfake
+ 1560  ls
+ 1561  jupyter notebook --no-browser --port=9001
+ 1562  nvidia-smi
+ 1563  ls
+ 1564  cd deepfake/
+ 1565  ls
+ 1566  ls -alh
+ 1567  cd data
+ 1568  ls
+ 1569  cd detect_result_new/
+ 1570  ls
+ 1571  ls -alh
+ 1572  ls
+ 1573  cd data
+ 1574  ls
+ 1575  cd deepfake/
+ 1576  ls
+ 1577  cd data/
+ 1578  ls
+ 1579  cd detect_result_new/
+ 1580  ls
+ 1581  tar czvf 5.tar.gz ./dfdc_train_part_5
+ 1582  tar cvf 6.tar ./dfdc_train_part_6
+ 1583  ls
+ 1584  cd deepfake/
+ 1585  ls
+ 1586  cd data/
+ 1587  ls
+ 1588  cd detect_result_new/
+ 1589  ls
+ 1590  ls -al
+ 1591  ls -alh
+ 1592  ls -ahl
+ 1593  tar cvf 7.tar ./dfdc_train_part_7
+ 1594  pwd
+ 1595  ls
+ 1596  ps -ef | grep tar
+ 1597  ls
+ 1598  cd deepfake/
+ 1599  ls
+ 1600  cd data/
+ 1601  ls
+ 1602  cd detect_result_new/
+ 1603  ls
+ 1604  ls -al
+ 1605  ls ~/x
+ 1606  ps -ef | grep tar
+ 1607  ls ~/x
+ 1608  ls
+ 1609  ls -al
+ 1610  cp ./6.tar ~/x
+ 1611  exit
+ 1612  cd x
+ 1613  ls
+ 1614  ls -al
+ 1615  ls -alh
+ 1616  ls -al
+ 1617  ls -alh
+ 1618  ls ~/deepfake/data/detect_result_new/
+ 1619  ls -alh ~/deepfake/data/detect_result_new/
+ 1620  ls -alh
+ 1621  ls -alh ~/deepfake/data/detect_result_new/
+ 1622  ps -ef | grep tar
+ 1623  ls
+ 1624  cp ~/deepfake/data/detect_result_new/7.tar .
+ 1625  cd ~/deepfake/data/
+ 1626  ls
+ 1627  cd detect_result_new/
+ 1628  ls
+ 1629  tar cvf 9.tar ./dfdc_train_part_9
+ 1630  cp 9.tar  ~/x
+ 1631  exit
+ 1632  nvidia-smi
+ 1633  ls
+ 1634  cd deepfake/
+ 1635  ls
+ 1636  cd data/
+ 1637  ls
+ 1638  cd metadata_all/
+ 1639  ls
+ 1640  python3 j2csv.py 
+ 1641  python3 j2csv.py ./10metadata.json 
+ 1642  ls
+ 1643  cp 1metadata.json 1.json
+ 1644  sed -i "s/}\,/}\n/g" 1.json
+ 1645  vi 1.json
+ 1646  cp 1metadata.json 1.json
+ 1647  sed -i "s/}\,/\n/g" 1.json
+ 1648  vi 1.json 
+ 1649  cp 1.json 1.csv
+ 1650  vi 1.csv
+ 1651  cp 1metadata.json 1.json
+ 1652  vi 1.json
+ 1653  sed -i "s/}\, /\n/g" 1.json
+ 1654  vi 1.json
+ 1655  sed -i "s/{//g" 1.json
+ 1656  vi 1.json
+ 1657  cd ..
+ 1658  tar czvf metadata_all.tar.gz ./metadata_all/
+ 1659  ls
+ 1660  cd metadata_all/
+ 1661  ls
+ 1662  sed -i "s/}\, /\n/g" *.json
+ 1663  ls
+ 1664  vi 10metadata.json 
+ 1665  ls
+ 1666  vi 10metadata.json 
+ 1667  cat *.json > all.csv
+ 1668  vi all.csv 
+ 1669  mv all.csv deepfake_all.csv
+ 1670  vi deepfake_all.csv 
+ 1671  awk -F' ' '{print $1}' deepfake_all.csv 
+ 1672  ls
+ 1673  awk -F' ' '{print $2}' deepfake_all.csv 
+ 1674  awk -F' ' '{print $3}' deepfake_all.csv 
+ 1675  awk -F' ' '$3~"FAKE"{print $3}' deepfake_all.csv 
+ 1676  awk -F' ' '$3~"FAKE"{print $0}' deepfake_all.csv 
+ 1677  awk -F' ' '$3~"REAL"{print $0}' deepfake_all.csv 
+ 1678  awk -F' ' '$3~"REAL"{print $1}' deepfake_all.csv 
+ 1679  awk -F' ' '$3~"REAL"{print substr($1,1)}' deepfake_all.csv 
+ 1680  awk -F' ' '$3~"REAL"{print substr($1,2)}' deepfake_all.csv 
+ 1681  awk -F' ' '$3~"REAL"{print substr($1,2,length($1))}' deepfake_all.csv 
+ 1682  awk -F' ' '$3~"REAL"{print substr($1,2,length($1)-2)}' deepfake_all.csv 
+ 1683  awk -F' ' '$3~"REAL"{print substr($1,2,length($1)-3)}' deepfake_all.csv 
+ 1684  awk -F' ' '$3~"REAL"{print substr($1,2,length($1)-3)}' deepfake_all.csv > real.csv
+ 1685  vi real.csv 
+ 1686  awk -F' ' '$3~"FAKE"{print $0}' deepfake_all.csv 
+ 1687  awk -F' ' '$3~"FAKE"{print $1 $5}' deepfake_all.csv 
+ 1688  awk -F' ' '$3~"FAKE"{print $1 $7}' deepfake_all.csv 
+ 1689  awk -F' ' '$3~"FAKE"{print sub($1,1,length($1)-3)" " $7}' deepfake_all.csv 
+ 1690  awk -F' ' '$3~"FAKE"{print substr($1,1,length($1)-3)" " $7}' deepfake_all.csv 
+ 1691  awk -F' ' '$3~"FAKE"{print substr($1,2,length($1)-3)" " $7}' deepfake_all.csv 
+ 1692  awk -F' ' '$3~"FAKE"{print substr($1,2,length($1)-3)" " substr($7,2,length($7)-2)}' deepfake_all.csv 
+ 1693  awk -F' ' '$3~"FAKE"{print substr($1,2,length($1)-3)" " substr($7,2,length($7)-2)}' deepfake_all.csv > fake.csv
+ 1694  vi fake.csv
+ 1695  shuf real.csv > s_real.csv
+ 1696  head -n3000 s_real.csv > val_real.csv
+ 1697  tail -n+3001 s_real.csv > train_real.csv
+ 1698  vi val_real.csv 
+ 1699  vi train_real.csv 
+ 1700  ls
+ 1701  awk -F
+ 1702  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $1;}' real.csv fake.csv 
+ 1703  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $0;}' real.csv fake.csv 
+ 1704  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $0;}' real.csv fake.csv | wc
+ 1705  wc fake.csv
+ 1706  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $0;}' real.csv train_real.csv | wc
+ 1707  vi train_real.csv 
+ 1708  vi real.csv
+ 1709  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $0;}' real.csv train_real.csv
+ 1710  vi train_real.csv 
+ 1711  ls
+ 1712  vi real.csv
+ 1713  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $0;}' train_real.csv fake.csv | wc
+ 1714  wc train_real.csv 
+ 1715  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $2" "$1;}' train_real.csv fake.csv > train_fake.csv
+ 1716  vi train_fake.csv 
+ 1717  cat train_fake.csv | sort > x
+ 1718  vi x
+ 1719  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $1" "$2;}' train_real.csv fake.csv > train_fake.csv
+ 1720  cat train_fake.csv | sort > x
+ 1721  vi x
+ 1722  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $2" "$1;}' train_real.csv fake.csv > train_fake.csv
+ 1723  cat train_fake.csv | sort > x
+ 1724  vi x
+ 1725  awk -F' ' 'BEGIN{x=""}{if ($1==x){print “fake:"$2}else{print "real:"$1"\nfake:"$2}' x
+ 1726  awk -F' ' 'BEGIN{x=""}{if ($1==x){print “fake:"$2}else{print "real:"$1"\nfake:"$2}}' x
+ 1727  awk -F' ' 'BEGIN{x=""}{if ($1==x;){print “fake:"$2}else{print "real:"$1"\nfake:"$2;}}' x
+ 1728  awk -F' ' 'BEGIN{x=""}{if ($1==x){print “fake:"$2}else{print "real:"$1"\nfake:"$2;}}' x
+ 1729  awk -F' ' 'BEGIN{x=""}{if ($1==x){print “fake:}}' x
+ 1730  awk -F' ' 'BEGIN{x=""}' x
+ 1731  awk -F' ' 'BEGIN{x=""}{print $2}' x
+ 1732  awk -F' ' 'BEGIN{x=""}{print $1}' x
+ 1733  awk -F' ' 'BEGIN{x=""}{if($1!=x) print $1}' x
+ 1734  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print $1;x=$1;}}' x
+ 1735  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real:"$1;x=$1;}}' x
+ 1736  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real:"$1"\nfake:"$2;x=$1;}}' x
+ 1737  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real:"$1"\nfake:"$2;x=$1;}else print $2;}' x
+ 1738  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real:"$1"\nfake:"$2;x=$1;}else print "fake:"$2;}' x
+ 1739  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real "$1"\nfake "$2;x=$1;}else print "fake "$2;}' x > rt.csv
+ 1740  wc rt.csv
+ 1741  wc train_real.csv 
+ 1742  ls
+ 1743  vi rt.csv
+ 1744  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $2" "$1;}' val_real.csv fake.csv > val_fake.csv
+ 1745  cat val_fake.csv | sort > x
+ 1746  awk -F' ' 'BEGIN{x=""}{if($1!=x){ print "real "$1"\nfake "$2;x=$1;}else print "fake "$2;}' x > rv.csv
+ 1747  vi rv.csv
+ 1748  ls
+ 1749  wc rt.csv
+ 1750  rt rv.csv
+ 1751  wc rv.csv
+ 1752  vi rt.csv
+ 1753  vi rv.csv
+ 1754  mv rt.csv 3000train.csv
+ 1755  mv rv.csv 3000val.csv
+ 1756  cd ..
+ 1757  ls
+ 1758  cd detect_result_new/
+ 1759  ls
+ 1760  vi f.csv
+ 1761  cp f.csv ../metadata_all
+ 1762  cd ..
+ 1763  cd metadata_all/
+ 1764  ls
+ 1765  mv f.csv allpath.csv
+ 1766  vi allpath.csv 
+ 1767  awk -F'\' "{print $3}" ./allpath.csv 
+ 1768  awk -F'/' "{print $3}" ./allpath.csv 
+ 1769  awk -F'//' "{print $3}" ./allpath.csv 
+ 1770  awk -F'/' "{print $1}" ./allpath.csv 
+ 1771  awk -F'\/' "{print $1}" ./allpath.csv 
+ 1772  awk -F'_' "{print $1}" ./allpath.csv 
+ 1773  awk -F'.' "{print $2}" ./allpath.csv 
+ 1774  awk -F'.' '{print $2}' ./allpath.csv 
+ 1775  awk -F'/' '{print $2}' ./allpath.csv 
+ 1776  awk -F'/' '{print $3}' ./allpath.csv 
+ 1777  awk -F'/' '{print $3" "$0}' ./allpath.csv 
+ 1778  awk -F'/' '{print $3".mp4 "$0}' ./allpath.csv > allfname.csv
+ 1779  vi allfname.csv 
+ 1780  ls
+ 1781  rm x
+ 1782  ls
+ 1783  vi train_fake.csv 
+ 1784  vi 3000train.csv 
+ 1785  awk -F' ' 'NR==FNR{a[$1]=1;}NR!=FNR{if(a[$2]==1) print $2" "$1;}' 3000val.csv allfname.csv 
+ 1786  vi 3000val.csv 
+ 1787  awk -F' ' 'NR==FNR{a[$2]=1;}NR!=FNR{if(a[$2]==1) print $2" "$1;}' 3000val.csv allfname.csv 
+ 1788  vi allfname.csv 
+ 1789  awk -F' ' 'NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $1;}' 3000val.csv allfname.csv 
+ 1790  awk -F' ' 'NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1791  awk -F' ' 'BEGIN{x='';i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1792  awk -F' ' 'BEGIN{x=''}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1793  awk -F' ' 'NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1794  awk -F' ' 'BEGIN{}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1795  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) print $2;}' 3000val.csv allfname.csv 
+ 1796  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){print $2;}else {s=$1;}}}' 3000val.csv allfname.csv 
+ 1797  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){print $2" "$1;}else {s=$1;}}}' 3000val.csv allfname.csv 
+ 1798  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){print $2" "$1;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv 
+ 1799  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv 
+ 1800  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==2) print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv 
+ 1801  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==2) print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv > 3000val_file.csv
+ 1802  wc 3000val.csv
+ 1803  wc 3000val_file.csv 
+ 1804  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv
+ 1805  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv | wc
+ 1806  cd ~/deepfake/data/detect_result_new/
+ 1807  ls
+ 1808  cd dfdc_train_part_0
+ 1809  ls
+ 1810  cd wsxxdlhnhh/
+ 1811  ls
+ 1812  ls | wc
+ 1813  cd ~
+ 1814  ls
+ 1815  cd deepfake/
+ 1816  ls
+ 1817  cd da
+ 1818  cd data/
+ 1819  ls
+ 1820  cd metadata_all/
+ 1821  ls
+ 1822  wc 3000val.csv 
+ 1823  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $2" "$1" "i;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv
+ 1824  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $1;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv | sort
+ 1825  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $1" "$2;i++;}else {s=$1;i=0;}}}' 3000val.csv allfname.csv | sort
+ 1826  ls
+ 1827  vi allpath.csv 
+ 1828  awk 
+ 1829  awk '{print $0}' allpath.csv 
+ 1830  awk -F'/' '{print $3}' allpath.csv 
+ 1831  awk -F'/' '{print $3}' allpath.csv > x
+ 1832  awk -F'/' '{print $3}' allpath.csv |sort> x
+ 1833  vi x
+ 1834  ls
+ 1835  vi allfname.csv
+ 1836  cat allfname.csv | sort all2.csv
+ 1837  cat allfname.csv | sort > all2.csv
+ 1838  vi all2.csv 
+ 1839  cat allfname.csv | sort | uniq > all2.csv
+ 1840  wc all2.csv
+ 1841  ls
+ 1842  vi all2.csv 
+ 1843  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{a[$2]=1;}NR!=FNR{if(a[$1]==1) {if(s==$1){if(i==3) print $1" "$2;i++;}else {s=$1;i=0;}}}' 3000val.csv all2.csv > 3000val_file.csv
+ 1844  wc 3000val_file.csv 
+ 1845  wc 3000val.csv
+ 1846  vi 3000val.csv
+ 1847  vi 3000val_file.csv 
+ 1848  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) print $0;i++} else {s=$1;i=0} a[$2]=1;} NR!=FNR{}' all2.csv 3000train.csv
+ 1849  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {print $0;a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{}' all2.csv 3000train.csv
+ 1850  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {#print $0;a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{}' all2.csv 3000train.csv
+ 1851  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {//print $0;a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{}' all2.csv 3000train.csv
+ 1852  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{print $0}' all2.csv 3000train.csv
+ 1853  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{print $0;if (a[$2]!="") print a[$2};}' all2.csv 3000train.csv
+ 1854  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{print $0;if (a[$2]!="") print a[$2];}' all2.csv 3000train.csv
+ 1855  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{if (a[$2]!="") print $0" "a[$2];}' all2.csv 3000train.csv
+ 1856  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{if (a[$2]!="") print $0" "a[$2];}' all2.csv 3000train.csv > 3000train_file.csv
+ 1857  awk -F' ' 'BEGIN{s="";i=0;}NR==FNR{if(s==$1){if(i==3) {a[$1]=$2;}i++} else {s=$1;i=0}} NR!=FNR{if (a[$2]!="") print $0" "a[$2];}' all2.csv 3000val.csv > 3000val_file.csv
+ 1858  wc 3000train.csv 
+ 1859  wc 3000train_file.csv 
+ 1860  wc 3000val_file.csv 
+ 1861  wc 3000val.csv 
+ 1862  cp 3000train_file.csv ~/deepfake/0214yzc
+ 1863  cp 3000val_file.csv ~/deepfake/0214yzc
+ 1864  ls
+ 1865  cd deepfake/
+ 1866  ls
+ 1867  cd data/
+ 1868  ls
+ 1869  cd detect_result_new/
+ 1870  ls
+ 1871  wc f.csv
+ 1872  cd ..
+ 1873  ls
+ 1874  cd ..
+ 1875  ls
+ 1876  cd 0214yzc
+ 1877  ls
+ 1878  cd ..
+ 1879  ls
+ 1880  cd 0127yhe
+ 1881  ls
+ 1882  cd 0217yhe/
+ 1883  ls
+ 1884  cd ..
+ 1885  ls
+ 1886  cd 0216sjh
+ 1887  ls
+ 1888  ls -al
+ 1889  vi metadata.csv 
+ 1890  cd ..
+ 1891  ls
+ 1892  cd data/
+ 1893  ls
+ 1894  cd videos/
+ 1895  ls
+ 1896  cd ..
+ 1897  cd xx
+ 1898  ls
+ 1899  cd ..
+ 1900  mv xx metadata_all
+ 1901  ls
+ 1902  cd metadata_all/
+ 1903  ls
+ 1904  vi 10metadata.json 
+ 1905  vi j2csv.py
+ 1906  cd ..
+ 1907  ls
+ 1908  cd detect_result_new/
+ 1909  ls
+ 1910  find . -maxdepth 1 -type d | while read dir; do count=$(find "$dir" -type f | wc -l); echo "$dir : $count"; done
+ 1911  ls
+ 1912  cd deepfake
+ 1913  cd data
+ 1914  ls
+ 1915  cd matadata_all
+ 1916  cd metadata_all
+ 1917  ls
+ 1918  pwd
+ 1919  cd /
+ 1920  ls
+ 1921  cd home
+ 1922  cd dl
+ 1923  ls
+ 1924  cd leowang
+ 1925  jupyter notebook --no-browser --port=9012
+ 1926  pwd
+ 1927  df -h
+ 1928  ls4
+ 1929  ls -lh
+ 1930  cd yufeng/
+ 1931  l
+ 1932  cd audio/
+ 1933  l
+ 1934  cd ..
+ 1935  l
+ 1936  cd vi
+ 1937  l
+ 1938  cd vedio/
+ 1939  l
+ 1940  cd ..
+ 1941  l
+ 1942  less dict.csv 
+ 1943  less dataset.csv 
+ 1944  cd ..
+ 1945  l\
+ 1946  l
+ 1947  cd Videos/
+ 1948  l
+ 1949  cd ..
+ 1950  l
+ 1951  cd Documents/
+ 1952  l
+ 1953  git clone https://github.com/wubinbai/2020
+ 1954  cd ../deepfake/
+ 1955  ls -lt
+ 1956  ls -ltr
+ 1957  du -h .
+ 1958  l
+ 1959  du -h .
+ 1960  l
+ 1961  cd jupyter-guo/
+ 1962  l
+ 1963  ls4
+ 1964  ls -lhtr
+ 1965  l
+ 1966  ls -lhtr
+ 1967  ls *.ipynb
+ 1968  cd ..
+ 1969  cd ../
+ 1970  l
+ 1971  cd Documents/
+ 1972  l
+ 1973  mkdir wubin
+ 1974  cd wubin/
+ 1975  l
+ 1976  git clone https://github.com/wubinbai/2020
+ 1977  cd Documents/
+ 1978  l
+ 1979  cd wubin/
+ 1980  l
+ 1981  git clone https://github.com/wubinbai/2020
+ 1982  \
+ 1983  l
+ 1984  cd 2020/
+ 1985  l
+ 1986  gis
+ 1987  l
+ 1988  cd ubuntu_related/
+ 1989  bash l
+ 1990  l
+ 1991  bash after_installing_ubuntu.sh 
+ 1992  ipy
+ 1993  exit
+ 1994  ipy
+ 1995  l
+ 1996  cd Documents/wubin/2020/
+ 1997  l
+ 1998  cd temp/
+ 1999  l
+ 2000  mkdir deepfake
+ 2001  cd ..
+ 2002  l
+ 2003  cd ..
+ 2004  l
+ 2005  cd ..
+ 2006  l
+ 2007  cd ..
+ 2008  l
+ 2009  cd deepfake/
+ 2010  cd jupyter-guo/
+ 2011  l
+ 2012  du -h .
+ 2013  du -h
+ 2014  du .
+ 2015  l
+ 2016  ls4
+ 2017  cd ../../Documents/wubin/
+ 2018  l
+ 2019  mkdir others
+ 2020  cd -
+ 2021  cd ..
+ 2022  l
+ 2023  cp -r jupyter-guo/ ../Documents/wubin/others/
+ 2024  cd -
+ 2025  cd ..
+ 2026  cd ../Documents/wubin/
+ 2027  l
+ 2028  cd others/
+ 2029  l
+ 2030  cd jupyter-guo/
+ 2031  l
+ 2032  ipytopy  *.ipynb
+ 2033  l
+ 2034  ls4
+ 2035  cd ..
+ 2036  l
+ 2037  rm jupyter-guo/
+ 2038  rm -r jupyter-guo/
+ 2039  l
+ 2040  cd ../../
+ 2041  l
+ 2042  cd ../
+ 2043  cd deepfake/jupyter-guo/
+ 2044  l
+ 2045  cd ..
+ 2046  l
+ 2047  cp -r jupyter-guo/ ../Documents/wubin/others/
+ 2048  cd ../Documents/wubin/
+ 2049  l
+ 2050  cd others/
+ 2051  l
+ 2052  cd ..
+ 2053  l
+ 2054  cd 2020/
+ 2055  l
+ 2056  cd ubuntu_related/
+ 2057  l
+ 2058  cd ssh/
+ 2059  l
+ 2060  gipl
+ 2061  l
+ 2062  mkdir history
+ 2063  cd history/
+ 2064  history > history20200222.txt
