@@ -73,7 +73,7 @@ git config --global user.email wubinbai@yahoo.com
 # You may want to alias sd as shutdown now to fasten your shutdown using two letters:
 
 # Go to the ~/ first:
-
+echo 'actually, you can create .bash_aliases file for alias!'
 cd
 echo "# customized aliases by wubin" >> .bashrc
 echo "alias"" ""sd=\"shutdown now\"" >> .bashrc
