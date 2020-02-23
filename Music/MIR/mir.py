@@ -6,6 +6,7 @@ import librosa.display as disp
 x, sr = librosa.load('audio/simple_loop.wav')
 y = x
 energy = np.array([sum((x[i:i+frame_length]**2)) for i in range(0,len(y),hop_length)])
+energy_n = energy/energy.max()
 frames = range(len(energy))
 t = librosa.frames_to_time(frames,sr,hop_length=hop_length)
 
@@ -34,4 +35,12 @@ Xdb = librosa.amplitude_to_db(abs(X))
 #plt.figure()
 #plt.show()
 
-rms = librosa.feature.rms(y)
+rms = librosa.feature.rms(y,hop_length=hop_length)
+rms = rms[0]
+rms_n = rms/rms.max()
+
+plt.figure()
+disp.waveplot(y,sr)
+plt.plot(t,energy_n,c='g')
+plt.plot(t,rms_n,c='b')
+plt.savefig('wave_E_RMS.png')
