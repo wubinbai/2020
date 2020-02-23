@@ -102,6 +102,7 @@ echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
 echo "alias"" ""ev=\"evince \"" >> .bashrc
+echo "alias"" ""cb=\"xsel -ib\"" >> .bashrc
 # Then you can install vim
 
 sudo apt-get install vim
