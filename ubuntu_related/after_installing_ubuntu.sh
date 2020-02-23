@@ -284,3 +284,11 @@ echo 'if you want to configure ipython import: modify this line.'
 # how to check disk write speed, read speed?
 # sudo apt install hdparm
 # hdparm -Tt /dev/sda
+
+
+### clipboard ###
+### how to pip command line output to clipboard? ###
+### use xsel ###
+# sudo apt install xsel
+# pwd | xsel -ib
+
