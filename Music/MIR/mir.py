@@ -44,3 +44,24 @@ disp.waveplot(y,sr)
 plt.plot(t,energy_n,c='g')
 plt.plot(t,rms_n,c='b')
 plt.savefig('wave_E_RMS.png')
+
+onset_frames = librosa.onset.onset_detect(y,sr=sr,hop_length=hop_length)
+onset_times = librosa.frames_to_time(onset_frames,sr=sr,hop_length=hop_length)
+onset_samples = librosa.frames_to_samples(onset_frames,hop_length=hop_length)
+clicks = librosa.clicks(times=onset_times,length=len(y))
+librosa.output.write_wav('clicks_simple_loop.wav',y+clicks,sr=sr)
+
+frame_sz = int(0.100*sr)
+segments = np.array([x[i:i+frame_sz] for i in onset_samples])
+
+def concatenate_segments(segments,sr=22050,pad_time=0.300):
+    padded_segments = [np.concatenate([segment,np.zeros(int(pad_time*sr))]) for segment in segments]
+    return np.concatenate(padded_segments)
+
+concatenated_signal = concatenate_segments(segments,sr)
+librosa.output.write_wav('conc.wav',concatenated_signal,sr)
+
+zcrs = [sum(librosa.zero_crossings(segment)) for segment in segments]
+ind = np.argsort(zcrs)
+concatenated_signal_sort = concatenate_segments(segments[ind],sr)
+librosa.output.write_wav('sort.wav',concatenated_signal_sort,sr=sr)
