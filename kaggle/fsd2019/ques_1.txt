@@ -1,0 +1,9 @@
+# about 9th place code, freesound 2019
+link is :
+https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/95409#latest-564043
+
+1. What is DenseNet Model? 只是一个全连接模型的名称，还是这是一个特定的名词，在github上有一个？怎么找到代码？
+
+2. What is Dnet121?
+
+3. What is ResNet18
