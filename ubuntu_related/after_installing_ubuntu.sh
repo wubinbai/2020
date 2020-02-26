@@ -248,7 +248,11 @@ echo 'if you want to configure ipython import: modify this line.'
 # 1. sudp apt install mpg123 # for converting mp3 to wav
 # 2. sudo snap install docker # for installing docker
 # 3. install pycharm?
-#  conda install -c chen pycharm 
+#  conda install -c chen pycharm
+# 4. ipython nbconvert pdf html
+# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple nbconvert
+## sudo install texlive-xetex
+# sudo apt-get install texlive-full
 # My Commands
 # 1. Open chrome? Use see name.html
 # 2. Status bar? Use | pv
