@@ -1,0 +1,1000 @@
+ 1000  ls
+ 1001  cd detect_
+ 1002  ls
+ 1003  cd detect_
+ 1004  cd detect_result_new/
+ 1005  ls
+ 1006  cd dfdc_train_part_
+ 1007  cd dfdc_train_part_0
+ 1008  ls
+ 1009  cd ..
+ 1010  ls
+ 1011  cd ..
+ 1012  ls
+ 1013  cd detect_jpg
+ 1014  ls
+ 1015  ls ../detect_result_new/*/ -d | xargs mkdir 
+ 1016  ls
+ 1017  ls ../detect_result_new/*/ -d
+ 1018  ls ../detect_result_new/*/ -d | sed '1,3p'
+ 1019  ls ../detect_result_new/*/ -d > x
+ 1020  awk '{print substr($0,10)}' ./x
+ 1021  awk '{print substr($0,15)}' ./x
+ 1022  awk '{print substr($0,25)}' ./x
+ 1023  awk '{print substr($0,20)}' ./x
+ 1024  awk '{print substr($0,22)}' ./x
+ 1025  awk '{print substr($0,22,2)}' ./x
+ 1026  awk '{print substr($0,22,12)}' ./x
+ 1027  awk '{print substr($0,22,length($0)-22)}' ./x
+ 1028  awk '{print substr($0,22,length($0)-22)}' ./x > x1
+ 1029  ls
+ 1030  cat x1 | xargs mkdir
+ 1031  ls
+ 1032  cat x1 | xargs ls
+ 1033  cat x | xargs ls
+ 1034  cat x | xargs ls -d
+ 1035  cat x | xargs ls -d */
+ 1036  cat x | xargs ls -al
+ 1037  cat x | xargs ls -d
+ 1038  cat x | xargs ls -d {}*/
+ 1039  vi x
+ 1040  cat x | xargs ls
+ 1041  cat x | xargs ls -d
+ 1042  cat x | xargs ls -d {}
+ 1043  cat x | xargs ls
+ 1044  cat x | xargs ls -1
+ 1045  cat x | xargs ls -FR
+ 1046  cat x | xargs ls -F
+ 1047  cat x | xargs ls -R
+ 1048  cat x | xargs ls -d */
+ 1049  cat x | xargs ls -d */ {}
+ 1050  cat x | xargs ls -d
+ 1051  cat x | xargs ls -a
+ 1052  cat x | xargs ls -1
+ 1053  cat x | xargs ls -R
+ 1054  cat x | xargs ls -R | grep /$
+ 1055  cat x | xargs ls -R | grep detect
+ 1056  cat x | xargs ls -R | grep detect > x1
+ 1057  awk '{print substr($0,22,length($0)-22)}' ./x1
+ 1058  awk '{print substr($0,22,length($0)-22)}' ./x1 | xargs mkdir
+ 1059  cd dfdc_train_part_
+ 1060  cd dfdc_train_part_0
+ 1061  ls
+ 1062  cd ..
+ 1063  ls
+ 1064  cd dfdc_train_part_1
+ 1065  ls
+ 1066  cd ..
+ 1067  ls
+ 1068  rm x
+ 1069  rm x1
+ 1070  ls
+ 1071  cp ~/deepfake/data/detect_result_new/f.csv .
+ 1072  ls
+ 1073  vi f.csv
+ 1074  ls
+ 1075  awk '{print $0}' f.csv
+ 1076  awk '{print "."$0}' f.csv
+ 1077  cd ..
+ 1078  ls
+ 1079  cd detect_jpg
+ 1080  awk '{print "../detect_result_new/"sub($0,1)}' f.csv
+ 1081  awk '{print "../detect_result_new/"sub($0,2)}' f.csv
+ 1082  awk '{print "../detect_result_new/"substr($0,2)}' f.csv
+ 1083  awk '{print "../detect_result_new/"substr($0,1)}' f.csv
+ 1084  awk '{print "../detect_result_new/"substr($0,3)}' f.csv
+ 1085  awk '{a="../detect_result_new/"substr($0,3); print a" "substr(a,0,length(a)-4)".jpg"}' f.csv
+ 1086  awk '{a="../detect_result_new/"substr($0,3); print a" "substr(a,0,length(a)-5)".jpg"}' f.csv
+ 1087  awk '{a="../detect_result_new/"substr($0,3); print a" "substr(a,10,length(a)-5)".jpg"}' f.csv
+ 1088  awk '{a="../detect_result_new/"substr($0,3); print a" "substr(a,21,length(a)-5)".jpg"}' f.csv
+ 1089  awk '{a="../detect_result_new/"substr($0,3); print a" ."substr(a,21,length(a)-5)".jpg"}' f.csv
+ 1090  awk '{a="../detect_result_new/"substr($0,3); print a" ."substr(a,21,length(a)-5-21)".jpg"}' f.csv
+ 1091  awk '{a="../detect_result_new/"substr($0,3); print a" ."substr(a,21,length(a)-5-21)".jpg"}' f.csv > f1.csv
+ 1092  wc f1.csv
+ 1093  nohup cat f1.csv | xargs convert &
+ 1094  ls
+ 1095  cat f1.csv
+ 1096  head -1 f1.csv
+ 1097  ps -ef | grep  convert
+ 1098  ls
+ 1099  ps -ef | grep convet
+ 1100  ps -ef | grep convert
+ 1101  ps -ef | grep convert > t
+ 1102  vi t
+ 1103  kill -9 30131
+ 1104  vi t
+ 1105  kill -9 30131
+ 1106  vi t
+ 1107  kill -9 30707
+ 1108  vi t
+ 1109  ps -ef | grep convert > t
+ 1110  vi t
+ 1111  ls
+ 1112  head -1 f1.csv
+ 1113  head -1 f1.csv | xargs convert
+ 1114  cd dfdc_train_part_32/qtbntggfwk/
+ 1115  ls
+ 1116  cd ..
+ 1117  cat f1.csv | xargs convert
+ 1118  cd dfdc_train_part_32/evoiapzwne/
+ 1119  ls
+ 1120  cd ..
+ 1121  ls
+ 1122  cd ..
+ 1123  ls
+ 1124  awk '{a="../detect_result_new/"substr($0,3); print a" ."substr(a,21,length(a)-5-21)".jpg"}' f.csv
+ 1125  awk '{a="../detect_result_new/"substr($0,3); print "convert "a" ."substr(a,21,length(a)-5-21)".jpg"}' f.csv
+ 1126  awk '{a="../detect_result_new/"substr($0,3); print "convert "a" ."substr(a,21,length(a)-5-21)".jpg"}' f.csv > f1.csv
+ 1127  mv f1.csv f1.sh
+ 1128  chmod +x f1.sh
+ 1129  ./f1.sh
+ 1130  nohup ./f1.sh &
+ 1131  tail -f nohup.out 
+ 1132  ps -ef | grep f1.sh
+ 1133  ls
+ 1134  cd dfdc_train_part_0
+ 1135  ls
+ 1136  cd wugnnrsolg/
+ 1137  ls
+ 1138  cd ..
+ 1139  ls
+ 1140  nvidia-smi
+ 1141  cd deepfake/0217yhe/
+ 1142  python3 new_second.py 
+ 1143  cd ..
+ 1144  cd data/
+ 1145  cls
+ 1146  ls
+ 1147  cd detect_result_new/
+ 1148  ls
+ 1149  cd ..
+ 1150  cd..
+ 1151  cd ..
+ 1152  cd 0217yhe/
+ 1153  python3 new_second.py 
+ 1154  nvidia-smi
+ 1155  python3 new_second.py 
+ 1156  ls ../
+ 1157  ls ../data
+ 1158  python3 new_second.py 
+ 1159  nvidia-smi
+ 1160  cd deepfake
+ 1161  ls
+ 1162  nvidia-smi
+ 1163  ps -ef|grep python
+ 1164  kill -9 11868
+ 1165  ps -ef|grep python
+ 1166  nvidia-smi
+ 1167  ps -ef|grep python
+ 1168  nvidia-smi
+ 1169  ps -ef|grep python
+ 1170  nvidia-smi
+ 1171  ps -ef|grep python
+ 1172  nvidia-smi
+ 1173  /usr/bin/python3 /home/dl/deepfake/0214yzc/Resnext50.py
+ 1174  nvidia-smi
+ 1175  /usr/bin/python3 /home/dl/deepfake/0214yzc/Resnext50.py
+ 1176  ps -ef|grep python
+ 1177  jupyter notebook
+ 1178  cd Documents/wubin/
+ 1179  l
+ 1180  cd others/
+ 1181  l
+ 1182  history
+ 1183  nvidia-smi
+ 1184  ++~
+ 1185  l
+ 1186  cd py-guo/
+ 1187  l
+ 1188  v shengyinduqu.py 
+ 1189  ls4 shengyinduqu.py 
+ 1190  v shengyinduqu.py 
+ 1191  ps -ef|grep python
+ 1192  nohup python3 Resnext50.py > resnext50.out &
+ 1193  nvidia-smi
+ 1194  nohup python3 Resnext50.py > resnext50.out &
+ 1195  ps -ef|grep python
+ 1196  kill -9 6427
+ 1197  ps -ef|grep python
+ 1198  kill -9 13852
+ 1199  l
+ 1200  du -sh /*
+ 1201  sudo du -sh /*
+ 1202  sudo du -sh. /*
+ 1203  sudo du -sh ./*
+ 1204  sudo du -sh ./
+ 1205  sudo du -sh .
+ 1206  l
+ 1207  du -h .
+ 1208  nvidia-smi
+ 1209  top
+ 1210  lsb_release 
+ 1211  lsb_release  -a
+ 1212  history
+ 1213  find . -size +800M
+ 1214  l
+ 1215  ls4
+ 1216  cd x/
+ 1217  l
+ 1218  cl
+ 1219  l
+ 1220  cd ..
+ 1221  l
+ 1222  ls4
+ 1223  cd yufeng/
+ 1224  l
+ 1225  cd audio/
+ 1226  l
+ 1227  cd ..
+ 1228  l
+ 1229  less dict.csv 
+ 1230  less dataset.csv 
+ 1231  cd ..
+ 1232  l
+ 1233  ls4
+ 1234  cd deepfake/
+ 1235  l
+ 1236  du -h .
+ 1237  df -h .
+ 1238  l
+ 1239  cd data/
+ 1240  l
+ 1241  cd ../mp3s/
+ 1242  l
+ 1243  ls | wc -l
+ 1244  ls4
+ 1245  cd ..
+ 1246  l
+ 1247  cd ffe-jpegs/
+ 1248  l
+ 1249  cd scssmbfchs/
+ 1250  l
+ 1251  cd ..
+ 1252  l
+ 1253  cd ..
+ 1254  l
+ 1255  cd data/
+ 1256  l
+ 1257  cd videos/
+ 1258  l
+ 1259  cd dfdc_train_part_3
+ 1260  l
+ 1261  ls4
+ 1262  ls | wc -l
+ 1263  hdparm
+ 1264  df -h 
+ 1265  df -h  .
+ 1266  hdparm -Tt /dev/sda1 
+ 1267  sudo hdparm -Tt /dev/sda1 
+ 1268  l
+ 1269  wc -l | ls
+ 1270  ls | wc -l
+ 1271  cd ..
+ 1272  l
+ 1273  ls4
+ 1274  date
+ 1275  cd ..
+ 1276  l
+ 1277  ls4
+ 1278  du -h .
+ 1279  du -h *.zip
+ 1280  ipy
+ 1281  l
+ 1282  ls4
+ 1283  +
+ 1284  ls4
+ 1285  cd videos/
+ 1286  l
+ 1287  cd ..
+ 1288  l
+ 1289  ls4
+ 1290  cd detect_result_new/
+ 1291  l
+ 1292  cd dfdc_train_part_
+ 1293  cd dfdc_train_part_'
+ 1294  l
+ 1295  cd ..
+ 1296  l
+ 1297  python
+ 1298  python3
+ 1299  nvidia-smi
+ 1300  ps -ef|grep python
+ 1301  kill -9 31300
+ 1302  ps -ef|grep python
+ 1303  kill -9 23321
+ 1304  rm -rf se_resnext50_32x4d.log 
+ 1305  rm -rf nohup.out 
+ 1306  ps - ef|grep python
+ 1307  ps -ef|grep python
+ 1308  kill -9 7253
+ 1309  ps -ef|grep python
+ 1310  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1311  nvidia-smi
+ 1312  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1313  nohup python3 for_teacher_wang.py &
+ 1314  \
+ 1315  nohup python3 for_teacher_wang.py &
+ 1316  ps -ef|grep python
+ 1317  cd df
+ 1318  ls
+ 1319  cd data
+ 1320  ls
+ 1321  cd detect_jpg/
+ 1322  ls
+ 1323  tail -f nohup.out
+ 1324  ls
+ 1325  tail -f f2.log
+ 1326  ls
+ 1327  tail -10 f2.sh
+ 1328  conda list
+ 1329  pip list
+ 1330  sudo root
+ 1331  sudo su
+ 1332  python
+ 1333  python3
+ 1334  nohup python3 for_teacher_wang.py &
+ 1335  ps -ef|grep python
+ 1336  kill -9 30160
+ 1337  ps -ef|grep python
+ 1338  nvidia-smi
+ 1339  ps -ef|grep python
+ 1340  kill -9 25132
+ 1341  ps -ef|grep python
+ 1342  /usr/bin/python3 /home/dl/df/0214yzc/Resnext50.py
+ 1343  nohup python3 Resnext50.py >resnext50.out &
+ 1344  ps -ef|grep python
+ 1345  kill -9 7976
+ 1346  ps -ef|grep python
+ 1347  nohup python3 Resnext50.py >resnext50.out &
+ 1348  /usr/bin/python3 /home/dl/df/0214yzc/SeNet154.py
+ 1349  pip3 install apex
+ 1350  python3 SeNet154.py 
+ 1351  pip3 install apex
+ 1352  python SeNet154.py 
+ 1353  python3 SeNet154.py 
+ 1354  python3 se_resnet_152.py 
+ 1355  /usr/bin/python3 /home/dl/df/0214yzc/se_resnet_152.py
+ 1356  pip3 install lightgbm -i http://pypi.douban.com/simple --trusted-host pypi.douban.com apex
+ 1357  /usr/bin/python3 /home/dl/df/0214yzc/se_resnet_152.py
+ 1358  python3
+ 1359  cd ./df
+ 1360  cd ./0214yzc/
+ 1361  python3 se_resnet_152.py 
+ 1362  python
+ 1363  python3
+ 1364  ls
+ 1365  cd deepfake
+ 1366  ls
+ 1367  ls
+ 1368  cd df
+ 1369  ls
+ 1370  cd 0214yzc/
+ 1371  ls
+ 1372  python3 SeNet154.py 
+ 1373  python3
+ 1374  python
+ 1375  ls
+ 1376  cd ~
+ 1377  ls
+ 1378  cd apex
+ 1379  ls
+ 1380  pip3 install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+ 1381  python3
+ 1382  cd ..
+ 1383  tar czvf ap.tar.gz ./apex
+ 1384  rm -rf apex
+ 1385  cd ~/df
+ 1386  ls
+ 1387  cd 0214yzc/
+ 1388  ls
+ 1389  ps -ef | grep python
+ 1390  ls
+ 1391  python3 se_resnet_152.py 
+ 1392  python3
+ 1393  cd ~
+ 1394  ls
+ 1395  tar xzvf ap.tar.gz 
+ 1396  cd apex/
+ 1397  ls
+ 1398  cd ..
+ 1399  python3
+ 1400  cd ~
+ 1401  ls
+ 1402  cd df
+ 1403  ls
+ 1404  cd 0214yzc/
+ 1405  python3 
+ 1406  cd ~/apex
+ 1407  python setup.py install --cpp_ext --cuda_ext
+ 1408  python3 setup.py install --cpp_ext --cuda_ext
+ 1409  pip3 list
+ 1410  pip3 list | grep pytorch
+ 1411  pip3 list | grep torch
+ 1412  pip3 install torch==1.1
+ 1413  pip install lightgbm -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1414  pip install torch==1.1 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1415  python3 setup.py install --cpp_ext --cuda_ext
+ 1416  pip install torch==1.2 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1417  python3 setup.py install --cpp_ext --cuda_ext
+ 1418  sudo python3 setup.py install --cpp_ext --cuda_ext
+ 1419  cd ~/df
+ 1420  ls
+ 1421  cd 0214yzc/
+ 1422  pip3 install 
+ 1423  python3 se_resnet_152.py 
+ 1424  vi se_resnet_152.py 
+ 1425  pip install torchvision -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1426  pip3 install torchvision -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1427  pip3 list
+ 1428  pip3 list | grep torch
+ 1429  python se_resnet_152.py 
+ 1430  python3 se_resnet_152.py 
+ 1431  vi se_resnet_152.py 
+ 1432  python3 se_resnet_152.py 
+ 1433  vi se_resnet_152.py 
+ 1434  python3 se_resnet_152.py 
+ 1435  vi se_resnet_152.py 
+ 1436  python3 se_resnet_152.py 
+ 1437  vi se_resnet_152.py 
+ 1438  pip3 install torchvision -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1439  python3 se_resnet_152.py 
+ 1440  python3
+ 1441  pip3 install torch==1.3 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1442  python3 se_resnet_152.py 
+ 1443  ls
+ 1444  python3
+ 1445  cd ~
+ 1446  ls
+ 1447  cd apex/
+ 1448  sudo python3 setup.py install --cpp_ext --cuda_ext
+ 1449  pip3 install torch -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1450  pip3 install torch==1.5 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1451  pip3 install torch==1.4 -i http://pypi.douban.com/simple --trusted-host pypi.douban.com
+ 1452  cd ~
+ 1453  ls
+ 1454  sudo dpkg -i cuda-repo-ubuntu1804-10-1-local-10.1.105-418.39_1.0-1_amd64.deb 
+ 1455  sudo apt-get update
+ 1456  sudo apt-get install cuda
+ 1457  cd apex/
+ 1458  sudo python3 setup.py install --cpp_ext --cuda_ext
+ 1459  cd ~/df/
+ 1460  ls
+ 1461  cd 0214yzc/
+ 1462  ls
+ 1463  python3 
+ 1464  cd ~/apex/
+ 1465  pip3 install -v --no-cache-dir --global-option="--pyprof" --global-option="--cpp_ext" --global-option="--cuda_ext" ./
+ 1466  python3 
+ 1467  cd ~/df
+ 1468  cd 0214yzc/
+ 1469  python3
+ 1470  ls
+ 1471  python3 se_resnet_152.py 
+ 1472  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1473  nvidia-smi
+ 1474  nohup python3 Resnext50.py >resnext50.out &
+ 1475  nvidia-smi
+ 1476  pip install efficientnet_pytorch
+ 1477  nvidia-smi
+ 1478  ping www.google.com
+ 1479  cd deepfake
+ 1480  ls
+ 1481  jupyter notebook --no-browser --port=9002
+ 1482  cd ..
+ 1483  jupyter notebook --no-browser --port=9002
+ 1484  cd df
+ 1485  ls
+ 1486  http://data.lip6.fr/cadene/pretrainedmodels/se_resnet152-d17c99b7.pth
+ 1487  ping http://data.lip6.fr/cadene/pretrainedmodels/se_resnet152-d17c99b7.pth
+ 1488  nvidia-smi
+ 1489  ps -ef|grep python
+ 1490  nvidia-smi
+ 1491  ps -ef|grep python
+ 1492  nvidia-smi
+ 1493  ps -ef|grep python
+ 1494  nvidia-smi
+ 1495  ps -ef|grep python
+ 1496  nohup python3 Resnext50.py >resnext50 &
+ 1497  nvidia-smi
+ 1498  ps -ef|grep python
+ 1499  kill -9 24650
+ 1500  nohup python3 Resnext50.py >resnext50.out &
+ 1501  nvidia-smi
+ 1502  ps -ef|grep python
+ 1503  kill -9 23935
+ 1504  ps -ef|grep python
+ 1505  nvidia-smi
+ 1506  ps -ef|grep python
+ 1507  python3
+ 1508  exit
+ 1509  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1510  nvidia-smi
+ 1511  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1512  cd deepfake/0217yhe/
+ 1513  ls
+ 1514  ls
+ 1515  cd df
+ 1516  ls
+ 1517  cd 0223zyj/
+ 1518  ls
+ 1519  cd subfile/
+ 1520  ls
+ 1521  ls -al
+ 1522  tar czvf e3eff7.tar.gz ./epoch3efficientnet-b7_running_checkpoint.pth 
+ 1523  ls -alh
+ 1524  rm epoch3efficientnet-b7_running_checkpoint.pth 
+ 1525  ls
+ 1526  vi dataset-metadata.json 
+ 1527  cd ~/df/dd
+ 1528  cd ~/df/da
+ 1529  cd ~/df/data/detect_jpg/
+ 1530  ls
+ 1531  tail -f f2.log
+ 1532  df -h
+ 1533  cd ..
+ 1534  ls
+ 1535  cd detect_result_new/
+ 1536  ls
+ 1537  ls | xargs -i tar cvf {}.tar {}
+ 1538  ls
+ 1539  ls | grep tar | wc
+ 1540  df -f
+ 1541  cd ~/df
+ 1542  ls
+ 1543  cd data
+ 1544  ls
+ 1545  cd detect_
+ 1546  cd detect_jpg
+ 1547  ls
+ 1548  cd ..
+ 1549  ls
+ 1550  cd ..
+ 1551  ls
+ 1552  cd 0223zyj/
+ 1553  ls
+ 1554  cd subfile/
+ 1555  ls
+ 1556  cd df/
+ 1557  ls
+ 1558  cd data
+ 1559  ls
+ 1560  cd ls
+ 1561  ls
+ 1562  cd detect_result_new/
+ 1563  ls
+ 1564  df -h
+ 1565  ls
+ 1566  ls | grep tar
+ 1567  ls | grep tar | wc
+ 1568  nvidia-smi
+ 1569  /usr/local/proxychains/bin/proxychains4 ./dropbox_uploader.sh upload ../0223zyj/best_se_resnext152_checkpoint.pth 
+ 1570  ~/df/dropbox
+ 1571  /usr/local/proxychains/bin/proxychains4 ~df/dropbox/dropbox_uploader.sh upload ../0223zyj/best_se_resnext152_checkpoint.pth 
+ 1572  /usr/local/proxychains/bin/proxychains4 ~df/dropbox/dropbox_uploader.sh upload ../0223zyj/best_se_resnext152_checkpoint.pth
+ 1573  /usr/local/proxychains/bin/proxychains4 ~/df/dropbox/dropbox_uploader.sh upload ../0223zyj/best_se_resnext152_checkpoint.pth
+ 1574  /usr/local/proxychains/bin/proxychains4 ~/df/dropbox/dropbox_uploader.sh
+ 1575  upload ../0223zyj/best_se_resnext152_checkpoint.pth
+ 1576  ps -ef|grep python
+ 1577  /usr/local/proxychains/bin/proxychains4 ~/df/dropbox/dropbox_uploader.sh upload ../0223zyj/best_se_resnext152_checkpoint.pth
+ 1578  nvidia-smi
+ 1579  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1580  /usr/bin/python3 /home/dl/df/0214yzc/se_resnet_152.py
+ 1581  nvidia-smi
+ 1582  /usr/bin/python3 /home/dl/df/0214yzc/se_resnet_152.py
+ 1583  /usr/bin/python3 /home/dl/df/0214yzc/Resnext50.py
+ 1584  ls
+ 1585  cd df
+ 1586  ls
+ 1587  ./gdrive-linux-x64.1 
+ 1588  ./gdrive-linux-x64.1 about
+ 1589  ftp
+ 1590  ftp 119.28.25.144
+ 1591  ftp angtk@119.28.25.144
+ 1592  ftp 119.28.25.144
+ 1593  ls
+ 1594  cd 0223zyj/
+ 1595  ls
+ 1596  ftp 119.28.25.144
+ 1597  sftp 119.28.25.144
+ 1598  google-drive-ocamlfuse
+ 1599  sudo apt-get install google-drive-ocamlfuse
+ 1600  sudo add-apt-repository ppa:alessandro-strada/ppa
+ 1601  sudo apt-get install google-drive-ocamlfuse
+ 1602  ls
+ 1603  cd ..
+ 1604  ls
+ 1605  ./gdrive-linux-x64.1 help
+ 1606  gdrive help about
+ 1607  ./gdrive-linux-x64.1 help about
+ 1608  ./gdrive-linux-x64.1 about --refres-token AIzaSyAeVPnNIgdRRWQuUUdk4j7_1DUo7PAZ2Vw
+ 1609  go get github.com/prasmussen/gdrive
+ 1610  sudo apt-get install golang-go
+ 1611  go get github.com/prasmussen/gdrive
+ 1612  /usr/local/proxychains/bin/proxychains4 go get github.com/prasmussen/drive
+ 1613  /usr/local/proxychains/bin/proxychains4 go get github.com/prasmussen/gdrive
+ 1614  ls
+ 1615  ./gdrive-linux-x64.1 
+ 1616  ./gdrive-linux-x64.1 about
+ 1617  ./gdrive-linux-x64.1 list
+ 1618  curl -o butgg.bash https://raw.githubusercontent.com/mbrother2/backuptogoogle/master/butgg.bash
+ 1619  bash butgg.bash --setup
+ 1620  ./gdrive-linux-x64.1 about
+ 1621  bash butgg.bash --setup
+ 1622  /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1623  /usr/local/proxychains/bin/proxychains4
+ 1624  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1625  ps -ef | grep sslocal
+ 1626  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1627  ping www.google.com
+ 1628  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1629  sudo vi /etc/proxychains.conf 
+ 1630  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1631  ps -ef | grep sslocal
+ 1632  kill -9 6699
+ 1633  sslocal -c ~/ss.json 
+ 1634  nohup sslocal -c ~/ss.json  &
+ 1635  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1636  /usr/local/proxychains/bin/proxychains4 ping www.sina.com.cn
+ 1637  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1638  vi ~/ss.json 
+ 1639  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1640  sudo /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1641  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1642  bash butgg.bash --setup
+ 1643  ls
+ 1644  curl -o butgg.bash https://raw.githubusercontent.com/mbrother2/backuptogoogle/master/butgg.bash
+ 1645  ls
+ 1646  sudo /usr/local/proxychains/bin/proxychains4 curl -o butgg.bash https://raw.githubusercontent.com/mbrother2/backuptogoogle/master/butgg.bash
+ 1647  ls
+ 1648  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1649  ls
+ 1650  vi butgg.bash 
+ 1651  ls
+ 1652  rm nohup.out 
+ 1653  rm gdrive-linux-x64.1 
+ 1654  ls
+ 1655  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1656  vi butgg.bash 
+ 1657  sudo /usr/local/proxychains/bin/proxychains4 curl -sI raw.githubusercontent.com >/dev/null
+ 1658  vi butgg.bash 
+ 1659  sudo /usr/local/proxychains/bin/proxychains4  curl -sI dl.google.com >/dev/null
+ 1660  vi butgg.bash 
+ 1661  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1662  vi butgg.bash 
+ 1663  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1664  vi butgg.bash 
+ 1665  ls
+ 1666  vi butgg.bash 
+ 1667  cd /bin
+ 1668  ls
+ 1669  ls | gdrive
+ 1670  ls | grep gdrive
+ 1671  cd ~
+ 1672  ls
+ 1673  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1674  vi /etc/proxychains.conf 
+ 1675  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1676  cd ~
+ 1677  ls
+ 1678  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1679  cd df
+ 1680  ls
+ 1681  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1682  vi /etc/proxychains.conf 
+ 1683  vi butgg.bash 
+ 1684  cd /bin
+ 1685  cd go
+ 1686  ls
+ 1687  cd ~
+ 1688  ls
+ 1689  cd ~
+ 1690  cd df
+ 1691  ls
+ 1692  vi butgg.bash 
+ 1693  print $HOME
+ 1694  echo $HOME
+ 1695  ls
+ 1696  cd ~
+ 1697  ls
+ 1698  cd bin/
+ 1699  ls
+ 1700  cd go
+ 1701  ls
+ 1702  cd bin
+ 1703  ls
+ 1704  cd ..
+ 1705  ls
+ 1706  cd ..
+ 1707  ls
+ 1708  vi df/butgg.bash 
+ 1709  cd ~/bin/g
+ 1710  cd ~/bin/
+ 1711  ls
+ 1712  cd gdrive/
+ 1713  ls
+ 1714  cd bin
+ 1715  ls
+ 1716  vi ~/df/butgg.bash 
+ 1717  ls
+ 1718  vi ~/df/butgg.bash 
+ 1719  ls
+ 1720  vi ~/df/butgg.bash 
+ 1721  ~/bin/go/bin/go build -ldflags '-w -s'
+ 1722  vi ~/df/butgg.bash 
+ 1723  cd ~
+ 1724  cd df
+ 1725  sudo /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1726  ls
+ 1727  cd bin
+ 1728  ls
+ 1729  cd gdrive/
+ 1730  ls
+ 1731  vi handlers_drive.go 
+ 1732  ~/bin/go/bin/go build -ldflags '-w -s'
+ 1733  vi handlers_drive.go 
+ 1734  ls
+ 1735  cd deepfake/
+ 1736  ls
+ 1737  ps -ef | grep tar
+ 1738  cd data
+ 1739  ls
+ 1740  cd detect_result_new/
+ 1741  ls
+ 1742  tar cvf 4.tar ./dfdc_train_part_4
+ 1743  cp 4.tar  ~/x
+ 1744  ls
+ 1745  cd ~/x
+ 1746  ls
+ 1747  cd ~/deepfake/
+ 1748  ls
+ 1749  cd data/
+ 1750  ls
+ 1751  cd detect_result_new/
+ 1752  ls
+ 1753  tar cvf 10.tar ./dfdc_train_part_10
+ 1754  ls
+ 1755  cp 10.tar ~/x
+ 1756  sudo umount ~/x
+ 1757  ls
+ 1758  cd df
+ 1759  ls
+ 1760  /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1761  sudo /usr/local/proxychains/bin/proxychains4 ping www.google.com
+ 1762  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1763  ls
+ 1764  vi butgg.bash 
+ 1765  sudo /usr/local/proxychains/bin/proxychains4 bash butgg.bash --setup
+ 1766  cd ~/go/src/github.com/prasmussen/gdrive/vendor/golang.org/x/oauth2/
+ 1767  ls
+ 1768  mv internal/ google
+ 1769  cd ~
+ 1770  ls
+ 1771  cd bin
+ 1772  sl
+ 1773  ls
+ 1774  /home/dl/go/src/github.com/prasmussen/gdrive/vendor/golang.org/x/oauth2/
+ 1775  cd /home/dl/go/src/github.com/prasmussen/gdrive/vendor/golang.org/x/
+ 1776  ls
+ 1777  cd oauth2/
+ 1778  ls
+ 1779  cd google/
+ 1780  ls
+ 1781  cd ..
+ 1782  ls
+ 1783  mv google/ internal
+ 1784  ls
+ 1785  tar czvf x.tar.gz ./internal/
+ 1786  ls
+ 1787  tar xzvf x.tar.gz 
+ 1788  ls
+ 1789  mkdir d
+ 1790  mv x.tar.gz  d
+ 1791  cd d
+ 1792  ls
+ 1793  tar xzvf x.tar.gz 
+ 1794  ls
+ 1795  mv internal/ ../google
+ 1796  cd ..
+ 1797  ls
+ 1798  cd google/
+ 1799  ls
+ 1800  vi oauth2.go 
+ 1801  ls
+ 1802  cd ..
+ 1803  lr
+ 1804  ls
+ 1805  rm -rf google/
+ 1806  ls
+ 1807  cd /var/
+ 1808  ls
+ 1809  cd www
+ 1810  ls
+ 1811  cd html/
+ 1812  ls
+ 1813  chmod 777 *
+ 1814  sudo chmod 777 *
+ 1815  ls
+ 1816  cp ~/df/0223zyj/best_se_resnext152_checkpoint.pth .
+ 1817  sudo cp ~/df/0223zyj/best_se_resnext152_checkpoint.pth .
+ 1818  ls
+ 1819  sudo chmod 777 best_se_resnext152_checkpoint.pth 
+ 1820  ls
+ 1821  cd deepfake/
+ 1822  ls
+ 1823  cd data/
+ 1824  ls
+ 1825  cd detect_result_new/
+ 1826  ls -alh
+ 1827  cd ..
+ 1828  ls
+ 1829  cd ..
+ 1830  ls
+ 1831  cd ..
+ 1832  ls
+ 1833  cd x
+ 1834  ls
+ 1835  cd ..
+ 1836  sudo fdisk -l
+ 1837  sudo mount /dev/sdd1 ./x
+ 1838  cd x
+ 1839  ls
+ 1840  rm test2.tar.gz 
+ 1841  ls
+ 1842  cp ~/deepfake/data/detect_result_new/5.tar.gz .
+ 1843  cd ~/deepfake/data/detect_result_new/
+ 1844  ls
+ 1845  tar cvf 8.tar ./dfdc_train_part_8/
+ 1846  cp 8.tar  ~/x
+ 1847  find . -maxdepth 1 -type d
+ 1848  find . -maxdepth 1 -type d | while read dir; find "$dir" -type f; done
+ 1849  find . -maxdepth 1 -type d | while read dir; find "$dir" -type f;
+ 1850  find . -maxdepth 1 -type d | while read dir; do find "$dir" -type f; done
+ 1851  find . -maxdepth 1 -type d | while read dir; do find "$dir" -type f; done > f.csv
+ 1852  vi f.csv
+ 1853  ls
+ 1854  ls -alh
+ 1855  vi f.csv
+ 1856  sudo pip install albumentations
+ 1857  pip
+ 1858  pip install albumentations
+ 1859  sudo pip install -U git+https://github.com/albu/albumentations
+ 1860  pip install -U git+https://github.com/albu/albumentations
+ 1861  ping
+ 1862  sudo gedit /etc/apt/sources.list
+ 1863  sudo vi /etc/apt/sources.list
+ 1864  sudo apt-get update
+ 1865  pip install albumentations
+ 1866  conda install albumentations
+ 1867  sudo su
+ 1868  conda
+ 1869  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1870  pip install albumentations
+ 1871  pip install albumentations==0.0.6
+ 1872  pip3 install albumentations
+ 1873  pip3 install albumentations-i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn
+ 1874  pip3 install albumentations
+ 1875  pip3 install albumentations==0.0.6
+ 1876  ls
+ 1877  jupyter notebook --no-browser --port=9002
+ 1878  ls
+ 1879  cd /var/www
+ 1880  ls
+ 1881  cd html/
+ 1882  ls
+ 1883  sftp 116.85.28.76
+ 1884  sftp dc2-user@116.85.28.76
+ 1885  ls
+ 1886  sftp 35.227.162.149
+ 1887  sftp -P root35.227.162.149
+ 1888  sftp root@35.227.162.149
+ 1889  sftp root@35.224.5.190
+ 1890  ssh-keygen -t rsa -C "zhex"
+ 1891  sudo apt-get install git
+ 1892  git
+ 1893  cd ~
+ 1894  ls
+ 1895  cd ..
+ 1896  ls
+ 1897  cd dl
+ 1898  cd ~/.ssh/
+ 1899  ls
+ 1900  vi id_rsa.pub 
+ 1901  ls
+ 1902  rm *
+ 1903  ls
+ 1904  ssh-keygen -t rsa -C dl
+ 1905  fls
+ 1906  ls
+ 1907  vi id_rsa
+ 1908  vi id_rsa.pub 
+ 1909  cd dl
+ 1910  ls
+ 1911  cd ~
+ 1912  ls
+ 1913  cd df
+ 1914  ls
+ 1915  mkdir wsh
+ 1916  cd wsh
+ 1917  gith
+ 1918  sudo apt-get install gith
+ 1919  git init
+ 1920  ssh git@github.com
+ 1921  git add .
+ 1922  cp ../0223zyj/best_se_resnext152_checkpoint.pth .
+ 1923  ls
+ 1924  git commit -m "aa"
+ 1925  git init
+ 1926  git commit -m "aa"
+ 1927  git clean -f
+ 1928  ls
+ 1929  cp ../0223zyj/best_se_resnext152_checkpoint.pth .
+ 1930  sl
+ 1931  ls
+ 1932  chmod 777 ./best_se_resnext152_checkpoint.pth 
+ 1933  git commit -m "aa"
+ 1934  git add *
+ 1935  git status
+ 1936  git commit -m "aa"
+ 1937  ls
+ 1938  git commit -m "aa"
+ 1939  git remote add origin https://github.com/new.git
+ 1940  git push -u origin master
+ 1941  git remote add origin https://github.com/swsuh/sjzj.git
+ 1942  git push -u origin master
+ 1943  git remote add origin https://github.com/swsuh/sjzj.git
+ 1944  git remote 
+ 1945  git remote origin
+ 1946  git remote set-url https://github.com/swsuh/sjzj.git
+ 1947  git remote set-url --add https://github.com/swsuh/sjzj.git
+ 1948  git push -u origin master
+ 1949  git remote add origin git@github.com:swsuh/sjzj.git
+ 1950  git remote list
+ 1951  git remote
+ 1952  git remote origin
+ 1953  ls
+ 1954  pip install albumentations
+ 1955  nvidia-smi
+ 1956  pip install efficientnet_pytorch
+ 1957  nvidia-smi
+ 1958  jupyter notebook --no-browser --port=9002
+ 1959  ls
+ 1960  nvidia-smi
+ 1961  jupyter notebook --no-browser --port=9002
+ 1962  /usr/bin/python3 /home/dl/df/0214yzc/se_resnet_152.py
+ 1963  nvidia-smi
+ 1964  ps -ef|grep python
+ 1965  nvidia-smi
+ 1966  ps -ef|grep python
+ 1967  nvidia-smi
+ 1968  ps -ef|grep python
+ 1969  kill -9 35334
+ 1970  ps -ef|grep python
+ 1971  nvidia-smi
+ 1972  /usr/bin/python3 /home/dl/df/0214yzc/for_teacher_wang.py
+ 1973  ls
+ 1974  set +o history–;export LANG="en_US.UTF-8";export LANGUAGE="en_US.UTF-8";top
+ 1975  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1976  ls ../../deepfake/data/videos/dfdc_train_part_32/
+ 1977  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1978  ls ../../deepfake/data/videos/dfdc_train_part_32/giotmdtgyr
+ 1979  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1980  ls ../../deepfake/data/videos/dfdc_train_part_32/vhmdfhvqql
+ 1981  ls ../../deepfake/data/videos/dfdc_train_part_32/
+ 1982  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1983  ls ../../deepfake/data/videos/dfdc_train_part_32/vhmdfhvqql
+ 1984  ls ../../deepfake/data/videos/dfdc_train_part_32/
+ 1985  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1986  ls ../../deepfake/data/empty/dfdc_train_part_32/vhmdfhvqql.mp4
+ 1987  ls ../../deepfake/data/empty/dfdc_train_part_32/
+ 1988  /usr/bin/python3 /home/dl/df/0214yzc/csv/cp_empty_video.py
+ 1989  ls ../data
+ 1990  ls ../../deepfake/data/
+ 1991  ls ../../deepfake/data/videos
+ 1992  export LANG="en_US.UTF-8";export LANGUAGE="en_US.UTF-8";top
+ 1993  ls ../data/detect_result_new/dfdc_train_part_46/okjjlzkmud
+ 1994  nvidia-smi
+ 1995  ps -ef|grep python
+ 1996  nvidia-smi
+ 1997  top
+ 1998  cd Documents/wubin/2020/ubuntu_related/
+ 1999  history > 0226bj.txt
