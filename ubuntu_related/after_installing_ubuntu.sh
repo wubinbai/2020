@@ -252,7 +252,7 @@ echo 'if you want to configure ipython import: modify this line.'
 # 4. ipython nbconvert pdf html
 # pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple nbconvert
 ## sudo install texlive-xetex
-
+# sudo apt-get install texlive-full
 # My Commands
 # 1. Open chrome? Use see name.html
 # 2. Status bar? Use | pv
