@@ -1,0 +1,9 @@
+A concise description of my solution:
+
+    Curated subset only
+    Data preparation: raw data -> augmentation (random shift + random noise) -> 4 versions of augmented spectrograms for every sample
+    Model: 10 conv layers with skip connections -> 2 fully connected layers
+    Augmentations: zoom, random crop, lighting, warp, cutout
+    Training using fast.ai
+    Inference: a blend of 24 models (trained on different random subsets) with TTA30
+

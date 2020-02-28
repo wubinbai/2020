@@ -1,0 +1,13 @@
+It's finally weekend, that I have time to write a quick post. It might be disappointing if you were come in here to see if there is any magic or tricks.
+
+As many of you know there is quite some difference even between the curated training set and the public test set. For example, those almost duplicated 'Mr. Peanut' clips were very bad and would confuse the model on the test set. For the noisy set, the differences are much larger. The slams seem to be basketball court(slam dunk?), the tap is mostly tip tap dance, the surf and wave clips are much windy. It also has notably much more human speakings in non-human sounds labeled clips. I also tried many methods to use the noisy set, but with limited success reaching only .72.
+
+My .76 model is fine-tuned to overfit the test set. I spent my memorial day holiday weekend, hand made a tuning set with cherry-picked clips from the curated set and noisy set that sounds most similar to the public test set and used this dataset to fine tune my models. It is kind of cheating, for that, it is equivalent to me sneak peek at the exam paper and giving my model a targeted list of past quiz questions to practice right before the exam. It will do well on this particular exam, but might not do well on a new one.
+
+I did not use this method as my final submission, because I don't think it solves the problem the competition is about. I did a similar thing in my previous competiton which I missed a top spot for not submitting a fine-tuned model.
+
+So quickly about my solution without the fine-tuning. It is Conv nets trained with mixup and random frequency/time masks on curated set and pseudo-labeled datasets.
+
+I have two pseudo-label sets. Here is how I generated them. For each audio clip, I run my model over sequences of windows on it. For each window, I calculate a ratio of the top k activations vs the sum of all activations. I call this ratio the signal-noise ratio. My first pseudo-label set consists of those windows with the highest ratios and associated most confident labels. My second pseudo-label set consists of full clips, I average activations of windows with highest ratios to be the labels. During training, I am zipping the curated training set and the two pseudo label sets, calculate loss separately and linearly combine them to do backward flow.
+
+On inference time, I do the same scanning through windows, calculating ratios, etc to generate predictions as well. I found it better than averaging random crops. But this may simply due to the fact that my model learned to focus on those strong short signals from the first pseudo label set.
