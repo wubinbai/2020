@@ -1,0 +1,11 @@
+1, MNIST_Conv
+2, Imagenet_Residual
+3, DCGAN
+4, VAE
+5, Super_solution
+6, MNIST_hogwild
+7, reinforcement_l
+8, time_series_pred
+9, neural_style_transfer
+10, Additionally, a list of good examples hosted in their own repositories: - [Neural Machine Translation using sequence-to-sequence RNN with attention (OpenNMT)](https://github.com/OpenNMT/OpenNMT-py)
+
