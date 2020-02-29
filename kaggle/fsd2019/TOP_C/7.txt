@@ -1,0 +1,88 @@
+Freesound 7th place solution
+
+Thank you for all the competitors, kaggle teams, and the host of this competition!
+We enjoyed a lot during the competition and learned many things.
+
+We especially want to thank @daisukelab for his clear instruction with great kernels and datasets, @mhiro2 for sharing excellent training framework, and @sailorwei for showing his Inception v3 model in his public kernel.
+
+The points where the solution of our team seems to be different from other teams are as follows.
+
+keypoint : Data Augmentation, Strength Adaptive Crop,Custom CNN, RandomResizedCrop
+
+The detailed explanation is in the following kernel, so please read it.
+
+https://www.kaggle.com/hidehisaarai1213/freesound-7th-place-solution
+
+pipeline
+Data Augmentation
+
+We created 7 augmented training dataset with sox.
+
+    fade
+    pitch * 2
+    reverb
+    treble & bass * 2
+    equalize
+
+We trained a togal of 4970 * 8 samples without leaks.
+Crop policy
+
+We use random crop, because we use fixed image size(128 * 128).
+Random crop got a little better cv than the first 2 seconds cropped.
+At first, it wa cropped uniformly as mhiro's kernel.
+Strength Adaptive Crop
+
+Many sound crip has important information at the first few seconds.
+Some sample has it in the middle of crip. However, due to the nature of recording, it is rare to have important information at th end of sounds.
+The score drops about 0.03~0.04 when learning only the last few seconds.
+
+Then, We introduce Strength Adaptive Crop.
+We tried to crop the place where the total of db is high preferentially.
+
+This method is very effective because most samples contain important information in places where the sound is loud.　　
+
+CV 0.01 up
+LB 0.004~0.005 up
+
+Detailed code is in this kernel.
+model structure
+
+    InceptionV3 3ch
+    InceptionV3 1ch
+    CustomCNN
+
+CustomCNN is carefully designed to the characteristics of the sound. The details are in this kernel
+Augmentation in batch
+
+    Random erasing or Coarse Dropout
+    Horizontal Flip
+    mixup
+    Random Resized Crop (only InceptionV3)
+
+Training strategy
+TTA for validation
+
+When RandomResizedCrop is used, val score fluctuate,so if val tta is not used, an appropriate epoch can not be selected. So, we used tta for validation to ensure that validation can be properly evaluated.
+Stage 1 : pretrain with noisy data(warm-up)
+
+We used noisy data to 'pre-train' our model.
+LB : about 0.01 up
+Stage 2 : Train with curated data 1
+
+We used curated data to 'finetune' the models, which were 'pre-trained' with noisy data.
+Stage 3 : Train with curated data 2(Inception only)
+
+We used stage 2 best weight to stage 3 training without random resized crop. We don't know why, but lwlrap goes up without random resized crop in Inception model.
+score
+
+Accurate single model public score not measured.
+	public 	private
+Inception 3ch 	0.724 over 	0.73865
+Inception 1ch 	?? 	0.73917
+CustomCNN 	0.720 over 	0.73103
+Ensemble
+
+(Inception 3ch + Inception 1ch + CustomCNN) / 3
+
+private score:0.75302
+
