@@ -1,0 +1,45 @@
+First of all, I'd like to thank organizers and all participants, and congratulate winners on excellent results !
+For me, this is the first image(sound) competition in Kaggle and I have learned a lot.
+
+Many top teams unveiled their nice solutions(also scores). So I'm ashamed to publish my solution here, but I will do for a memento.
+Local Validation
+
+I created 80class-balanced 5 folds validation and have evaluated the model performance with BCE. At the early stage in this competition, I have checked the correlation of BCE and LWLRAP. Below figure shows an almost good correlation.
+Features
+
+    Remove silent audios
+    Trim silent parts
+    Log Mel Spectrogram ( SR 44.1kHz, FFT window size 80ms, Hop 10ms, Mel Bands 64 )
+    Clustered frequency-wise statistical features
+
+I did not do nothing special. But I will explain about 4.
+I thought CNN can catch an audio property in frequency space like Fourier Analysis, but less in statistics values ( max, min, … ). And labels of train-noisy are unreliable, so I created frequency-wise statistical features from spectrograms and compute cluster distances without using label information(Unsupervised). The procedure is following,
+
+a. Compute 25 statistical values (Max, Min, Primary difference, Secondary difference, etc… ) and flatten 64 x 25 (=1600) features
+b. Compute 200 cluster distances with MiniBatchKMeans ( dimensional reduction from 1600 to 200 )
+
+This feature pushed my score about 0.5 ~ 1% in each model.
+Models, Train and Prediction
+
+In this competition, we do not have a lot of time to make inferences ( less than 1 GPU hour ). So I selected 3 relatively light-weight models.
+
+    Mobile Net V2 with/without clustered features
+    ResNet50 with/without clustered features
+    DenseNet121 with/without clustered features
+
+My final submission is the ensemble of above 6 models ( 3 models x 2 type of features ). Here is a model pipeline. The setting of train and prediction with TTA is written in this figure.
+
+Performance
+
+I used the weighted geometric averaging to blend 6 model predictions. Below table shows each performance and the blending coefficients. Those coefficients are computed with optimization based on Out Of Fold predictions. LWLRAP values are calculated with 5 fold OOF predictions on train-curated data.
+Model 	LWLRAP on train-curated 	Blending Coefficient
+MobileNetV2 with clustered features( cf ) 	0.84519 	0.246
+MobileNetV2 without cf 	0.82940 	0.217
+ResNet50 with cf 	0.84490 	0.149
+ResNet50 without cf 	0.83006 	0.072
+DenseNet121 with cf 	0.84353 	0.115
+DenseNet121 without cf 	0.83501 	0.201
+Blended 	0.87611 ( Private 0.72820 ) 	---
+
+Thank you very much for reading to the end.
+See you at the next competition !

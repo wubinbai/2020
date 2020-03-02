@@ -14,7 +14,7 @@ def save_mel(path,filenames,destination):
     plt.clf()
     temp = filenames[0][:3]+'_'+filenames[0][6:-4]
     stringfigname = destination + temp + '.png'
- 
+    filenames.sort()
     for index in range(len(filenames)):
             fname = filenames[index]
             y, sr = librosa.load(path+fname)

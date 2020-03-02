@@ -73,7 +73,7 @@ git config --global user.email wubinbai@yahoo.com
 # You may want to alias sd as shutdown now to fasten your shutdown using two letters:
 
 # Go to the ~/ first:
-
+echo 'actually, you can create .bash_aliases file for alias!'
 cd
 echo "# customized aliases by wubin" >> .bashrc
 echo "alias"" ""sd=\"shutdown now\"" >> .bashrc
@@ -102,6 +102,7 @@ echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
 echo "alias"" ""ev=\"evince \"" >> .bashrc
+echo "alias"" ""cb=\"xsel -ib\"" >> .bashrc
 # Then you can install vim
 
 sudo apt-get install vim
@@ -192,7 +193,8 @@ echo 'if you want to configure ipython import: modify this line.'
 # pdftk full-pdf.pdf cat 12-15 output outfile_p12-15.pdf
 # 7. Deleting starting # lines in vim
 # 删除注释行    :g/^#/d
-
+# 8. vim: fast exit and save:
+# use :x
 # 5. Vim Questions: how to replace a word
 # A. :%s/oldword/newword/g
 #    %是指当前文件的所有行
@@ -246,7 +248,11 @@ echo 'if you want to configure ipython import: modify this line.'
 # 1. sudp apt install mpg123 # for converting mp3 to wav
 # 2. sudo snap install docker # for installing docker
 # 3. install pycharm?
-#  conda install -c chen pycharm 
+#  conda install -c chen pycharm
+# 4. ipython nbconvert pdf html
+# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple nbconvert
+## sudo install texlive-xetex
+# sudo apt-get install texlive-full
 # My Commands
 # 1. Open chrome? Use see name.html
 # 2. Status bar? Use | pv
@@ -283,3 +289,11 @@ echo 'if you want to configure ipython import: modify this line.'
 # how to check disk write speed, read speed?
 # sudo apt install hdparm
 # hdparm -Tt /dev/sda
+
+
+### clipboard ###
+### how to pip command line output to clipboard? ###
+### use xsel ###
+# sudo apt install xsel
+# pwd | xsel -ib
+

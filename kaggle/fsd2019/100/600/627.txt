@@ -1,0 +1,140 @@
+Hey guys, this is my first Kaggle competition. I joined late, with only 8 days to go, due to another project I was working on, but I had a blast, and implemented some things that were at the limits of my ability and pushed me to learn. I'm self-taught and my goals for the future are to find a path to being a world-class practitioner and to document and illuminate that path for others, because, as many of you know, it can be quite cloudy and uncertain at times.
+
+Below is a summary of my first experience. What I tried, what I learned, and what are still open questions for me. Any and all feedback is appreciated, please don't hesitate to be critical, I'm here to learn.
+Acknowledgements
+
+I'd like to thank all of you who share info in real time to help others. This is a competition, and the spirit of that drives all of us to do better, but in the end this is a research community and the more insight that is shared, the more amazing things that will be built to help solve real problems. Thank you daisukelab for your starter kernel using fastai, this helped me get started quickly, and for linking many relevant papers. OsciiArt for your kernel on stratified k-fold for multilabel data, and many who participated in discussions, Dmitriy Danevskiy is the first name that comes to mind.
+What I tried
+
+My first attempt used a resnet18 and fastai, using logmelspectrogram generation on 2 second windows of the audio (random selection of longer clips, padding shorter ones). This was my first real attempt at training from scratch (no pretrained model), and I found it tricky to schedule. Normally I would schedule my learning rate as a slice from larger to smaller, but found with a non pretrained model the opposite converged faster lr=slice(1e-1, 1e-2). I reached lwlraps of 0.74-0.76 locally, and around 0.51 on submission.
+
+I have experience with audio, and tried messing with many different hyperparameters, as well as stacking additional information since logmelspecs are only 1 channel. I appended the delta/accelerate info, and in another experiment, varying n_ffts, into the additional 2 channels. These didn't seem to help at all. I also tried something I saw in the fastai course, starting training with smaller, 64x64 images and then increasing to 128 and retraining, followed by 224x224. This also didn't do much for results.
+First major change
+
+I decided that just grabbing a few pieces of a test clip and predicting on it was throwing away a lot of info, so I decided to write code to roll over the whole clip in overlapping windows, and then take the average (I took raw avg, I didn't know at the time that geometric mean is generally better) of those predictions. I did that and was still surprised to see no gains. I was beginning to worry that my base model was broken, and that no pipeline improvements would fix that. I decided to look at my data.
+
+I found that the dataset was, while balanced for # of clips per class, was wildly unbalanced for time per class. Classes that are really short sounds, like sigh, had about 10x less audio than things like "roadway noise". I still don't know to what extent this matters. On one hand, the model will see the same number of each class, but since my code is grabbing a random 1-2s window of the spectrogram, the classes like 'sigh' will be the same image over and over again. Maybe this means the model will start to overfit those classes while still massively underfitting the more abundant classes. Is this a problem? If so, how can we fix it? Do we perform heavier data augmentation on the classes we have less audio from until the set is balanced? In the short time I had I didn't get a chance to fully pursue this, and instead tried to write something to curate the noisy set to yield better data.
+Using curated data to curate the noisy set.
+
+In my EDA I discovered that both the curated set, and the noisy set were messy. The curated with lots of silence, and sometimes unlabeled sounds, and the noisy was hardly useful in the given state. I trained a model and then used it to predict on both the curated set and noisy set and save any 1s clips where the model prediction matched the label. This gave me less noise in my curated set, and a more usable noisy set. I submitted and still was only around a .53, still not breaking the challenge baseline.
+
+I later realized that I had committed some huge data science sins. My code chopped the clips into 1s overlapping windows and saved the ones that matched the label, but in my subsequent training, I didn't take care to make sure that data from the same original clips ended up together in either the training or validation set. If I had created two 1s clips from the same original clip, where half of the image was the same because of overlapping windows, and one ended up in training and one in validation, my model wouldn't be learning the right things. Now with 3 days left in the comp, I had made no progress, and also, because of my shoddy methods, I couldn't rule anything out. It was at this point that I learned about k-folds validation, and many people said it was helpful for the LB, so I gave it a shot.
+K-folds validation
+
+Using code from OsciiArt to separate my data, and save the folds in a csv, I still wasn't sure how to implement in fastai. When I realized what kfolds actually does, just rotating the validation set to create k models, and then using those k models for inference and taking their geometric mean, I was able to do it easily. But it made me wonder, how is it that this actually works in providing us an edge? ** Why can't we just find a model that works and validates, and then retrain using those parameters and 100% of our data (no validation) and use that for inference? Surely someone has thought of that, so what black magic explains kfolds outperforming using all of your data for training one model?** This gave me a new idea though. In my last attempt I used my model to curate the same set it was trained on, and I felt pretty dirty about it, but what else could I do? K-folds changed that in that I could train a model on 80% of the data and now use it to curate the 20% that was used for validation, then rotate the folds and repeat. This seemed like a pretty cool idea and with time almost up, I figured it was worth a shot.
+A second attempt at using a model to clean data
+
+Since I'd seen so many people talking about getting a .70 on LB with only curated data, I decided it'd be better to use only curated and have one less variable to worry about. I wrote and ran my code, and verified that the clips it returned were of the real sounds, having removed erroneous noise and silence. Next I trained a model on the logmelspecs of these 1s, 224x224 images, using my implementation of SpecAugment for data augmentation. This trained to a lwlrap of .90 locally. I then had another idea.
+My first 2-stage solution
+
+When reviewing what my model had gotten wrong, I found it was often on the right track, making plausible guesses on 1s images (say motorcycle) but getting the scene wrong (roadway noise). I wondered if I could train a model to take a series of 1s overlapping window predictions and from that predict the overall scene. For example if the output of a 5s clip is (bus, motorcycle, accelerating, …) maybe it could learn that that means a roadway.
+
+I had no idea how to do this. I thought it would be better as a fully connected network but didn't have the first clue about how to implement it. How would something like this work? Inspired by how a spectrogram works, I decided to try something crazy, and make the prediction tensors into an image. Each tensor is 1x80 and represents a moment in time from a given clip, stacked, transposed, multiplied by 255, and appropriately padded, I would have an 80xN image representing all predictions from a clip. Nearly out of time, this was my last shot. Fortunately, implementing this was surprisingly easy. I chose to pad zeroes around the prediction tensors of short clips, and trim the longest clips by only taking the predictions from the 20s of the clip. Below is an example of some of the images and their labels. The x axis is time, and the Y axis is 1 pixel per class, the brighter the pixel, the higher the value of that class in the prediction tensor output by my first model.
+
+Prediction Images
+Results
+
+I didn't mention it earlier, but I had held out one of my folds as a test set, figuring if I had big gains, I could rerun with all of the data for even better results. I tried 3 methods on my holdout set
+
+    Training with the 1s model and taking the average of predictions.
+    Training and taking the geometric mean of predictions.
+    Training and then having my second model predict the class from the image of the individual predictions.
+
+-#1 correctly predicted on 67% of clips (I used accuracy for this test as I had a better intuitive sense of what it meant). Surprisingly, #2 was correct on only 61% and the geometric mean significantly underperformed vs standard mean. #3 was correct on 71%. This was super exciting for me, this meant that one of my crazy ideas possibly added some value! After a week of beating my head against the wall with no improvement, this was a welcome change and I was excited to submit.
+
+Unfortunately the excitement was short lived, when I submitted using the pipeline from #3, I scored exactly the same, 0.531. After checking to make sure I hadnt accidentally used old code or an old model export, I accepted the loss and decided to focus on how at least now I have the ability to implement some of my ideas, no matter how ineffective they may be.
+
+Out of curiosity, I submitted using #1, normal average, and my score on the test set rose to 0.54, at least giving me a score above baseline.
+What I learned
+
+    Start early. Feeling rushed, I had to skip a lot of ideas and exploration. I also had very few submits available to check whether I was improving.
+    Get organized. I notice a lot of top kagglers like bestfitting have the habit of keeping a single journal or document for tracking ideas, results…etc. I wasted so much time by being disorganized, and I will have a lot of trouble in the future carrying forward what I tried and learned because it is so scattered. The same goes for your codebase. It's fine to experiment, but keep it in it's own folder and refactor/clean any code you are reusing.
+    Learn from those who have already walked the path. There are people who have already arrived where you are trying to go and who are happy to help you get there faster. Blogs like this one by bestfitting or any of Sanyam Bhutani's series of interviews with Kaggle grandmasters are fun to read, inspiring, and will save you time.
+    Kaggle is an amazing way to learn. You can iterate quickly, getting feedback about how your implementation compares to some of the best practitioners in the world. You can also ask questions and discuss with people working on the same problem. These are all things it is much harder to do with your own unique project.
+    Test everything, don't assume anything Some things tend to work better than others, but it often won't be true in 100% of cases, so don't automatically do things like take geometric mean of predictions because you've heard people say it's best. It takes an extra 2 min to test it yourself.
+
+What's next for me
+
+I plan to read the posts of those who finished higher than me (I'm pretty sure this will be the lowest-ranked solution thread hahaha) and learn not only from their solutions, but from their approaches. Then I'm going to start tackling competitions that have already ended. The lack of a submission limit, wide selection of projects/problems, and transparent posts from those who have already finished the competition will allow me to iterate more quickly and grow faster. After that, I plan to meet you all in the real arena. Thanks for reading.
+
+-Rob
+Options
+Comments (9)Filter/sort 
+daisukelab
+•8 months ago
+
+Thanks for sharing your write up, it helps me rethinking for what I can do in the future.
+
+    Your image channels looks good, I’m also using delta and phase on the other channels, but haven’t try acceleration. It’d be worth trying.
+    Regarding rolling over test clip to get mean results, for me it took time to get it working properly (though I forgot what bug it was), it helps pushing accuracy for about 0.05 or more. I think it’s for sure.
+    About overfittings, you might also try mixup, you would see training curve changes drastically. I think most of top teams use that.
+    Regarding picking up useful 1s part to remove useless part of clips, I had the same understanding but have changed later. I even stopped trimming silence head / tail part of clips recently, it seems to be better not… Still not 100% sure but my understanding now is that even noise also helps at least for generalizing (or it could be relevant information to classify).
+    K-folds would always be successful practice:
+        Ensemble of models would usually makes better performance. This is from my reading list FYI.
+        Larger validation would make training solid, more ensured trained model performance.
+    "lwlrap of .09" might be showing that your data still have leakages…
+    Arithmetic mean was better for me too in this problem.
+    Organized code, test and no assumption, these are also the same I have renewed in this competition. It’s embarrassing as a over 20+ years long software engineer, I have to revisit those basics again, and this time again! :)
+
+Options
+Reply
+Robert Bracco
+•8 months ago
+
+Thank you for the reply and thoughts and good luck in the final round. Is your reading list published anywhere? I'm enjoying the stackexchange post on ensembling (something I have no experience with but seems to matter a lot). Cheers.
+Options
+Reply
+daisukelab
+•8 months ago
+
+Thank you but unfortunately my reading list is just on a messy Evernote notebook only…
+Anyway you can find many good articles anywhere like towardsdatascience.com, and of course in Kaggle discussions :) Good luck to you too.
+Options
+Reply
+Haider Alwasiti
+•8 months ago
+
+@madeupmasters
+I have learned about ensembles few months ago from these great two articles:
+
+Start with this (easy and crystal clear):
+https://www.dataquest.io/blog/introduction-to-ensembles/
+
+Then this great post (you have to re-read it a couple of times to get it right):
+https://mlwave.com/kaggle-ensembling-guide/
+
+Don't be sorry about your LB. The learning experience that you've got is priceless.. You will be much stronger in the next comp
+
+All the best, and see you in the fastai forum :)
+Options
+Reply
+Robert Bracco
+•8 months ago
+
+Thanks for the kind words and great links. I came across the mlwave ensembling guide yesterday, but hadn't seen the first one. I've added it to my list, cheers.
+Options
+Reply
+icebee
+•8 months ago
+
+Thanks, nice summary! And let's do our best in the next competition too!
+Options
+Reply
+Acku Chauhan
+•8 months ago
+
+Wonderful summary and writeup. Thanks @daisukelab for great feedback, I always learn something from your replies.
+Options
+Reply
+Eric Bouteillon
+•8 months ago
+
+Nice writing. I hope to read you in another kaggle competition. :)
+Options
+Reply
+Robert Bracco
+•8 months ago
+
+Thank you. Good luck in the final shakeup!
+Options
+Reply
