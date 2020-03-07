@@ -18,4 +18,4 @@ def get_pitches():
     return res
 
 p = get_pitches()
-plt.plot(p,'r*')
+#plt.plot(p,'r*')
