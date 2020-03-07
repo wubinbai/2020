@@ -17,4 +17,5 @@ def get_pitches():
         res.append(pitch)
     return res
 
-
+p = get_pitches()
+plt.plot(p,'r*')
