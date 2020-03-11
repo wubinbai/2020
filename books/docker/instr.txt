@@ -1,0 +1,8 @@
+mkdir docker
+cd docker
+mkdir static_web
+cd static_web
+
+
+sudo docker build -t="wubinbai/static_web" .
+
