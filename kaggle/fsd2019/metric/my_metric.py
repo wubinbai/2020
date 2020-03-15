@@ -7,7 +7,7 @@ def get_lwlrap(a,b):
     return sc
 
 
-y_true = np.array([[1, 0, 0,0,0], [1, 1, 0,0,0]])
-y_score = np.array([[0.7, 0.3, 0.2,0.5,0.6],[0.8, 0.7, 0.9,0.508451,0.400515]])
+#y_true = np.array([[1, 0, 0,0,0], [1, 1, 0,0,0]])
+#y_score = np.array([[0.7, 0.3, 0.2,0.5,0.6],[0.8, 0.7, 0.9,0.508451,0.400515]])
 
-temp = get_lwlrap(y_true,y_score)
+#temp = get_lwlrap(y_true,y_score)
