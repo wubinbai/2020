@@ -297,3 +297,6 @@ echo 'if you want to configure ipython import: modify this line.'
 # sudo apt install xsel
 # pwd | xsel -ib
 
+### cat with filename ###
+#tail -n +1 file1.txt file2.txt file3.txt > res.txt
+#grep "" *.txt > res.txt
