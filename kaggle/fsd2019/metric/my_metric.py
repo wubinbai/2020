@@ -1,10 +1,13 @@
 from lwlrap import *
 
-def get_lwlrap(a,b):
-    c,d = calculate_per_class_lwlrap(a,b)
-    sc = (c*d).sum()
-    print('lwlrap: ', sc)
-    return sc
+#def get_lwlrap(a,b):
+#    c,d = calculate_per_class_lwlrap(a,b)
+#    sc = (c*d).sum()
+#    print('lwlrap: ', sc)
+#    return sc
+
+def sklearn_metric(a,b):
+    return calculate_overall_lwlrap_sklearn(a,b)
 
 
 #y_true = np.array([[1, 0, 0,0,0], [1, 1, 0,0,0]])
