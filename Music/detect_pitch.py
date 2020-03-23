@@ -15,7 +15,19 @@ def get_pitches():
     for t in range(tl):
         pitch = detect_pitch(y,sr,t)
         res.append(pitch)
+    plt.figure()
+    plt.plot(res)
     return res
 
 p = get_pitches()
 #plt.plot(p,'r*')
+
+#To see what "pitches" is really returning, you want to do something more like:
+
+#  plt.imshow(pitches[:100, :], aspect="auto", interpolation="nearest", origin="bottom")
+
+#or perhaps:
+
+#  plt.plot(np.tile(np.arange(pitches.shape[1]), [100, 1]).T, pitches[:100, :].T, '.')
+
+
