@@ -30,4 +30,6 @@ p = get_pitches()
 
 #  plt.plot(np.tile(np.arange(pitches.shape[1]), [100, 1]).T, pitches[:100, :].T, '.')
 
-#  plt.imshow(pitches[:100, :], aspect="auto", interpolation="nearest", origin="bottom")
+plt.figure()
+
+plt.imshow(pitches[:100, :], aspect="auto", interpolation="nearest", origin="bottom")
