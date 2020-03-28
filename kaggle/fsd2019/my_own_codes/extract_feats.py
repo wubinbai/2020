@@ -124,11 +124,11 @@ def extract_feats(y,sr=22020):
     return feats
 
 def feats_to_ratio(feats):
-    if feats[1][1] != 0:
+    if feats[1][1] = 0:
         ratio = feats[1]/feats[1][0]
     else:
-        mms = MinMaxScaler()
-        ratio = mms.fit_transform(feats[1])
+        denominator = (feats[1]!=0).argmax(axis=0)
+        ratio = feats[1]/denominator
     return ratio
 
 def get_feats(fname):
