@@ -7,7 +7,9 @@ from sklearn.preprocessing import MinMaxScaler
 ###
 def harmonic_detection(fundamental_frequency,peak_frequency,peak_magnitude,num_harmonic=10,sr=22050,threshold_ratio=0.09):
     print('fundamental_frequency is: ', fundamental_frequency)
-    assert fundamental_frequency > 0
+    #assert fundamental_frequency > 0
+    if fundamental frequency <=0:
+        fundamental_frequency = 1.0
     harmonic_frequency = np.zeros(num_harmonic)
     harmonic_magnitude = np.zeros(num_harmonic)
     harmonic_frequency_true = fundamental_frequency * np.arange(1,num_harmonic+1)
