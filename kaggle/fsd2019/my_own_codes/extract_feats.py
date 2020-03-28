@@ -2,9 +2,11 @@ import librosa
 from scipy.fft import fft
 import numpy as np
 import peakutils
+from sklearn.preprocessing import MinMaxScaler
 
 ###
 def harmonic_detection(fundamental_frequency,peak_frequency,peak_magnitude,num_harmonic=10,sr=22050,threshold_ratio=0.09):
+    print('fundamental_frequency is: ', fundamental_frequency)
     assert fundamental_frequency > 0
     harmonic_frequency = np.zeros(num_harmonic)
     harmonic_magnitude = np.zeros(num_harmonic)
@@ -104,20 +106,27 @@ def extract_feats(y,sr=22020):
     ###
     harmonic_frequency, harmonic_magnitude = harmonic_detection(fundamental_frequency=fundamental_frequency, peak_frequency=peak_frequency,peak_magnitude=peak_magnitude)
     ###
+    print('fundamental_frequency: ',fundamental_frequency)
+    print('peak_frequency: ', peak_frequency)
+    print('peak_magnitude: ', peak_magnitude)
     #print('debugging index: ', ind)
     #print('xs[ind',xs[ind])
     #print('estimated pi',estimated_pitch)
     
     ###
-    #print('harm freq', harmonic_frequency)
-    #print('harm mag',harmonic_magnitude)
+    print('harm freq', harmonic_frequency)
+    print('harm mag',harmonic_magnitude)
     feats = harmonic_frequency, harmonic_magnitude
 
 
     return feats
 
 def feats_to_ratio(feats):
-    ratio = feats[1]/feats[1][0]
+    try:
+        ratio = feats[1]/feats[1][0]
+    except:
+        mms = MinMaxScaler
+        ratio = mms.fit_transform(feats[1])
     return ratio
 
 def get_feats(fname):
