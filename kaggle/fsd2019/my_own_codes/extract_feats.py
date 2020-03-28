@@ -127,7 +127,7 @@ def feats_to_ratio(feats):
     try:
         ratio = feats[1]/feats[1][0]
     except:
-        mms = MinMaxScaler
+        mms = MinMaxScaler()
         ratio = mms.fit_transform(feats[1])
     return ratio
 
