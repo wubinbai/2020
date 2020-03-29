@@ -17,6 +17,7 @@ def get_pitches():
         res.append(pitch)
     plt.figure()
     plt.plot(res)
+    plt.grid()
     return res
 
 p = get_pitches()
