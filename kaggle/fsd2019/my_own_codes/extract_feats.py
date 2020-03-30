@@ -124,7 +124,7 @@ def extract_feats(y,sr=22020):
     return feats
 
 def feats_to_ratio(feats):
-    if feats[1][1] = 0:
+    if feats[1][1] != 0:
         ratio = feats[1]/feats[1][0]
     else:
         denominator = (feats[1]!=0).argmax(axis=0)
