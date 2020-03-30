@@ -24,6 +24,7 @@ for f in fs:
     else:
         disp.waveplot(y[frame:frame+1024])
     plt.title(f)
+    plt.tight_layout()
     plt.savefig('./output/'+ f+'.png')
     plt.figure()
     if frame <= 2:
@@ -35,4 +36,5 @@ for f in fs:
     print(S_dB.shape)
     disp.specshow(S_dB, x_axis='time',y_axis='mel')
     plt.title(f)
+    plt.tight_layout()
     plt.savefig('./output/'+ f+'_mel.png')

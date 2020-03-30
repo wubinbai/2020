@@ -76,7 +76,8 @@ def extract_feats(y,sr=22020):
 
     if len(ind2) > len(ind):
         ind = ind2
-
+    if ind.shape[0] == 0:
+        ind = np.array([0])
     fundamental_frequency = estimated_pitch
     peak_frequency = xs[ind]
     peak_magnitude = mag_ft[ind]
@@ -127,7 +128,7 @@ def feats_to_ratio(feats):
     if feats[1][1] != 0:
         ratio = feats[1]/feats[1][0]
     else:
-        denominator = (feats[1]!=0).argmax(axis=0)
+        denominator = feats[1][(feats[1]!=0).argmax()]
         ratio = feats[1]/denominator
     return ratio
 
