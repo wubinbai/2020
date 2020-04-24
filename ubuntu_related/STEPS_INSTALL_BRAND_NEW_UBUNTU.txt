@@ -1,0 +1,5 @@
+
+# 1. install ubuntu WITHOUT (WIFI/cables)
+# 2. sudo apt update
+# 3. sudo ubuntu-drivers update
+# 4. 
