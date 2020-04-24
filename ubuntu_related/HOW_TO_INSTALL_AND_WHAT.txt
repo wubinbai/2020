@@ -1,0 +1,15 @@
+
+HOW TO INSTALL?
+
+1. teamviewer
+2. screenrecorder
+3. cuda
+4. cudnn
+5. 
+
+
+1.
+2.
+3.
+4.
+5. 
