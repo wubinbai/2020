@@ -14,4 +14,8 @@ def plot_pitch(y,N=2048,H=512,sr=44100,maxplotfreq=800):
     frmTime = H*np.arange(numFrames)/float(sr)
     binFreq = sr*np.arange(N*maxplotfreq/sr)/N
     plt.figure()
+    plt.pcolormesh(frmTime, binFreq, pitches[:int(N*maxplotfreq/sr+1),:])
+    plt.figure()
     plt.pcolormesh(frmTime, binFreq, mags[:int(N*maxplotfreq/sr+1),:])
+
+    return pitches, mags
