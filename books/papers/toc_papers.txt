@@ -1,0 +1,6 @@
+1 resnet v2
+2 se
+3 stargan
+4 densenet
+5 unet
+6 yolo 
