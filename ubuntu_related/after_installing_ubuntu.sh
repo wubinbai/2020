@@ -87,6 +87,8 @@ echo "alias"" ""jn=\"jupyter notebook\"" >> .bashrc
 
 
 echo "alias"" ""v=\"vim\"" >> .bashrc
+echo "alias"" ""g=\"gedit\"" >> .bashrc
+
 echo "alias"" ""gis=\"git status\"" >> .bashrc
 echo "alias"" ""gicm=\"git commit -m\"" >> .bashrc
 echo "alias"" ""gips=\"git push\"" >> .bashrc
