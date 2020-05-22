@@ -106,6 +106,10 @@ echo "alias"" ""c=\"cd\"" >> .bashrc
 echo "alias"" ""ev=\"evince \"" >> .bashrc
 echo "alias"" ""cb=\"xsel -ib\"" >> .bashrc
 echo "alias"" ""wns=\"watch nvidia-smi\"" >> .bashrc
+# count number of files within the pwd
+echo "alias"" ""wl=\"ls | wc -l 
+\"" >> .bashrc
+
 
 # Then you can install vim
 
