@@ -1,0 +1,67 @@
+0. 20200430hot: https://poloclub.github.io/cnn-explainer/
+
+1&2&3 from: https://github.com/tensorpack/tensorpack
+https://github.com/tensorpack/tensorpack/tree/master/examples/ResNet tensorpack/examples/ResNet/ 384 216 5.5k 1.7k 
+
+1. [Pre-activation ResNet] Resnet v2 Identity Mappings in Deep Residual Networks (code official keras eg)
+
+2. [Squeeze-and-Excitation ResNet](code https://github.com/hujie-frank/SENet 3rd party keras: https://github.com/titu1994/keras-squeeze-excite-network pytorch:https://github.com/moskomule/senet.pytorch & https://github.com/ai-med/squeeze_and_excitation)
+
+3. [ResNeXt] Aggregated Residual Transformations for Deep Neural Networks(code https://github.com/titu1994/Keras-ResNeXt)
+
+4. DenseNet Densely Connected Convolutional Networks(https://github.com/titu1994/DenseNet)
+
+5 UNet U-Net: Convolutional Networks for Biomedical Image Segmentation(code star 2.7k keras: https://github.com/zhixuhao/unet star 2.4k pytorch https://github.com/milesial/Pytorch-UNet)
+
+6 YOLO & v3 incremental improvement
+
+7 StarGAN
+
+8 RCNN 
+
+9 GAN Generative Adversarial Nets
+ 
+10 Mask RCNN
+
+11 fast rcnn
+
+12 faster rcnn
+
+13 dcgan
+
+14 Timbre Analysis of Music Audio Signals with
+Convolutional Neural Networks
+15 inception v4 code ~300 stars  in keras https://github.com/kentsommer/keras-inceptionV4
+
+15b cn v1-v4 inception
+
+15c zh history of inception
+
+16 Accurate, Large Minibatch SGD:Training ImageNet in 1 Hour
+
+17 gan instr
+
+======================
+1  Pytorch implementation of Sample-level Deep Convolutional Neural Networks for Music Auto-tagging Using Raw Waveforms
+https://github.com/kyungyunlee/sampleCNN-pytorch
+
+2 ConvTasnet
+
+3 End-to-end music source separation:is it possible in the waveform domain? --Serra
+
+4 wave u net WAVE-U-NET: A MULTI-SCALE NEURAL NETWORK FOREND-TO-END AUDIO SOURCE SEPARATION
+
+5 open unmix Open-Unmix - A Reference Implementation for MusicSource Separation
+
+6 Fixup Initialization: Residual Learning Without Normalization(Codes)
+
+==================
+
+1 (codes print) mixup cifar10 gicl https://github.com/facebookresearch/mixup-cifar10
+
+2 Bag of Tricks for Image Classification with Convolutional Neural Networks (can find codes on github by someone else)(keras 40 star: https://github.com/Tony607/Keras_Bag_of_Tricks pytorch: 358 star https://github.com/weiaicunzai/Bag_of_Tricks_for_Image_Classification_with_Convolutional_Neural_Networks)(print)
+
+3 (code) simple self attention  https://github.com/sdoria/simpleselfattention
+
+4 the pytorch kaldi toolkit paper 
+
