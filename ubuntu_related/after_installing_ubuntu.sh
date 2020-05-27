@@ -308,3 +308,7 @@ echo 'if you want to configure ipython import: modify this line.'
 ### cat with filename ###
 #tail -n +1 file1.txt file2.txt file3.txt > res.txt
 #grep "" *.txt > res.txt
+
+### ls related ###
+# ls all April content
+#  ls4  ./  | sed -n '/Apr*/p' 
