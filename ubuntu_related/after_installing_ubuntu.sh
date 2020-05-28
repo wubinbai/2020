@@ -100,10 +100,12 @@ echo "alias"" ""rb=\"reboot\"" >> .bashrc
 echo "alias"" ""cdd=\"cd \/media\/wb\/TOSHIBA\\ EXT\/2\/d\/dataguru\"" >> .bashrc
 
 echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
+echo "alias"" ""cD=\"cd ~/Downloads \"" >> .bashrc
+echo "alias"" ""cDc=\"cd ~/Documents \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
-echo "alias"" ""ev=\"evince \"" >> .bashrc
+echo "alias"" ""e=\"evince \"" >> .bashrc
 echo "alias"" ""cb=\"xsel -ib\"" >> .bashrc
 echo "alias"" ""wns=\"watch nvidia-smi\"" >> .bashrc
 # count number of files within the pwd
