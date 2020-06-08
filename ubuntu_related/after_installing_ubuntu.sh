@@ -111,6 +111,7 @@ echo "alias"" ""wns=\"watch nvidia-smi\"" >> .bashrc
 # count number of files within the pwd
 echo "alias"" ""wl=\"ls | wc -l 
 \"" >> .bashrc
+echo "alias"" ""f=\"df -h .\"" >> .bashrc
 
 
 # Then you can install vim
@@ -314,3 +315,11 @@ echo 'if you want to configure ipython import: modify this line.'
 ### ls related ###
 # ls all April content
 #  ls4  ./  | sed -n '/Apr*/p' 
+
+## some installations 
+
+## 1. Teamviewer
+## sudo dpkg -i teamviewer_amd64.deb## 2. simplescreenrecorder
+## sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+## sudo apt install simplescreenrecorder
+
