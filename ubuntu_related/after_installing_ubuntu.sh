@@ -103,6 +103,7 @@ echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""cD=\"cd ~/Downloads \"" >> .bashrc
 echo "alias"" ""cDo=\"cd ~/Documents \"" >> .bashrc
 echo "alias"" ""cDc=\"cd ~/Documents \"" >> .bashrc
+echo "alias"" ""d=\"du -h . \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
