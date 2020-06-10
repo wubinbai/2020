@@ -106,6 +106,7 @@ echo "alias"" ""cDc=\"cd ~/Documents \"" >> .bashrc
 echo "alias"" ""d=\"du -h . \"" >> .bashrc
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
+echo "alias"" ""ipytohtml=\"ipython nbconvert --to html\"" >> .bashrc
 echo "alias"" ""c=\"cd\"" >> .bashrc
 echo "alias"" ""e=\"evince \"" >> .bashrc
 echo "alias"" ""cb=\"xsel -ib\"" >> .bashrc
