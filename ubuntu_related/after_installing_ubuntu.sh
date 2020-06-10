@@ -114,6 +114,8 @@ echo "alias"" ""wns=\"watch nvidia-smi\"" >> .bashrc
 echo "alias"" ""wl=\"ls | wc -l 
 \"" >> .bashrc
 echo "alias"" ""f=\"df -h .\"" >> .bashrc
+echo "alias"" ""pis=\"pip install\"" >> .bashrc
+
 
 
 # Then you can install vim
