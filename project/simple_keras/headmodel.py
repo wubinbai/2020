@@ -1,3 +1,7 @@
+from keras.vgg16 import VGG16
+from keras.models import Model
+from keras.layers import Dense, Flatten, Dropout 
+
 def headmodel(baseModel):
 
     # 在baseModel基础上添加新的层
@@ -26,4 +30,7 @@ def headmodel(baseModel):
     return headModel
 
 
+baseModel =  VGG16(weights="imagenet",include_top=False,input_tensor=Input(shape=(224,224,3)))
 
+headModel = headmodel(baseModel)
+model = Model(baseModel.input,headModel)
