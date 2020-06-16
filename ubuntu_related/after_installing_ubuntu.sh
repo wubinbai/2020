@@ -116,6 +116,7 @@ echo "alias"" ""wl=\"ls | wc -l
 \"" >> .bashrc
 echo "alias"" ""f=\"df -h .\"" >> .bashrc
 echo "alias"" ""pis=\"pip install\"" >> .bashrc
+echo "alias"" ""st=\"speedtest\"" >> .bashrc
 
 
 
