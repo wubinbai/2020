@@ -98,12 +98,15 @@ echo "alias"" ""gicl=\"git clone\"" >> .bashrc
 echo "alias"" ""py=\"python3\"" >> .bashrc
 echo "alias"" ""rb=\"reboot\"" >> .bashrc
 echo "alias"" ""cdd=\"cd \/media\/wb\/TOSHIBA\\ EXT\/2\/d\/dataguru\"" >> .bashrc
+echo "alias"" ""cpssd=\"cd \/media\/wb\/PSSD\"" >> .bashrc
 
 echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""cD=\"cd ~/Downloads \"" >> .bashrc
 echo "alias"" ""cDo=\"cd ~/Documents \"" >> .bashrc
 echo "alias"" ""cDc=\"cd ~/Documents \"" >> .bashrc
-echo "alias"" ""d=\"du -sh . \"" >> .bashrc
+echo "alias"" ""d=\"du -sh * \"" >> .bashrc
+echo "alias"" ""duh=\"du -h . \"" >> .bashrc
+
 echo "alias"" ""na=\"nautilus .\"" >> .bashrc
 echo "alias"" ""ipytopy=\"ipython nbconvert --to python\"" >> .bashrc
 echo "alias"" ""ipytohtml=\"ipython nbconvert --to html\"" >> .bashrc
