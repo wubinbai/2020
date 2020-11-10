@@ -40,7 +40,7 @@ echo '======finish speedtest======'
 # Change directory to the home directory
 
 cd
-
+echo 'have done cd'
 # Clone git remot repository:
 #echo '=== clone 2019 ==='
 #git clone https://github.com/wubinbai/2019.git
@@ -50,7 +50,7 @@ cd ~/2020
 git config credential.helper store
 git push
 git config --global user.email wubinbai@yahoo.com
-
+echo ' have done git config'
 ## 2019 github
 #cd /home/wb
 #git clone https://github.com/wubinbai/2019
@@ -76,7 +76,7 @@ git config --global user.email wubinbai@yahoo.com
 echo 'actually, you can create .bash_aliases file for alias!'
 cd
 echo "# customized aliases by wubin" >> .bashrc
-echo "alias"" ""sd=\"shutdown now\"" >> .bashrc
+echo "alias"" ""sdn=\"shutdown now\"" >> .bashrc
 echo "alias"" ""ls4=\"ls -lhtr\"" >> .bashrc
 
 
@@ -120,6 +120,9 @@ echo "alias"" ""wl=\"ls | wc -l
 echo "alias"" ""f=\"df -h .\"" >> .bashrc
 echo "alias"" ""pis=\"pip install\"" >> .bashrc
 echo "alias"" ""st=\"speedtest\"" >> .bashrc
+echo "alias"" ""sdri=\"sudo docker rmi\"" >> .bashrc
+echo "alias"" ""sdritrm=\"sudo docker run -it --rm\"" >>.bashrc
+echo "alias"" ""sdritrmg=\"sudo docker run -it --rm --gpus all\"" >>.bashrc
 
 
 
