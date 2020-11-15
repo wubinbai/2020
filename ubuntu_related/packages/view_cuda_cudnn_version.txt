@@ -3,7 +3,9 @@
 cd /usr/local/cuda/samples/1_Utilities/deviceQuery
 sudo make
 ./deviceQuery
+############################### version cuda
 cat /usr/local/cuda/version.txt
+###############################
 # IN ADDITION
 nvcc -V
 # 2 cudnn
