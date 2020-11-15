@@ -7,7 +7,7 @@ options nouveau modeset=0
 2. sudo apt update
 3. sudo apt install gcc g++ make
 4. Visit NVIDIA's website and download the corresponding NVIDIA's graphics card's driver: For example, for 2060 super graphics card, search "nvidia drivers" and visi: https://www.nvidia.com/Download/index.aspx?lang=en-us, enter the graphics card info and OS info, download the file, for example "NVIDIA-Linux-x86_64-450.80.02.run"
-5. Ctrl + Alt + F3 to switch to control board, closing the current GUI
+5. Ctrl + Alt + F3 to switch to control board, closing the current GUI; if this does not work, reboot and select recovery mode: then run 7 8 9 10
 6. sudo telinit 3
 7. cd /home/wb/Downloads ### to the directory you have download the .run file.
 8. sudo chmod a+x NVIDIA-Linux-x86_64-450.80.02.run
