@@ -27,15 +27,15 @@ fi
 
 # Install git before cloning
 echo '====== install git ======'
-sudo apt-get install git
+sudo apt-get install -y git
 echo '====== finish git ======'
 
 # install tree
-sudo apt install tree
+sudo apt install -y tree
 
 #Optional install speedtest
 echo '======install speedtest======'
-sudo apt install speedtest-cli
+sudo apt install -y speedtest-cli
 echo '======finish speedtest======'
 # Change directory to the home directory
 
@@ -128,11 +128,11 @@ echo "alias"" ""sdritrmg=\"sudo docker run -it --rm --gpus all\"" >>.bashrc
 
 # Then you can install vim
 
-sudo apt-get install vim
+sudo apt-get install -y vim
 
 # Install unrar
 
-sudo apt install unrar
+sudo apt install -y unrar
 # Please uncomment the following lines to install anaconda.
 
 # Then, to install anaconda. The fastest way to download is using Thunderstorm on Windows Platform, which takes about 3 - 5 mins.
