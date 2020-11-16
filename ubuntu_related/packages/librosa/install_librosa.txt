@@ -1,0 +1,2 @@
+pip3 install -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com --no-cache-dir llvmlite==0.31.0 numba==0.48.0 librosa==0.7.2
+
