@@ -123,7 +123,12 @@ echo "alias"" ""st=\"speedtest\"" >> .bashrc
 echo "alias"" ""sdri=\"sudo docker rmi\"" >> .bashrc
 echo "alias"" ""sdritrm=\"sudo docker run -it --rm\"" >>.bashrc
 echo "alias"" ""sdritrmg=\"sudo docker run -it --rm --gpus all\"" >>.bashrc
-
+echo "alias"" ""sai=\"sudo apt install\"" >> .bashrc
+echo "alias"" ""saiy=\"sudo apt install -y\"" >> .bashrc
+echo "alias"" ""sau=\"sudo apt update\"" >> .bashrc
+echo "alias"" ""sduhmd=\"sudo du -h --max-depth=1\"" >> .bashrc
+echo "alias"" ""duhmd=\"du -h --max-depth=1\"" >> .bashrc
+#sudo du -h --max-depth=1
 
 
 # Then you can install vim
