@@ -99,6 +99,8 @@ echo "alias"" ""py=\"python3\"" >> .bashrc
 echo "alias"" ""rb=\"reboot\"" >> .bashrc
 echo "alias"" ""cdd=\"cd \/media\/wb\/TOSHIBA\\ EXT\/2\/d\/dataguru\"" >> .bashrc
 echo "alias"" ""cpssd=\"cd \/media\/wb\/PSSD\"" >> .bashrc
+echo "alias"" ""cT=\"cd \/media\/wb\/TOSHIBA\ EXT\"" >> .bashrc
+echo "alias"" ""cT1=\"cd \/media\/wb\/TOSHIBA\ EXT1\"" >> .bashrc
 
 echo "alias"" ""cdd2=\"cd /media/wb/TOSHIBA\ EXT/2/d/dataguru/ \"" >> .bashrc
 echo "alias"" ""cD=\"cd ~/Downloads \"" >> .bashrc
