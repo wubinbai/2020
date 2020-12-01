@@ -245,6 +245,12 @@ echo 'if you want to configure ipython import: modify this line.'
 # C. indent vim; block indent vim
 # indent line 3 to 5:
 # :3,5>
+
+# delete first several characters in vim:
+#1.删除每行前n个字符: :%s/^.\{n\}// 其中,%表示所有行,s表示替换,"%s"可用"1,$"代替(下同);正则表达式"/^.\{n\}//"中,^表示行首;"."表示要删除的字符个数,".\{n\...
+# ipython: :%s/^.\{8\}//
+#2.删除每行后n个字符 :%s/.\{n\}$// 其中,"$"表示行尾,其他同上;
+
 # 5. How to fix imdb data allow_pickle==False problem
 ######
 
