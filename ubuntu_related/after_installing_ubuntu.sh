@@ -348,3 +348,5 @@ echo 'if you want to configure ipython import: modify this line.'
 ## sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
 ## sudo apt install simplescreenrecorder
 
+# ubuntu image pixels picture
+# identify
