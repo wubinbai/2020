@@ -223,6 +223,10 @@ echo 'if you want to configure ipython import: modify this line.'
 # pdftk full-pdf.pdf cat 12-15 output outfile_p12-15.pdf
 # 7. Deleting starting # lines in vim
 # 删除注释行    :g/^#/d
+# 7b. Deleting to lines:
+# delete from line 4 to the end of the file: 
+# step 1: G
+# step 2: :4,.d
 # 8. vim: fast exit and save:
 # use :x
 # 5. Vim Questions: how to replace a word
