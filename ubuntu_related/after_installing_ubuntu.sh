@@ -8,7 +8,7 @@
 
 # For ubuntu information: show ubuntu version command:
 
-lsb_release -a
+#lsb_release -a
 
 # The very first step of running this file is to GET this file...... So you may need to just copy this file or clone the whole repository with git clone. Steps are the following:
 
